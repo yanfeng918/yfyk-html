@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>大公盘</title>
+<link rel="stylesheet" type="text/css" href="../resources/css/collection/forum.css"/>
+<link rel="stylesheet" type="text/css" href="../resources/css/global.css"/>
+<link rel="stylesheet" type="text/css" href="../resources/css/clear.css"/>
+	<link rel="stylesheet" type="text/css" href="../resources/css/pager.css"/>
+	<script type="text/javascript" src="../resources/js/jquery-1.10.1.min.js"></script>
+	<script type="text/javascript" src="../resources/js/common.js"></script>
+	<script type="text/javascript" src="../resources/js/jquery.pager.js"></script>
+	<script type="text/javascript" src="../resources/js/supply/forum.js"></script>
+</head>
+<body>
+	<div style="min-width:1300px;height:48px;">
+		<iframe src="../common/head.html" width="100%;" height="48px;" frameborder="0" scrolling="no" style="min-width:720px;">
+		</iframe>
+	</div>
+	<div class="main">
+
+		<form id="houseFrom">
+			<!--<input type="hidden" id="area_id" name="area_id" value=""/>-->
+			<input type="hidden" name="pageNumber" id="pageNumber" value="1"/>
+			<input type="hidden" name="pageSize" id="pageSize" value="30" />
+			<input type="hidden" name="orderBy" id="orderBy" value="createDate"/>
+			<input type="hidden" name="orderType" id="order" value="desc"/>
+		</form>
+		<div class="header">
+			<div class="title">
+				<span><img src="../resources/images/arrow_up.png" alt=""/></span>
+				房源征集列表
+			</div>
+			<div class="btn" id="release">
+				<span><img src="../resources/images/edit_btn.png" height="16" width="16" alt="" /></span>
+				发布征集需求&nbsp;&nbsp;
+			</div>
+		</div>
+
+
+		<table border="0" cellpadding="0" cellspacing="0">
+			<thead>
+				<tr>
+					<th style="text-align:left; padding-left:70px;">板块</th>
+					<th>小区名</th>
+					<th>征集需求</th>
+					<th>发布时间</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr style="border-bottom: 1px solid #BABCBF;">
+					<!--<td class="td_collection_info">
+						<span class="supply_icon">
+							<img src="../resources/images/supply.png" alt="" style="disply:inline-block;"/>
+						</span>
+
+						<span class="price">500元</span> 辛苦费 求 浦东新区三林板块 三林世博家园小区房源<br />
+						<span class="note">要求必须是三林世博家园D区23号201室</span>
+					</td>
+					<td class="blue">三林世博家园</td>
+					<td class="blue">浦东 三林</td>
+					<td>2012-12-12</td>-->
+				</tr>
+			</tbody>
+		</table>
+
+		<div id="pager" ></div>
+	
+	</div>
+<div style="width:100%;height:60px;" class="footer">
+	<iframe src="../common/foot.html" width="100%;" height="60px;" frameborder="0" scrolling="no">
+	</iframe> 
+</div>
+
+</body>
+</html>

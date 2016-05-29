@@ -1,0 +1,235 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+* {
+    margin: 0;
+    padding: 0;
+}
+* {
+    box-sizing: border-box;
+}
+*::before, *::after {
+    box-sizing: border-box;
+}
+html {
+    font-size: 62.5%;
+}
+input, button, select, textarea {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+label {
+    display: inline-block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+html, body {
+    color: #333333;
+    font-family: "Open Sans","Helvetica Neue",Helvetica,"Lantinghei SC","Microsoft YaHei",Arial,sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 18px;
+    overflow-x: hidden;
+    height: 100%;
+}
+body {
+    background-color: white;
+    background-position: center 0;
+    color: #3d3d3d;
+}
+a, a:visited {
+    color: #555555;
+    text-decoration: none;
+}
+
+#signup, #session {
+    color: #626262;
+    padding-top: 34px;
+    text-align: center;
+}
+#signup h2, #session h2 {
+    font-size: 36px;
+    font-weight: 300;
+    line-height: 60px;
+    margin: 18px 0;
+    text-transform: capitalize;
+}
+#signup span.free, #session span.free {
+    color: #fe870f;
+    font-size: 46px;
+}
+#signup form, #session form {
+    background: #f8f8f8 none repeat scroll 0 0;
+    border: 1px solid gainsboro;
+    border-radius: 8px;
+    clear: both;
+    margin: 45px auto;
+    max-width: 420px;
+    padding: 20px 0;
+}
+#signup form .alert, #session form .alert {
+    border-radius: 0;
+    margin-bottom: 0;
+}
+#signup form input, #session form input {
+    background-position: 13px 6px;
+    background-repeat: no-repeat;
+    border: 1px solid #cccccc;
+    border-radius: 8px;
+    font-size: 18px;
+    height: 45px;
+    line-height: 25px;
+    margin: 10px auto;
+    outline: medium none;
+    padding: 10px 10px 10px 60px;
+    width: 85%;
+}
+
+#signup form input:focus, #session form input:focus {
+    border: 1px solid #fe870f;
+}
+#signup form input.name, #session form input.name {
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACIAAAAiCAMAAAANmfvwAAAAZlBMVEUAAABiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmKfS58FAAAAIXRSTlMA+/flbCF1QBW8sZBjWE0KA/DrMijUD8nGp9yGHJ2ANzXVPT2CAAABF0lEQVQ4y62T25KDIBBEHVAUI0bwnphN+v9/cstd1+gAD1uVebKtA8ylJ/lnFGqycDq9RgklIEbdE6QJA80MWa3nB+XwFUTuKIftc+mRBogWY/NOSorFR0rqDqrGxSMGUZ50Lz2kZq9fkHGkQn3SKXKOGIYotBzJodhDBUeuQp/6eOv9oufTzSbU3476YReZc5tgNUzFH36DiQzJqmW94i6oSsJhJCAEAbKOEF1JAIgIoLILOe5B0FX2k2ylQQ/elzVD/XrLl4Zk7X1awTKshH0edeZE7o1EuOzQ7hGBGuqjD9PdY2yU6T5CKfnm8P8GKrJYMLuzi8h2Urkla6ckEpNtfivmyfomz5n5AyZv5zyG5HObfCi+AZSlD2RoI5B3AAAAAElFTkSuQmCC");
+}
+#signup form input.email, #session form input.email {
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACIAAAAiCAMAAAANmfvwAAAARVBMVEUAAABiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmI/v5xWAAAAFnRSTlMAB+cS+sGG7wvep5RfRko+KiTXZHBsGcfFzgAAAKZJREFUOMvl0skOwiAQgOEZoCxl6abz/o/qhJixihAvXvS/kLRfKZMAv1hR1E2VSlgMTCVE1sPbvCW6E0SNLeCHKAT0FNZXsYZJw4MAzq48i+xmhBPhrLmcxdVYeSdLMhHlGNEkaAksjn9e05PL0BJuC/tW150P3xD5euHdFO/WIzyYOZLhUbqEs0Q8ypBAOqBLpC8S7AkvJPqOiESf3rqsBiLDf3YDHXwSMvKf4e8AAAAASUVORK5CYII=");
+}
+#signup form input.password, #session form input.password {
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACIAAAAiCAMAAAANmfvwAAAARVBMVEUAAABiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmI/v5xWAAAAFnRSTlMA50n63/Or1WYZBp6Viz4jBHJOMgpVwyt9mgAAAKdJREFUOMu1kVkOwyAMROMFyL537n/U9qdqcKhQFDJfHusxNlCVV/vyKi50PP8jVgVEVQBd08QAeG4/WeyBPhXUg8ZvPSq6M1FDp59rFLUlGue2o5+cmwzSYYkbC3oTItTGnZ2kMZsMpwuabTxGi2zwkQ+yW2SWUOVELosEXExhQkLCxwNIig4IkmOBBxEm4gxCAN1HGMgMMuUNpPjTXftGpiTBVTm9AbGGEMh9FDH2AAAAAElFTkSuQmCC");
+}
+#signup form input.submit, #session form input.submit {
+    background-color: #3d434f;
+    border: 1px solid #3d434f;
+    color: white;
+    cursor: pointer;
+    margin-bottom: 15px;
+    padding-left: 0;
+    text-shadow: 1px 1px 1px #555555;
+}
+#signup form input.submit:hover, #session form input.submit:hover {
+    background: #fd7700 none repeat scroll 0 0;
+}
+#signup form p, #session form p {
+    margin: 0 auto;
+    max-width: 85%;
+}
+#session {
+
+    height: 100%;
+    /*left: 0;*/
+    /*overflow-y: scroll;*/
+    padding: 50px 0;
+    /*position: absolute;*/
+    /*top: 0;*/
+    width: 100%;
+}
+
+.session-login {
+    background: #585858 url("../../images/usrLogin/mdbg1.jpg") no-repeat fixed left top;
+}
+
+#session form {
+    border: medium none;
+    box-shadow: 0 0 20px #444444;
+    margin: 30px auto;
+}
+#session p.signup, #session p.locale {
+    color: white;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+#session p.signup a, #session p.locale a {
+    color: black;
+}
+@media (min-width: 992px) {
+    #session {
+        height: 100%;
+    }
+}
+@media (max-width: 1024px) {
+    body {
+        min-width: 320px;
+    }
+    #main {
+        height: 540px;
+    }
+    .content, #footer {
+        width: 90%;
+        margin: auto;
+    }
+    #header nav li {
+        display: inline-block;
+    }
+    #slogan {
+        margin-top: 70px;
+    }
+    #slogan.mobile {
+        margin: 100px 0 18px;
+    }
+    #slogan h1 {
+        font-size: 32px;
+        line-height: 120%;
+    }
+    #slogan h3 {
+        font-size: 18px;
+        line-height: 150%;
+    }
+    a.primary {
+        font-size: 16px;
+        height: 50px;
+        line-height: 50px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 300px;
+    }
+    #signup h2 {
+        font-size: 16px;
+        line-height: 120%;
+        padding: 0 20px;
+    }
+    #signup span.free {
+        font-size: 18px;
+    }
+    #signup form {
+        border-radius: 0;
+        width: 100%;
+    }
+    #signup form input {
+        margin: 20px auto;
+        width: 80%;
+    }
+    #footer ul li {
+        margin: 0 10px;
+    }
+    #footer ul li a {
+        font-size: 16px;
+        line-height: 30px;
+    }
+}
+@media (max-width: 480px) {
+    a.primary {
+        width: 80%;
+    }
+}
+@media (min-width: 1600px) {
+    #main {
+        background-position: left top;
+        background-size: 100% auto;
+    }
+}
+
+.alert-danger {
+    margin-top: 10px;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+    color: #a94442;
+    height: 50px;
+    text-align: center;
+    padding: 15px 0;
+    font-weight: bolder;
+    font-size: 14px;
+    display: none;
+}

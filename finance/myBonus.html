@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>大公盘</title>
+<link rel="stylesheet" type="text/css" href="../resources/css/finance/withdraw.css"/>
+<link rel="stylesheet" type="text/css" href="../resources/css/global.css"/>
+<link rel="stylesheet" type="text/css" href="../resources/css/clear.css"/>
+<link rel="stylesheet" type="text/css" href="../resources/css/pager.css"/>
+	<link rel="stylesheet" type="text/css" href="../resources/css/tip_box.css"/>
+<link href="../resources/css/date_css/date.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="../resources/js/jquery-1.10.1.min.js"></script>
+<script type="text/javascript" src="../resources/js/Calendar.js"></script>
+<script type="text/javascript" src="../resources/js/common.js"></script>
+<script type="text/javascript" src="../resources/js/jquery.pager.js"></script>
+<script type="text/javascript" src="../resources/js/validate/jquery.validate.min.js"></script>
+<script type="text/javascript" src="../resources/js/validate/messages_cn.js"></script>
+<!--<script type="text/javascript" src="../resources/js/finance/withdraw.js?1=1"></script>-->
+<!--<script type="text/javascript" src="../resources/js/withdraw_cash.js"></script>-->
+	<script type="text/javascript" src="../resources/js/finance/myBonus.js"></script>
+	<style>
+		h2{
+			color: red;
+		}
+		.infoDetail {
+			float: left;
+			height: 90px;
+			line-height: 25px;
+			padding: 12px 0 0 12px;
+			width:45%;
+		}
+		.infoDetail li{
+			font-weight: bold;
+		}
+		.infoDetail li span{
+			color: dodgerblue;
+		}
+		select{
+			height: 30px;
+			line-height: 30px;
+		}
+		.apply_note{
+			width:100%;
+			height:125px;
+			font-size: 12px;
+			color: #333333;
+			border:1px solid #E9E9E9;
+			margin:0 10px;
+			padding-left: 10px;
+			line-height: 20px;
+			background: #FCFCFC;
+			padding-top: 10px;
+		}
+
+		.levelDetailInfo {
+			margin:0 auto 10px auto;
+			width:100%;
+			padding-bottom: 20px;
+		}
+
+		.levelDetailInfo th{
+			height: 29px;
+			line-height: 29px;
+			background-color: skyblue;
+			max-width: 30%;
+			font-size: 14px;
+			color: white;
+		}
+
+		.levelDetailInfo td{
+			height: 29px;
+			line-height: 29px;
+			text-align: center;
+			font-size: 14px;
+		}
+
+		.levelDetailInfo tr{
+			width: 90%;
+		}
+
+		.rulesUl {
+			float: left;
+			margin-left: 50px;
+		}
+
+		.rulesUl li{
+			color: olive;
+		}
+
+	</style>
+
+</head>
+<body>
+<div class="main">
+	<div class="position">
+			<div>当前位置：<a href="../personal_center.html" target="_top">个人中心</a>><a href="recharge.html" target="main">财务中心</a></a>><a href="myBonus.html">我的奖励</a></div>
+	</div>
+	<div class="container">
+		<div class="container_title">
+			<h2 style="float: left;">我的奖励</h2>
+			<div style="float: left; margin-left: 50px">
+				查询时间：
+				<select id="year">
+					<option>2015年</option>
+					<option>2016年</option>
+					<option>2017年</option>
+					<option>2018年</option>
+				</select>
+				<select id="month">
+					<option>01月</option>
+					<option>02月</option>
+					<option>03月</option>
+					<option>04月</option>
+					<option>05月</option>
+					<option>06月</option>
+					<option>07月</option>
+					<option>08月</option>
+					<option>09月</option>
+					<option>10月</option>
+					<option>11月</option>
+					<option>12月</option>
+				</select>
+			</div>
+			<div style="float:left;margin-left: 50px; color: red">奖励暂时只针对上海开放！</div>
+		</div>
+		<div style="border:1px solid #E9E9E9 ;">
+		<div style="padding: 10px 0 10px 0">
+			<div class="apply_note" style="height: 30px">
+				<h2 style="color: #0078D8">当月奖励领取情况(1级提成实时入账，不在该结算范围)：<span id="extraBonusStatus" style="color: red">123</span></h2>
+			</div>
+			<div class="apply_note" style="height: 110px; margin-top: 10px">
+				<h2>【汇总】数据</h2>
+				<ul class="infoDetail">
+					<li>该月总房源数【自发+1级+2级】：<span class="bonusCount" id="totalCount"></span></li>
+					<li>当前额外奖励：<span class="bonusCount" id="totalExtraBonus"></span></li>
+					<li>更高目标：<span id="totalExtraBonusInfo"></span></li>
+				</ul>
+				<ul class="rulesUl">
+					<li>汇总数据奖励规则：</li>
+					<li>获取资格：上月与当月自发成功量必须达到100条、总数达到1000条</li>
+					<li>奖励等级：1000条(1000元)/2000条(2000元)/3000条(3000元)/4000条(4000元)/5000条(5000元)</li>
+					<li>结算方式：次月初结算</li>
+				</ul>
+			</div>
+			<div class="apply_note" style="height: 110px; margin-top: 10px">
+				<h2>【我的自发】数据</h2>
+				<ul class="infoDetail">
+					<li>该月自发量：<span class="bonusCount" id="mySelfCount"></span></li>
+					<li>当前奖励：<span class="bonusCount" id="mySelfBonus"></span></li>
+					<li>更高目标：<span id="myBonusInfo"></span></li>
+				</ul>
+				<ul class="rulesUl">
+					<li>自发数据奖励规则：</li>
+					<li>获取资格：自发数达到100条</li>
+					<li>奖励等级：100条(200元)/200条(500元)/500条(1500元)/1000条(3500元)</li>
+					<li>结算方式：次月初结算</li>
+				</ul>
+			</div>
+			<div class="apply_note" style="height: 110px;margin-top: 10px">
+				<h2>【我的一级会员】数据</h2>
+				<ul class="infoDetail">
+					<li>该月一级会员发布量：<span class="bonusCount" id="level1Count"></span></li>
+					<li>当前获取提成：<span class="bonusCount" id="level1Bonus"></span>
+						<span style="margin-left: 30px;cursor: pointer;color: red" id="level1Detail"><u>点击查看【1级会员】发布明细</u></span>
+					</li>
+					<li>详细：<span id="level1BonusInfo"></span></li>
+				</ul>
+				<ul class="rulesUl">
+					<li>一级会员数据奖励规则：</li>
+					<li>获取资格：无</li>
+					<li>奖励等级：一级会员每成功一条，您实时获取2元</li>
+					<li>结算方式：实时结算</li>
+				</ul>
+			</div>
+			<div class="apply_note" style="height: 110px;margin-top: 10px">
+				<h2>【我的二级会员】数据</h2>
+				<ul class="infoDetail">
+					<li>该月二级会员发布量：<span class="bonusCount" id="level2Count"></span></li>
+					<li>当前获取提成：<span class="bonusCount" id="level2Bonus"></span>
+						<span style="margin-left: 30px;cursor: pointer;color: red" id="level2Detail"><u>点击查看【2级会员】发布明细</u></span>
+					</li>
+					<li>详细：<span id="level2BonusInfo"></span></li>
+				</ul>
+				<ul class="rulesUl">
+					<li>二级会员数据奖励规则：</li>
+					<li>获取资格：上月与当月自发成功量必须达到100条。</li>
+					<li>奖励等级：二级会员每发布一条成功房源，您获取2元</li>
+					<li>结算方式：次月初结算</li>
+				</ul>
+			</div>
+		</div>
+		</div>
+	</div>
+</div>
+<div class="hide">
+	<div class="submit" style="margin-bottom: 12%; width: 620px;height:500px;">
+		<div class="submit_head" style=" width: 600px; ">
+			<span style="padding-left: 10px;" id="headTitle"></span>
+			<span style="margin-left: 20px; font-size: 15px; color: white">日期筛选：</span>
+			<select id="daysOfMonth1" style="width: 70px;background-color: black;color: white;font-weight: bold;display: none">
+				<option>全部</option>
+			</select>
+			<select id="daysOfMonth2" style="width: 70px;background-color: black;color: white;font-weight: bold;display: none">
+				<option>全部</option>
+			</select>
+			<div class="close"><img src="../resources/images/form_close.jpg" height="23" width="23" alt=""/></div>
+		</div>
+		<div id="level1DetailTable" style="max-height: 500px;height:500px;width: 600px;">
+			<table id="level1Table" class="levelDetailInfo">
+				<tbody>
+				<tr>
+					<th >排名</th>
+					<th style=" border-left: 1px solid white">会员名</th>
+					<th style=" border-left: 1px solid white">发布数量</th>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+		<div  id="level2DetailTable" style=" max-height: 500px;width: 600px;">
+			<table id="level2Table" class="levelDetailInfo">
+				<tbody>
+				<tr>
+					<th style="max-width: 100px;">2排名</th>
+					<th style="max-width: 200px; border-left: 1px solid white">会员名</th>
+					<th style="max-width: 250px; border-left: 1px solid white">发布数量</th>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+
+	</div>
+</div>
+<div id="fade" class="black_overlay"></div>
+</body>
+</html>

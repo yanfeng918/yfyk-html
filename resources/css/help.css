@@ -1,0 +1,122 @@
+/* 
+* @Author: dell
+* @Date:   2015-08-05 16:10:08
+* @Last Modified by:   dell
+* @Last Modified time: 2015-09-11 11:53:32
+*/
+html,body{
+
+}
+.main{
+    background:#fff;
+}
+
+.navbar {
+    margin-bottom: 0;
+}
+.container {
+    margin-top: 0;
+    padding: 0;
+    width: 100%;
+    height:auto;
+}
+.title {
+    background-color: #ebf0f4;
+    margin-bottom: 20px;
+    padding-bottom: 30px;
+    padding-top: 70px;
+    width: 100%;
+}
+.title .block-title {
+    color: #333333;
+    font-size: 20px;
+    text-align: center;
+}
+.talent-qa .sign-type {
+    margin: 20px auto 0;
+    text-align: center;
+}
+.talent-qa .sign-type .tag {
+    background: white none repeat scroll 0 0;
+    border: 1px solid #dfdfdf;
+    color: black;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 18px;
+    height: 45px;
+    line-height: 45px;
+    margin: 0 8px;
+    position: relative;
+    width: 280px;
+}
+.talent-qa .sign-type .tag.selected {
+    background-color: #28bfdb;
+    color: white;
+    cursor: default;
+}
+.talent-qa .sign-type .tag.selected .glyphicon-arrow-down {
+    visibility: visible;
+}
+.talent-qa .talent-qa-list {
+    margin: auto;
+    width: 750px;
+}
+.talent-qa .talent-qa-list .qa-icon {
+    margin-right: 10px;
+}
+.talent-qa .talent-qa-list .qa-container {
+    border-bottom: 1px solid #dddddd;
+    padding: 15px 0;
+}
+.talent-qa .talent-qa-list .qa-question div {
+    display: inline-block;
+    vertical-align: top;
+}
+.talent-qa .talent-qa-list .qa-question .question-icon {
+    background: rgba(0, 0, 0, 0) url("../images/question.png") no-repeat scroll 0 0 / 28px 28px;
+    height: 28px;
+    width: 28px;
+}
+.talent-qa .talent-qa-list .qa-question .question-content {
+    color: #000000;
+    cursor: pointer;
+    width: 675px;
+}
+.talent-qa .talent-qa-list .qa-question .question-content p {
+    font-size: 20px;
+    margin: 0;
+}
+.talent-qa .talent-qa-list .qa-question .question-content:hover {
+    color: #1fbcda;
+}
+.talent-qa .talent-qa-list .qa-answer {
+    display: none;
+    margin-top: 15px;
+}
+.talent-qa .talent-qa-list .qa-answer div {
+    display: inline-block;
+    vertical-align: top;
+}
+.talent-qa .talent-qa-list .qa-answer .answer-icon {
+    background: rgba(0, 0, 0, 0) url("../images/answer.png") no-repeat scroll 0 0 / 28px 28px;
+    height: 28px;
+    width: 28px;
+}
+.talent-qa .talent-qa-list .qa-answer .answer-content {
+    width: 675px;
+}
+.talent-qa .talent-qa-list .qa-answer .answer-content p {
+    font-size: 18px;
+    margin: 4px 0;
+}
+.talent-qa .qa-more {
+    margin-top: 80px;
+    text-align: center;
+}
+.talent-qa .qa-more a {
+    color: #a9a9a9;
+    font-size: 14px;
+    text-decoration: underline;
+}
+
+

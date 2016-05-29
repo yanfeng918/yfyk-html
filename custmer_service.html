@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>大公盘</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="resources/css/app_load.css"/>
+  <link rel="stylesheet" href="resources/css/global.css">
+  <link rel="stylesheet" type="text/css" href="resources/css/clear.css"/>
+  <script src="resources/js/jquery-1.10.1.min.js"></script>
+  <script type="text/javascript" src="resources/js/common.js"></script>
+
+</head>
+<body>
+  <!-- <div> -->
+    <iframe  name="header" id="header" src="common/head.html" style="min-width:1300px;" width="100%" height="55px;" frameborder="0" scrolling="no" >
+    </iframe>
+  <!-- </div> -->
+  <div class="container" style=" text-align:center; margin-bottom:60px;">
+    <img src="resources/images/customer_service.png" height="600" width="775"  alt="" style="margin:0 auto">
+  </div>
+  <div class="footer">
+    <iframe src="common/foot.html" width="100%;" height="60px;" frameborder="0" scrolling="no">
+    </iframe> 
+  </div>
+
+</body>
+<script>
+    window.setTimeout(function(){
+        $(window.frames['header'].document).find('body .nav li').eq(6).css("background","#000");
+    },100)
+</script>
+</html>

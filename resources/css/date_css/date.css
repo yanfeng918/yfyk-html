@@ -1,0 +1,68 @@
+/* 
+* @Author: dell
+* @Date:   2015-08-20 11:33:53
+* @Last Modified by:   dell
+* @Last Modified time: 2015-09-18 17:56:31
+*/
+        .date{
+            height: 40px;
+            color:#666666;
+            font-size:12px;
+            line-height:23px;
+            padding-left: 50%;
+            margin: 15px 0;
+        }
+        .demos{
+            margin-left: 55%;
+            width:325px;
+            height: 30px;
+            border:1px solid #D3D3D3; 
+            box-sizing: border-box;
+            border-radius: 10px;
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            -webkit-border-radius: 10px;
+            padding: 5px 0;
+        }
+        .demos span{
+            float: left;
+            margin: 0 9px 0 9px;
+
+        }
+        .demos input{
+          border:none;
+          width: 75px;
+        }
+        .demos input,.demos label{
+            display:inline-block;
+        }
+        #search,.demos{
+            display:inline-block;
+
+        }
+        
+        input{
+            /* width:75px;
+            height:25px; */
+            border: 1px solid #D3D3D3;
+            background-color:transparent;
+            box-sizing: border-box;
+            border-radius: 5px;
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            -webkit-border-radius: 5px;
+        }
+        #search{
+           width:62px;
+           height:30px;
+           background:#2179DB;
+           color:#fff;
+           font-weight:bold;
+           font-size:14px;
+           margin-left: 20px;
+           border-radius:5px;
+           -webkit-border-radius:5px;
+           float: right;
+           margin-right: 20px;
+           cursor:pointer;
+       } 

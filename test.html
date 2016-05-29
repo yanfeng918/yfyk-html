@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="text/javascript" src="resources/js/jquery-1.10.1.min.js"></script>
+    <script type="text/javascript" src="resources/js/common.js"></script>
+
+</head>
+<body>
+    <div id="divID">
+
+    </div>
+</body>
+
+<script>
+
+    $("#divID").load("common/head.html");
+
+    function checkIEVersion() {
+        var ua = navigator.userAgent;
+        var s = "MSIE";
+        var i = ua.indexOf(s)
+        if (i >= 0) {
+            //获取IE版本号
+            var ver = parseFloat(ua.substr(i + s.length));
+            alert("你的浏览器是IE"+ver);
+        }
+        else {
+            //其他情况，不是IE
+            alert("你的浏览器不是IE");
+        }
+    }
+
+    function getExplorer() {
+        var explorer = window.navigator.userAgent ;
+//ie
+        if (explorer.indexOf("MSIE") >= 0) {
+            alert("ie");
+        }
+//firefox
+        else if (explorer.indexOf("Firefox") >= 0) {
+            alert("Firefox");
+        }
+//Chrome
+        else if(explorer.indexOf("Chrome") >= 0){
+            alert("Chrome");
+        }
+//Opera
+        else if(explorer.indexOf("Opera") >= 0){
+            alert("Opera");
+        }
+//Safari
+        else if(explorer.indexOf("Safari") >= 0){
+            alert("Safari");
+        }
+    }
+
+    function appInfo(){
+        var browser = {appname: 'unknown', version: 0},
+                userAgent = window.navigator.userAgent.toLowerCase();
+        //IE,firefox,opera,chrome,netscape
+        if ( /(msie|firefox|opera|chrome|netscape)\D+(\d[\d.]*)/.test( userAgent ) ){
+            browser.appname = RegExp.$1;
+            browser.version = RegExp.$2;
+        } else if ( /version\D+(\d[\d.]*).*safari/.test( userAgent ) ){ // safari
+            browser.appname = 'safari';
+            browser.version = RegExp.$2;
+        }
+        return browser;
+    }
+
+    var testBrowser = appInfo();
+    alert(testBrowser.appname+testBrowser.version);
+    checkIEVersion();
+
+    getExplorer();
+
+    function isIE()
+    {
+        if(!!window.ActiveXObject || "ActiveXObject" in window)
+            return true;
+        else
+            return false;
+    }
+
+    alert(isIE());
+
+
+</script>
+</html>

@@ -1,0 +1,71 @@
+/* 
+* @Author: dell
+* @Date:   2015-08-13 14:57:55
+* @Last Modified by:   dell
+* @Last Modified time: 2015-09-20 15:14:36
+*/
+body,html{
+}
+.main{
+	margin:0 auto;
+	height:auto;
+    width: 1280px;
+	margin-bottom:60px;
+}
+.main .header{
+	width: 100%;
+	height:30px;
+	background: #fff;
+	margin-top: 40px;
+	line-height: 30px;
+	position:relative;
+}
+.main .header span img{
+	display: inline-block;
+	margin-left:15px;
+}
+
+.main .header .btn{
+	position: absolute;
+	top:0;
+	right:15px;
+	background: #0078D8;
+	border-radius: 5px;
+	color: #fff;
+	cursor: pointer;
+}
+table{
+	width: 100%;
+	text-align: center;
+	margin-top: 25px;
+}
+table thead{
+	height:30px;
+	background:#0078D8;
+	color: #fff;
+}
+table tr{
+	height:50px;
+	
+}
+table td{
+	border-bottom: 1px solid #E9E9E9;
+}
+.blue{
+	color:#227ADC;
+}
+.price{
+	color:#FF0000;
+	font-weight: bold;
+}
+.note{
+	color:#BABCBF;
+}
+.supply_icon{
+	position: absolute;
+	left:35px;
+	top:16px;
+}
+.td_collection_info{
+	text-align:left; padding-left:70px; position:relative;
+}

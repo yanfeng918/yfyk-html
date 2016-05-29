@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+  <html>
+
+<head>
+  <title>大公盘</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="resources/css/help.css"/>
+  <script src="resources/js/jquery-1.10.1.min.js"></script>
+  <script type="text/javascript" src="resources/js/login-register.js"></script>
+  <script type="text/javascript" src="resources/js/common.js"></script>
+  <link rel="stylesheet" href="resources/css/global.css">
+  <link rel="stylesheet" type="text/css" href="resources/css/clear.css"/>
+
+</head>
+<body>
+  <div style="min-width:1300px;height:55px;">
+   <iframe name="header"id="header"src="common/head.html" width="100%" height="55px;" frameborder="0" scrolling="no" >
+   </iframe>
+   </div>
+  <div class="container mt10" style="min-width: 1300px;">
+
+    <div class="talent-qa">
+    <div class="title">
+    <div class="center block-title">大公盘帮助中心</div>
+    </div>
+    <div class="talent-qa-list">
+    <div class="qa-container" data-id="1">
+      <div class="qa-question">
+        <div class="qa-icon question-icon"></div>
+        <div class="question-content"><p>注册/登录引导</p></div>
+      </div>
+      <div class="qa-answer" style="display: block;">
+        <div class="qa-icon answer-icon"></div>
+        <div class="answer-content"><img src="resources/images/answer1.jpg" height="571" width="700" alt=""></div>
+      </div>
+    </div>
+    <div class="qa-container" data-id="1">
+      <div class="qa-question">
+        <div class="qa-icon question-icon"></div>
+        <div class="question-content"><p>如何发布房源</p></div>
+      </div>
+      <div class="qa-answer" style="display: block;">
+        <div class="qa-icon answer-icon"></div>
+        <div class="answer-content"><img src="resources/images/answer2.jpg" alt=""></div>
+      </div>
+    </div>
+    <div class="qa-container" data-id="1">
+      <div class="qa-question">
+        <div class="qa-icon question-icon"></div>
+        <div class="question-content"><p>如何发布房源征集</p></div>
+      </div>
+      <div class="qa-answer" style="display: block;">
+        <div class="qa-icon answer-icon"></div>
+        <div class="answer-content"><img src="resources/images/answer3.jpg" alt=""></div>
+      </div>
+    </div>
+    <div class="qa-container" data-id="1">
+      <div class="qa-question">
+        <div class="qa-icon question-icon"></div>
+        <div class="question-content"><p>如何充值</p></div>
+      </div>
+      <div class="qa-answer" style="display: block;">
+        <div class="qa-icon answer-icon"></div>
+        <div class="answer-content"><img src="resources/images/answer4.jpg" alt=""></div>
+      </div>
+    </div>
+    <div class="qa-container" data-id="1">
+      <div class="qa-question">
+        <div class="qa-icon question-icon"></div>
+        <div class="question-content"><p>如何提现</p></div>
+      </div>
+      <div class="qa-answer" style="display: block;">
+        <div class="qa-icon answer-icon"></div>
+        <div class="answer-content"><img src="resources/images/answer5.jpg" alt=""></div>
+      </div>
+    </div>
+    <div class="qa-container" data-id="1">
+      <div class="qa-question">
+        <div class="qa-icon question-icon"></div>
+        <div class="question-content"><p>联系客服</p></div>
+      </div>
+      <div class="qa-answer" style="display: block;">
+        <div class="qa-icon answer-icon"></div>
+        <div class="answer-content"><img src="resources/images/answer6.jpg" alt=""></div>
+      </div>
+    </div>
+   
+    </div>
+    </div>
+  </div>
+  <div class="footer">
+   <iframe src="common/foot.html" width="100%;" height="60px;" frameborder="0" scrolling="no">
+   </iframe>
+  </div>
+  <script type="text/javascript">
+  $(function(){
+  $(".qa-answer").hide();  
+  $(".qa-question").click(function(){
+    $(this).siblings(".qa-answer").toggle();
+  });
+
+  $(".tag." + gon.action_type).addClass("selected");
+
+  if(typeof gon.question_type != "undefined" && gon.question_type != null){
+    setTimeout(function(){
+      if(gon.question_type == "skill"){
+        var $qa = $(".qa-container[data-id=7]");          
+      }else if(gon.question_type == "location"){
+        var $qa = $(".qa-container[data-id=3]");
+      }else if(gon.question_type == "uber"){
+        var $qa = $(".qa-container[data-id=13]");
+      }else if(gon.question_type == "bonus"){
+        var $qa = $(".qa-container[data-id=14]");
+      }else if(gon.question_type == "diff"){
+        var $qa = $(".qa-container[data-id=15]");
+      }       
+      $(window).scrollTop($qa.offset().top - 100);
+      $qa.addClass("qa-standout");
+    }, 100);
+  }
+})
+
+    window.setTimeout(function(){
+        $(window.frames['header'].document).find('body .nav li').eq(5).css("background","#000");
+    },100)
+
+</script>
+</body>
+</html>

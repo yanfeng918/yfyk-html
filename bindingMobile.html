@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta content="max-age=0" http-equiv="Cache-Control">
+    <meta content="240" name="MobileOptimized">
+    <meta content="YES" name="apple-touch-fullscreen">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta charset="utf-8">
+    <title>绑定手机</title>
+    <link rel="stylesheet" href="resources/css/clear.css">
+    <!--<link rel="stylesheet" href="resources/css/common.css">-->
+    <link rel="stylesheet" href="resources/css/login/register.css">
+    <link rel="stylesheet" href="resources/css/login/modaoCss.css">
+    <script src="https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/cache/static/protocol/https/jquery/jquery-1.10.2.min_f2fb5194.js"></script>
+    <script src="resources/js/common.js"></script>
+    <script type="text/javascript" src="resources/js/jquery.lSelect.js"></script>
+    <script src="resources/js/bindingMobile.js?v=20151211"></script>
+</head>
+<body>
+
+<div  style="width:100%;height:55px;">
+    <iframe src="../common/head.html" width="100%" height="55px;" frameborder="0" scrolling="no">
+    </iframe>
+</div>
+
+<div id='session' class="registerDiv">
+    <div class='content'>
+        <form id="bindingMobile" style="margin: 35px auto">
+
+            <div id="alert-danger1" class="alert-danger" style="display: block;" >*当前未绑定手机号，请先绑定。</div>
+            <input type="text" id="captcha" name="captcha" class="text captcha" maxlength="4" autocomplete="off" style="margin-bottom: 0;padding: 8px;height: 35px;font-size: 16px;width: 55%;float: left;margin-left: 2.3rem;" placeholder="请输入右侧验证码"/>
+            <img id="captchaImage" class="captchaImage" src="" title="" style="margin-bottom: 0;width: 20%;height: 30px;font-size: 14px;padding: 0;color: white;position: relative;top:10px;left: 35px;border-radius: 5px;"/><br>
+            <!--<input style="padding: 8px;height: 35px;font-size: 16px" type="text" name="username" id="username" placeholder="用户名">-->
+            <input style="padding: 8px;height: 35px;font-size: 16px;margin-bottom: 0" type="text" name="mobile" id="mobile" placeholder="请输入要绑定的手机号">
+            <input style="margin-bottom: 0;padding: 8px;height: 35px;font-size: 16px;width: 55%;float: left;margin-left: 2.3rem;"  id="mobileCaptcha" type="text" placeholder="请输入手机验证码" name="mobileCaptcha">
+            <input type="button" id="getCaptcha" class="txt_sub" style="margin-bottom: 0;width: 22%;height: 35px;font-size: 14px;padding: 0;color: white;" value="获取验证码">
+            <p id="sendSMSStatus" style="color: #fe6500;font-size: small; font-weight: bold;text-align: left;display: none"></p>
+            <!--<input style="padding: 8px;height: 35px;font-size: 16px" type="password" name="password" id="password" placeholder="用户密码">-->
+            <div id="alert-danger" class="alert-danger" ></div>
+            <div id="btn_binding" class="txt_sub" style="width: 80%;font-weight: bold; font-size: 16px;line-height: 2.7rem;">确认绑定</div>
+            <!--<p style="color: #fe6500;font-size: smaller; font-weight: bold;text-align: center">*注册成功后，系统将为您生成专属的邀请码</p>-->
+            <!--<p class='signup' style="color: red; font-weight:bold;line-height: 36px">-->
+                <!--<a href='/login.html'>-->
+                   <!--已有账号？<u>马上登录！</u>-->
+                <!--</a>-->
+            <!--</p>-->
+        </form>
+    </div>
+</div>
+
+</body>
+</html>

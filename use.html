@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+  <html>
+
+<head>
+  <title>大公盘</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="resources/css/use.css"/>
+  <script src="resources/js/jquery-1.10.1.min.js"></script>
+  <script type="text/javascript" src="resources/js/use.js"></script>
+  <script type="text/javascript" src="resources/js/common.js"></script>
+  <link rel="stylesheet" href="resources/css/global.css">
+  <link rel="stylesheet" type="text/css" href="resources/css/clear.css"/>
+
+</head>
+<body>
+  <div style="width:100%;height:55px;">
+   <iframe src="common/head.html" width="100%" height="55px;" frameborder="0" scrolling="no" >
+   </iframe> 
+  </div>
+  <div class="use_info">
+    
+    <div class="container mt10 method_info " style="min-width: 1300px; margin-top:50px;">
+
+    <div class="talent-qa">
+    <div class="talent-qa-list">
+    <div class="qa-container" data-id="1">
+      <div class="qa-question">
+        <div class="qa-icon question-icon"></div>
+        <div class="question-content"><p>如何登录/注册？</p></div>
+      </div>
+      <div class="qa-answer" style="display: block;">
+        <div class="qa-icon answer-icon"></div>
+        <div class="answer-content"><p>在未登录的情况下，您可以从任何页面顶部找到“注册”按钮，点击进入注册页面;所有带“*”的选项为必填项;您可以使用邮箱或和手机号两种方式进行注册,使用邮箱注册，系统将会发一封激活邮件到您所填的邮箱，您需要进入邮箱点击激活链接即可完成注册；使用手机号注册，您需要手动点击获取验证码，系统将会发送一条6位数字组成的验证到您所填的手机号码，填入正确的验证码点击注册即可完成注册。</p></div>
+      </div>
+    </div>
+    <div class="qa-container" data-id="1">
+      <div class="qa-question">
+        <div class="qa-icon question-icon"></div>
+        <div class="question-content"><p>如何修改账户资料？</p></div>
+      </div>
+      <div class="qa-answer" style="display: block;">
+        <div class="qa-icon answer-icon"></div>
+        <div class="answer-content"><p>登陆您的账户，进入“个人中心”，展开右侧导航“个人设置”，点击“资料修改”;其中会员ID、电子邮件、真实姓名是无法修改的，若您要修改姓名进行提现或者充值等行为，需要您通过您的注册邮箱发送一封邮件到客服邮箱，内容为您目前账号姓名和ID，然后注明您需要更改的姓名，工作人员会在24小时内帮您处理。</p></div>
+      </div>
+    </div>
+    <div class="qa-container" data-id="1">
+      <div class="qa-question">
+        <div class="qa-icon question-icon"></div>
+        <div class="question-content"><p>如何发布房源？</p></div>
+      </div>
+      <div class="qa-answer" style="display: block;">
+        <div class="qa-icon answer-icon"></div>
+        <div class="answer-content"><p>登录您的账户，进入“个人中心”，展开右侧导航“我的房源”，点击“+发布”，即可发布您的房源信息。登录您的账户，进入“房源数据库”，导航栏右上角，点击“+发布房源数据”，即可发布您的房源信息。</p></div>
+      </div>
+    </div>
+    <div class="qa-container" data-id="1">
+      <div class="qa-question">
+        <div class="qa-icon question-icon"></div>
+        <div class="question-content"><p>什么是盘币？</p></div>
+      </div>
+      <div class="qa-answer" style="display: block;">
+        <div class="qa-icon answer-icon"></div>
+        <div class="answer-content"><p>盘币是大公盘的虚拟货币，1盘币=1人民币。</p></div>
+      </div>
+    </div>
+    <div class="qa-container" data-id="1">
+      <div class="qa-question">
+        <div class="qa-icon question-icon"></div>
+        <div class="question-content"><p>如何获得盘币？</p></div>
+      </div>
+      <div class="qa-answer" style="display: block;">
+        <div class="qa-icon answer-icon"></div>
+        <div class="answer-content"><p>发布数据或发布的数据被他人查看，均可获得盘币。</p></div>
+      </div>
+    </div>
+    <div class="qa-container" data-id="1">
+      <div class="qa-question">
+        <div class="qa-icon question-icon"></div>
+        <div class="question-content"><p>盘币如何提现？</p></div>
+      </div>
+      <div class="qa-answer" style="display: block;">
+        <div class="qa-icon answer-icon"></div>
+        <div class="answer-content"><p>盘币超过200个后可申请提现，平台将扣除20%的分成。</p></div>
+      </div>
+    </div>
+    <div class="qa-container" data-id="1">
+      <div class="qa-question">
+        <div class="qa-icon question-icon"></div>
+        <div class="question-content"><p>公盘房源查看奖励规则是什么？</p></div>
+      </div>
+      <div class="qa-answer" style="display: block;">
+        <div class="qa-icon answer-icon"></div>
+        <div class="answer-content"><p>10次以内每次10盘币；10次-20次以上5盘币；20次以上2盘币。</p></div>
+      </div>
+    </div>
+   
+    </div>
+    </div>
+  </div>
+  </div>
+  
+ <div class="footer">
+   <iframe src="common/foot.html" width="100%;" height="60px;" frameborder="0" scrolling="no">
+   </iframe>
+ </div>
+  <script type="text/javascript">
+  $(function(){
+  $(".qa-answer").hide();  
+  $(".qa-question").click(function(){
+    $(this).siblings(".qa-answer").toggle();
+  });
+
+  $(".tag." + gon.action_type).addClass("selected");
+
+  if(typeof gon.question_type != "undefined" && gon.question_type != null){
+    setTimeout(function(){
+      if(gon.question_type == "skill"){
+        var $qa = $(".qa-container[data-id=7]");          
+      }else if(gon.question_type == "location"){
+        var $qa = $(".qa-container[data-id=3]");
+      }else if(gon.question_type == "uber"){
+        var $qa = $(".qa-container[data-id=13]");
+      }else if(gon.question_type == "bonus"){
+        var $qa = $(".qa-container[data-id=14]");
+      }else if(gon.question_type == "diff"){
+        var $qa = $(".qa-container[data-id=15]");
+      }       
+      $(window).scrollTop($qa.offset().top - 100);
+      $qa.addClass("qa-standout");
+    }, 100);
+  }
+})
+</script>
+</body>
+</html>

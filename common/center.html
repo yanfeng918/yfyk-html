@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>对盘客</title>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="../resources/css/global.css">
+    <link rel="stylesheet" type="text/css" href="../resources/css/clear.css"/>
+
+    <script src="../resources/js/jquery-1.10.1.min.js"></script>
+    <script type="text/javascript" src="../resources/js/common.js"></script>
+    <script type="text/javascript" src="../resources/js/common/head.js"></script>
+    <style>
+
+    </style>
+    <script>
+        $(function() {
+            $("#myBonuseHref").click(function(){
+                var cityId=getCookie("cityId");
+//                alert(cityId)
+                if(cityId!=null&&parseInt(cityId)!=792){
+//                    alert(parseInt(cityId))
+                    alert("目前奖励只针对上海哦！\n其它城市稍后就来……");
+                    return;
+                }else{
+                    window.location.href="../finance/myBonus.html";
+                }
+            });
+        })
+    </script>
+</head>
+<body>
+<div class="main">
+    <div class="aside" style="float:left;">
+        <div class="fy  module">
+            <div class="fy_title title"><span class="icon_fy" style="float:left;"></span><strong>我的房源</strong>
+                <span class="aside_plus"><a id="addHouseInfo" href="../house_info/release_intro.html"
+                                            target="main">+发布</a></span>
+            </div>
+            <div><a href="../house_info/my_query.html" target="_top">我查看的房源</a></div>
+            <div><a href="../house_info/my_release.html" target="_top">我发布的房源</a></div>
+            <div><a href="../house_info/my_favor.html" target="_top">我收藏的房源</a></div>
+        </div>
+
+        <div class="ky  module">
+            <div class="ky_title title"><span class="icon_ky" style="float:left;"></span><strong><a
+                    href="../setting/inviteFriend.html" target="main">邀请好友</a></strong>
+                <span class="aside_plus" style="color: red;">20%分成</span></div>
+        </div>
+        <div class="ky  module">
+            <div class="ky_title title"><span class="icon_ky" style="float:left;"></span><strong>
+                <a href="../setting/agentDynamics.html" target="main">经纪人动态</a></strong>
+            </div>
+        </div>
+        <!--<div class="ky  module">-->
+            <!--<div class="ky_title title"><span class="icon_ky" style="float:left;"></span><strong>-->
+                <!--<a href="../setting/duipan.html" target="main">对盘群</a></strong>-->
+            <!--</div>-->
+        <!--</div>-->
+
+        <div class="ky  module">
+            <div class="ky_title title"><span class="icon_ky" style="float:left;"></span><strong>我的房源征集</strong>
+                    <span class="aside_plus" style=""><a id="addCollection" href="../common/release_center.html"
+                                                         target="center">+发布</a></span>
+            </div>
+            <div><a href="../collect/my_release.html" target="_top">我发起征集的数据</a></div>
+            <div><a href="../collect/my_submit.html" target="_top">我提交征集的数据</a></div>
+        </div>
+
+        <div class="fortune  module">
+            <div class="fortune_title title"><span class="icon_fortune"
+                                                   style="float:left;"></span><strong>财务中心</strong></div>
+            <div class=""><a id="recharge" href="../finance/recharge.html" target="main">账户充值</a></div>
+            <div><a href="../finance/withdraw.html" target="main">提现</a></div>
+            <div><a href="../finance/detail_list.html" target="main">收支明细</a></div>
+            <div><a href="../finance/frozen_list.html" target="main">冻结明细</a></div>
+            <div id="myBonuseHref"><a target="main" style="color: red">我的奖励</a></div>
+        </div>
+        <div class="setting  module">
+            <div class="setting_title title"><span class="icon_set" style="float:left;"></span><strong>个人设置</strong>
+            </div>
+            <div><a href="../setting/account_security.html" target="main">账户安全</a></div>
+            <div><a href="../setting/password_modify.html" target="main">密码修改</a></div>
+            <div><a href="../setting/data_modify.html" target="main">资料修改</a></div>
+        </div>
+
+        <!--<div class="ky  module">-->
+            <!--<div class="ky_title title"><span class="icon_fortune" style="float:left;"></span><strong><a-->
+                    <!--href="../setting/inviteFriend.html" target="main">我的奖励</a></strong>-->
+                <!--&lt;!&ndash;<span class="aside_plus" style="color: red;">20%分成</span></div>&ndash;&gt;-->
+        <!--</div>-->
+    </div>
+
+    <div style="width:auto;height:900px; margin-left:210px;">
+      <iframe name="main"  id="main" src="../personal_center_main.html" width="100%;" height="940px;" frameborder="0" scrolling="no" style="">
+      </iframe>
+    </div>
+</div>
+
+</body>
+</html>

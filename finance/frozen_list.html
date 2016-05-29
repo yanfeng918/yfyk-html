@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>对盘客</title>
+<link rel="stylesheet" type="text/css" href="../resources/css/finance/frozen_list.css"/>
+<link rel="stylesheet" type="text/css" href="../resources/css/global.css"/>
+<link rel="stylesheet" type="text/css" href="../resources/css/clear.css"/>
+<link rel="stylesheet" type="text/css" href="../resources/css/pager.css"/>
+<script type="text/javascript" src="../resources/js/jquery-1.10.1.min.js"></script>
+<script type="text/javascript" src="../resources/js/common.js"></script>
+<script type="text/javascript" src="../resources/js/jquery.pager.js"></script>
+<script type="text/javascript" src="../resources/js/Calendar.js"></script>
+<script type="text/javascript" src="../resources/js/validate/jquery.validate.min.js"></script>
+<script type="text/javascript" src="../resources/js/validate/messages_cn.js"></script>
+<script type="text/javascript" src="../resources/js/finance/frozen_list.js"></script>
+
+<link href="../resources/css/date_css/date.css" rel="stylesheet" type="text/css">
+
+</head>
+<body>
+
+
+<div class="main">
+	
+	<div class="position">
+			<div>当前位置：<a href="../personal_center.html" target="_top">个人中心</a>><a href="recharge.html">财务中心</a>><a href="frozen_list.html">冻结明细</a></div>
+	</div>
+	<div class="container">
+		<div class="container_title">
+			<h2>冻结明细</h2>
+		</div>
+		<div class="container_main">
+		<div class="container_top">
+			<div div="date">            
+				<form id="frozenFm">
+				   <div class="demos">
+					<span>起止时间▼<input name="beginDate" type="text" id="beginDate" size="10" maxlength="10" onClick="new Calendar().show(this);" readonly="readonly" style="border:none; width:75px;height:20px; margin:0;"/>		</span>
+					<span>至▼<input name="endDate" type="text" id="endDate" size="10" maxlength="10" onClick="new Calendar().show(this);" readonly="readonly" style="border:none; width:75px;height:20px; margin:0;"/></span>
+				   </div>
+                    <input type="hidden" name="pageNumber" id="pageNumber" value="1" />
+                    <input type="hidden" name="pageSize" id="pageSize" value="5" />
+                    <input type="hidden" name="orderBy" id="orderBy"/>
+                    <input type="hidden" name="orderType" id="order"/>
+                    <input type="button" value="搜索" id="search">
+				</form>
+			</div>
+		</div>
+		<div class="container_bottom">
+			<div class="container_bottom_main">
+				<div class="form">
+					<table id="frozenTable" border="0" cellpadding="0" cellspacing="0" style="border-bottom:0px solid 	#E9E9E9;">
+					<tr style="height:30px; background:#fff;">
+						<th>冻结时间</th>
+						<th>冻结金额</th>
+						<th>情况说明</th>
+					</tr>
+				</table>
+                    <div id="pager" style="margin-bottom:25px;"></div>
+				</div>
+			</div>
+		</div>
+	</div> 				
+</div>
+</div>
+</body>
+</html>

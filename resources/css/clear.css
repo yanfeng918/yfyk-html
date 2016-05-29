@@ -1,0 +1,10 @@
+body,div,dl,dd,dt,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,input,p,th,td,span,a,img{margin:0; padding:0; list-style:none;}
+img,input{border:0; display:block;}
+body{color:#000; font-size:14px; font-family:"Microsoft Yahei";}
+a{color:#217ADC; text-decoration:none;}
+a:hover{color:#000; text-decoration:none;}
+.clearfix:before,.clearfix:after{ content:""; display:table;}
+.clearfix:after{ clear:both;}
+.clearfix{zoom:1;}
+
+

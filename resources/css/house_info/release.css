@@ -1,0 +1,172 @@
+/* 
+* @Author: dell
+* @Date:   2015-08-05 16:10:08
+* @Last Modified by:   dell
+* @Last Modified time: 2015-09-30 16:02:27
+*/
+body,html{
+	background: #fff;
+}
+.main{
+	margin:0 auto;
+	min-width: 860px;
+}
+
+.position{
+	width:auto;
+	line-height: 44px;
+	height: 44px;
+	padding-left: 50px;
+	background: #F7F7F7;
+	border-bottom: 1px solid #D2D2D2;
+}
+.main {
+	color: #333333;
+	background: #fff;
+}
+.main  .container{
+	margin:10px 25px 0 235px;
+	width:auto;
+	border:1px solid #D2D2D2;
+	padding-bottom: 25px; 
+}
+.container_title{
+	width:auto;
+	height: 38px;
+	background: #fff;
+	line-height: 36px;
+	font-weight: bold;
+	margin:10px 25px 0 25px;
+	border:1px solid #D2D2D2;
+}
+.container_title h2{
+	line-height: 38px;
+	margin-left:22px;
+	color: #3367CC;
+	font-size: 16px; 
+}
+.container_top{
+	width:auto;
+	height:25px;
+	background: #fff;
+	line-height: 36px;
+	font-weight: bold;
+	margin-bottom:4px;
+
+}
+
+.container_top .release{
+	width: 100%;
+	height: 34px;
+	border-bottom:1px solid #D2D2D2 ;
+	line-height: 34px;
+	background: #FCFCFC;
+
+}
+.container_top .release div{
+	width: 180px;
+	background: #fff;
+	border-right: 1px solid #D2D2D2;
+	text-align: center;
+	float: left;
+	background: #F1F1F1;
+	display: inline-block;
+	cursor: pointer;
+}
+.container_top .release .release_current{
+	color: #3367CD;
+	background: #fff;
+	border-bottom: 1px solid #fff;
+}
+
+.container_main{
+	border:1px solid #D2D2D2;
+}
+ 
+.container_bottom{
+	border:1px solid #D2D2D2;
+	width: 90%;
+	margin:0 auto;
+	margin-top: 25px;
+	padding:0 30px 25px 30px;
+	background-color: #FCFCFC;
+	position: relative;
+}
+.container_bottom .type{
+	height: 50px;
+	line-height: 50px;
+	width:100%;
+}
+.data_plus{
+	float:right;
+	margin-top: 15px;
+
+}
+.form{
+	background-color: #fff;
+	position: relative;
+}
+.form .form_top{
+	width: auto;
+	background-color:#227ADC ;
+	height:30px;
+	text-align: center;
+	line-height: 30px; 
+	color: #fff;
+}
+
+/* .fixed_price{
+	width: 215px;
+	height: 25px;
+	color: #FF6801;
+	background-color: #EBEBEB;
+	padding-left: 15px;
+	line-height: 25px;
+	margin:12px 0;
+} */
+.container_bottom form{
+	border:1px solid #D2D2D2;
+	padding: 10px;
+	margin-bottom: 10px;
+	padding-bottom: 50px;
+}
+.container_bottom .form input{
+	display: inline-block;
+	width: 230px;
+	height: 23px;
+	border-radius: 3px;
+	border:1px solid #464647;
+	margin:10px 4px;
+}
+.container_bottom .form .txt_sub{
+	margin:0 auto;
+	background: #227ADC;
+	color: #fff;
+	width: 80px;
+	height: 30px;
+	text-align: center;
+	position: absolute;
+	left: 50%;
+	bottom:2%;
+	transform: translate(-50%, 0);
+	border-radius: 5px;
+	cursor: pointer;
+}
+.container_bottom .form .close{
+	width: 23px;
+	height: 23px;
+	position: absolute;
+	right:5px;
+	top:5px;
+}
+.intro{
+	color:#FE0002;
+}
+.optional{
+	background:#EEEEEE;
+}
+
+.tipShow {
+	color: red;
+	font-weight: bold;
+}

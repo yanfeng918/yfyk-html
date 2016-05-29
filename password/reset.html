@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>密码找回</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="../resources/css/forget.css"/>
+  <link rel="stylesheet" href="../resources/css/global.css">
+  <link rel="stylesheet" type="text/css" href="../resources/css/clear.css"/>
+
+  <script type="text/javascript" src="../resources/js/jquery-1.10.1.min.js"></script>
+  <script type="text/javascript" src="../resources/js/common.js"></script>
+  <script type="text/javascript" src="../resources/js/validate/jquery.validate.min.js"></script>
+  <script type="text/javascript" src="../resources/js/validate/messages_cn.js"></script>
+  <script type="text/javascript" src="../resources/js/reset.js"></script>
+</head>
+
+<body>
+
+    <div  style="width:100%;height:55px;">
+     <iframe src="../common/head.html" width="100%" height="55px;" frameborder="0" scrolling="no" >
+     </iframe>
+    </div>
+    <div class="main">
+    	<div class="container"> 
+        <div class="reset">
+          <div class="title">设置新密码</div>
+          <!--<div class="regain">短信验证码已发下，如果未收到，请<a href="forget.html">点击重新获取</a></div>-->
+          <div class="form">
+            <form id="fm">
+                 <label for="">重置密码</label>
+                 <input type="password" id="password" name="password" placeholder="&nbsp;您的新密码">
+                 <label for="">重新输入</label>
+                 <input type="password" id="enPassword" name="enPassword" placeholder="&nbsp;确认密码">
+                 <!--<input type="text" placeholder="&nbsp;短信验证码">           -->
+                <input type="hidden" id="username" name="username"/>
+                <input type="hidden" id="key" name="key"/>
+                <input type="submit" class="txt_sub reset_sub" value="完成" style="width:100%;"/>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>  
+<div class="footer" >
+   <iframe src="../common/foot.html" width="100%;" height="60px;" frameborder="0" scrolling="no">
+   </iframe> 
+</div>  
+</body>
+</html>

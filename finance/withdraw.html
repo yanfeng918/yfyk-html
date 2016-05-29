@@ -1,0 +1,143 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>大公盘</title>
+<link rel="stylesheet" type="text/css" href="../resources/css/finance/withdraw.css"/>
+<link rel="stylesheet" type="text/css" href="../resources/css/global.css"/>
+<link rel="stylesheet" type="text/css" href="../resources/css/clear.css"/>
+<link rel="stylesheet" type="text/css" href="../resources/css/pager.css"/>
+<link href="../resources/css/date_css/date.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="../resources/js/jquery-1.10.1.min.js"></script>
+<script type="text/javascript" src="../resources/js/Calendar.js"></script>
+<script type="text/javascript" src="../resources/js/common.js"></script>
+<script type="text/javascript" src="../resources/js/jquery.pager.js"></script>
+<script type="text/javascript" src="../resources/js/validate/jquery.validate.min.js"></script>
+<script type="text/javascript" src="../resources/js/validate/messages_cn.js"></script>
+<script type="text/javascript" src="../resources/js/finance/withdraw.js?1=1"></script>
+<script type="text/javascript" src="../resources/js/withdraw_cash.js"></script>
+
+</head>
+<body>
+<div class="main">
+	<div class="position">
+			<div>当前位置：<a href="../personal_center.html" target="_top">个人中心</a>><a href="recharge.html" target="main">财务中心</a></a>><a href="withdraw.html">提现</a></div>
+	</div>
+	<div class="container">
+		<div class="container_title">
+			<h2>提现</h2>
+		</div>
+		<div class="container_main">
+		<div class="container_top">
+			<div class="cash">
+				<div class="cash_current cash_apply">申请提现</div>
+				<div class="cash_card">绑定微信号</div>
+				<div class="cash_record">提现记录</div>
+			</div>
+		</div>
+		<div class="container_bottom container_bottom_apply">
+			<div class="apply_note">
+				<ul>
+					<li class="note">请注意：</li>
+					<li>1. 提现所需要手续费根据不同银行的具体规定操作执行。</li>
+					<li>2. 为了确保资金安全，只支持本人帐号进行提现，我们将核对收款人姓名。</li>
+					<li>3. 大公盘账户不允许从事无真实交易背景的虚假交易，信用卡套现或洗钱等禁止的交易行为，否则充值款项将不能提现。</li>
+					<li style="color: blue">4. 客服会在24小时内审核您的提现申请，成功后将通过官方微信转账，节假日顺延。</li>
+					<li style="color: red">5. 特别提示：为进一步确保房源的真实有效性，我们将对近1天审核成功所获取的收入冻结24小时！</li>
+				</ul>
+			</div>
+			<div class="account">
+				<div class="form">
+					<form action="" id="applyWithDraw">
+						<label>&nbsp;&nbsp;&nbsp;提现账户：</label>
+                        <select id="bankAccount_id" name="bankAccount_id" style="width:200px">
+                        </select>
+                        <br />
+						<label>当前金额：</label><span id="balance" style="color:#217BDC; font-weight:bold; margin-top:10px; display:inline-block;"></span>
+
+						<span style="color: red; font-size: small; font-weight: bold;margin-left: 3%">最低提现50元，提现请先加大公盘微信！</span><br />
+						<label>【注：近24小时的房源收入为</label><span id="frozenAmount"  style="color:red; font-weight:bold; margin-top:10px; display:inline-block;"></span>
+						<label>元，该资金将被冻结24小时！】</label><br />
+						<input type="hidden" id="frozenAmount1" name="frozenAmount" />
+						<label>&nbsp;&nbsp;&nbsp;提现金额：</label>
+						<input type="text" id="amount" name="amount" /><span class="rmb"><img src="../resources/images/rmb.jpg" alt="" /></span><br />
+						<input type="submit" id="txt_sub" value="提交"/>
+					</form>
+				</div>
+			</div> 
+		</div> 
+		<div class="container_bottom  container_bottom_bankcard">
+			<div style="margin-left: 5%">
+				<p style="line-height:108px; float:left;">微信扫码：</p>
+				<span><img src="../resources/images/dagongpan.png" alt="" /></span>
+					<span class="intro">
+						<!--<span class="query_course"><img src="../resources/images/course_btn.jpg" height="31" width="119" alt="" /></span>-->
+					</span>
+			</div>
+			<div class="card_setting">
+					<form id="bankAccountForm">
+						<label>姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名：</label>
+                        <input type="text" name="accountHolder" id="accountHolder" placeholder="&nbsp;&nbsp;输入您的姓名"><br/>
+                        <label>微信账号：</label>
+                        <input type="text" name="accountNum" id="accountNum" placeholder="&nbsp;&nbsp;输入您的微信账号"><br/>
+                        <label for="" style="color:#fe6500;">绑定微信号后，<span style="color: red; font-weight: bold">请尽快加大公盘为好友【扫上方二维码就可以哦！】，</span>届时您可以通过微信红包的方式提取现金。</label><br />
+						<!-- <label>选择银行：&nbsp;&nbsp;&nbsp;&nbsp;</label>
+						<input type="text" name="branchName" id="branchName" placeholder="&nbsp;&nbsp;输入您的开户行"><br/> -->
+                        <!-- <label>开户银行地址</label>
+                        <input type="text" name="bankAddress" id="bankAddress" placeholder="&nbsp;&nbsp;输入您的开户行"><br/> -->
+						<!-- <label>银行卡号：</label> -->
+						<!-- <input type="text" name="accountNum" id="accountNum" placeholder="&nbsp;&nbsp;输入您的银行帐号" style="width: 272px;" /><br /> -->
+						<input type="submit" id="card_sub" value="提交"/>
+					</form>
+			</div>
+			<!-- <div class="withdraw_bank">
+				<table border="0" cellpadding="0" cellspacing="0" id="mytable" >
+					<tr style="border-bottom:1px solid #E9E9E9;">
+						<th colspan="5" style="text-align:left;">&nbsp;&nbsp;&nbsp;&nbsp;提现银行</th>
+					</tr>
+					<tr>
+						<th>开户人</th>
+						<th>开户银行</th>
+						<th>账号尾号</th>
+						<th>绑定日期</th>
+						<th>操作</th>
+					</tr>
+				</table>
+			</div> -->
+		</div> 
+		<div class="container_bottom  container_bottom_cash_record">
+			<div class="container_bottom_record">
+				<div class="date">
+					<form action="" id="cashRecordFm">
+					   <div class="demos">
+					   	<span style="margin-top:4px;"><img src="../resources/images/search.png" alt="" /></span>
+							<span>起止时间▼<input name="beginDate" type="text" id="beginDate" size="10" maxlength="10" onClick="new Calendar().show(	this);" readonly="	readonl   y" style="border:none; width:75px;height:20px; margin:0;"/>		</span>
+							<span>至▼<input name="endDate" type="text" id="endDate" size="10" maxlength="10" onClick="new Calendar().show(this);" readonly="	readonly" style="border:none; width:75px;height:20px; margin:0;"/></span>
+					   </div>
+                        <input type="hidden" name="pageNumber" id="pageNumber" value="1" />
+                        <input type="hidden" name="pageSize" id="pageSize" value="5" />
+                        <input type="hidden" name="orderBy" id="orderBy"/>
+                        <input type="hidden" name="orderType" id="order"/>
+                        <input type="button" value="搜索" id="search" style="margin-top:0;margin-bottom:0;" />
+					</form>
+				</div>
+				<div class="form">
+					<table  border="0" cellpadding="0" cellspacing="0" id="recodeTable">
+					<tr style="height:30px;">
+						<th align=left>&nbsp;&nbsp;申请时间</th>
+						<th>提现金额</th>
+						<!--<th>可用余额</th>-->
+						<th>提现账户</th>
+						<th>状态</th>
+					</tr>
+
+				</table>
+                    <div id="pager" style="margin-bottom:25px;"></div>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>大公盘</title>
+<link rel="stylesheet" type="text/css" href="resources/css/login_index.css"/>
+<link rel="stylesheet" type="text/css" href="resources/css/global.css"/>
+<link rel="stylesheet" type="text/css" href="resources/css/clear.css"/>
+<script type="text/javascript" src="resources/js/jquery-1.10.1.min.js"></script>
+<script type="text/javascript" src="resources/js/common.js"></script>
+    <script>
+        //加载用户名称
+        var  uname = getCookie("yjb_username");
+
+        if(uname==null || uname.length==0){
+            //alert("未登录")
+            window.location=setting.baseHtml+"login.html";
+        }
+    </script>
+</head>
+<body>
+<iframe src="common/head.html" id="header" name="header" width="100%;" height="48px;" frameborder="0" scrolling="no" style="min-width:1280px;" >
+</iframe>
+<iframe name="center"  id="center" src="common/center.html" width="100%;" height="940px;" frameborder="0" scrolling="no" style="min-width:1280px;" >
+</iframe>
+<iframe name="foot"  id="foot" src="common/foot.html" width="100%;" height="60px;" frameborder="0" scrolling="no" style="min-width:1280px;">
+</iframe> 
+</body>
+<script>
+
+    window.setTimeout(function(){
+        $(window.frames['header'].document).find('body .nav li').eq(1).css("background","#000");
+    },100)
+
+	/*点击发布按钮*/
+$(function(){
+    if (getUrlParam("publish")==0) {
+
+
+        window.setTimeout(function(){
+        	/*alert(1);
+    	alert($(window.frames['center'].document).find('.aside_plus').eq(0).html());*/
+    	$(window.frames['center'].document).find('.aside_plus').eq(0).click();
+
+    },200)
+
+    };
+
+    if (getUrlParam("publish")==1) {
+        $(".aside_plus").eq(1).click();
+    };
+
+    if (getUrlParam("type")=="recharge") {
+        window.setTimeout(function(){
+            window.frames["center"].document.getElementById("recharge").click();
+        },100)
+    }
+    if (getUrlParam("type")=="addCollection") {
+        window.setTimeout(function(){
+            window.frames["center"].document.getElementById("addCollection").click();
+        },100)
+    }
+
+    if (getUrlParam("type")=="addHouseInfo") {
+        window.setTimeout(function(){
+            window.frames["center"].document.getElementById("addHouseInfo").click();
+        },100)
+    }
+
+    /*if (getUrlParam("type")=="releaseHouse") {
+        window.setTimeout(function(){
+            window.frames["center"].document.getElementById("house_info/release115.html").click();
+        },100)
+    }*/
+
+
+
+
+});
+</script>
+</html>

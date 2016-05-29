@@ -1,0 +1,144 @@
+/* 
+* @Author: dell
+* @Date:   2015-08-05 16:10:08
+* @Last Modified by:   dell
+* @Last Modified time: 2015-09-25 17:39:18
+*/
+html,body{
+}
+
+
+.company-banner .text-shadow, .mybanner .text-shadow {
+    text-shadow: 0 1px 1px #333333;
+}
+.company-banner .headerpic, .company-banner .company-headerpic, .mybanner .headerpic, .mybanner .company-headerpic {
+    background-position: 50% 100%;
+    background-repeat: no-repeat;
+    background:url(../images/b.jpg);
+    min-width: 1300px;
+    width: 100%;
+    height:320px;
+    background-size: 100% auto; 
+}
+.company-banner .banner-text, .mybanner .banner-text {
+    color: #ffffff;
+    margin: auto;
+    text-align: center;
+    width: 560px;
+    padding-top:115px;
+
+}
+.company-banner .banner-text .content, .mybanner .banner-text .content{
+    padding-bottom: 25px;
+}
+.company-banner .banner-text .content .title, .mybanner .banner-text .content .title {
+    font-size: 20px;
+    line-height: 36px;
+    font-weight: bold;
+}
+.company-banner .banner-text .content .subtitle, .mybanner .banner-text .content .subtitle {
+    font-size: 14px;
+    line-height: 35px;
+}
+.company-banner .banner-btn, .mybanner .banner-btn {
+    background-color: #207ADB;
+    cursor: pointer;
+    font-size: 14px;
+    height: 30px;
+    line-height: 30px;
+    margin: auto;
+    text-align: center;
+    transition: all 0.2s ease-in 0s;
+    width: 80px;
+    border-radius: 3px;
+}
+.company-banner .banner-btn a, .mybanner .banner-btn a {
+    color: #ffffff;
+    font-weight: bold;
+    line-height: 30px;
+}
+.company-banner .banner-btn:hover, .mybanner .banner-btn:hover {
+    background-color: #2e3137;
+}
+
+.foot ul{
+	display: inline-block;
+	
+	height: 40px;
+}
+.foot  ul li{
+	display: inline-block;
+	width: 100px;
+	height: 40px;
+	text-align: center;
+	line-height: 40px;
+}
+.foot  ul li a{
+	color: #898488;
+}
+.foot .foot-icp{
+	display: inline-block;
+	float: right;
+	line-height: 40px;
+	color: #878684;
+}
+
+.foot{
+	margin-top:50px;
+	height: 50px;
+	background-color: #EEEEEE;
+	padding-top: 10px;
+	width:100%;
+
+}
+.foot .foot_main{
+	width:1280px;
+	margin:0 auto;
+}
+
+.company-adventage {
+    margin: 40px auto 0;
+    text-align: center;
+}
+.company-adventage  .block-title{
+	font-size: 18px;
+	color: #272A23;
+}
+.company-adventage .adventages {
+    margin-top: 50px;
+}
+.company-adventage .adventages .adventage {
+    display: inline-block;
+    padding-bottom: 50px;
+    vertical-align: top;
+    width: 305px;
+}
+.company-adventage .adventages .adventage{
+    *display: inline;
+}
+.company-adventage .adventages .adventage img {
+    height: 100px;
+    width: 100px;
+     margin: 0 auto;
+}
+.company-adventage .adventages .adventage.pad {
+    margin-left: 50px;
+    margin-right: 50px;
+}
+.company-adventage .adventages .adventage .desc .title {
+    color: #333333;
+    font-size: 16px;
+    margin-top: 40px;
+}
+.company-adventage .adventages .adventage .desc .content {
+    color: #8c8f98;
+    font-size: 14px;
+    line-height: 28px;
+    margin-top: 10px;
+    text-align: left;
+}
+.main{
+    background:#fff;
+    margin-bottom: 60px;
+}
+

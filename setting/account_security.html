@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>大公盘</title>
+<link rel="stylesheet" type="text/css" href="../resources/css/setting/account_security.css"/>
+<link rel="stylesheet" type="text/css" href="../resources/css/global.css"/>
+<link rel="stylesheet" type="text/css" href="../resources/css/clear.css"/>
+
+<script type="text/javascript" src="../resources/js/jquery-1.10.1.min.js"></script>
+<script type="text/javascript" src="../resources/js/common.js"></script>
+<script type="text/javascript" src="../resources/js/account_security.js"></script>
+</head>
+<body>
+
+
+
+<div class="main">
+	
+	<div class="position">
+		<div>当前位置：<a href="../personal_center.html" target="_top">个人中心</a>><a href="account_security.html">个人设置</a>><a href="account_security.html">账户安全</a></div>
+	</div>
+	
+	<div class="container">
+		<div class="container_title">
+			<h2>账户安全</h2>
+		</div>
+		<div class="container_main">
+			<div class="container_top">
+				<div class="bound">
+					<!-- <div class="bound_current mobile_bound">手机绑定</div> -->
+					<div class="email_bound bound_current" >邮箱绑定</div>
+				</div>
+			</div>
+		<!-- <div class="container_bottom container_bottom_mobile">
+			<div class="describe">				
+				<ul>
+					<li style="line-height:35px;">本站交易价格均为未含税价格，如果需要开具发票，请另行交纳税点。</li>
+					<li class="note">请注意：</li>
+					<li>本站交易价格均为未含税价格，如果需要开具发票，请另行交纳税点。</li>
+					<li>账户不允许从事无真实交易背景的虚假交易、信用卡套现或洗钱等禁止的交易行为，否则充值款项将不能提现。</li>
+				</ul>
+			</div>
+			<div class="mobile_bound">
+				<div class="form">
+					<form action="">
+						<label for="">您绑定的手机：</label>
+						<input type="text" />
+						<input type="submit" id="txt_sub" value="获取验证码"/><br />
+						<input type="submit" id="txt_sub" value="手机绑定"/>
+					</form>
+				</div>
+			</div> 
+		</div> -->
+		<div class="container_bottom container_bottom_email">
+			<div class="describe">				
+				<ul>
+					<li class="note">请注意：</li>
+					<li>1.为确保资金安全，大公盘建议用户尽快进行邮箱绑定。</li>
+					<li>2.绑定邮箱后，您可以通过邮箱登陆大公盘，并可以通过邮箱找回密码。</li>
+				</ul>
+
+
+			</div>
+			<div class="email_bound">
+
+				<div id="alreadyBinding" style="display:none">邮箱已经绑定：<span></span></div>
+
+				<div class="form">
+					<form action="">
+						<label for="">Email：</label>
+						<input type="text" name="email" id="email"/><br />
+						<input type="button" id="email_bound" value="提交" class="txt_sub"/>
+					</form>
+				</div>
+			</div> 
+		</div>	
+		</div>	
+</div>
+
+</body>
+</html>

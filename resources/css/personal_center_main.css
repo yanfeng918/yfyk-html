@@ -1,0 +1,209 @@
+﻿
+
+html,body{
+	min-width: 1000px;
+}
+.position{
+	width:auto;
+	/*line-height: 44px;*/
+	/*margin: 1% 0;*/
+	height: 32px;
+	/*padding-left: 50px;*/
+	background: #F7F7F7;
+	border-bottom: 1px solid #D2D2D2;
+    padding: 10px 0 0 50px;
+}
+  .container .detailT{
+	width:100%;
+	height: 264px;
+	margin:20px auto;
+	padding:0 5%;
+}
+  .fenHao {
+	  color: red;
+	  /*border-top: 1px solid red;*/
+  }
+
+.container .detailB{
+	padding:0 5%;
+}
+ .container .detailT .xzfy,
+ .container .detailT .xzky,
+ .container .detailB .notice,
+ .container .detailB .rank
+{	float: left;
+	width: 44%;
+	height: 100%;
+	border:1px solid #D3D3D3;
+	background: #F8F8F8;
+	position: relative;
+	min-width:400px;
+	box-sizing: border-box;
+	margin-right:50px;
+}
+  .container .detailT .xzky,
+  .container .detailB .rank{
+	margin-right:0px;
+}
+  .container .detailT .xzfy .xzfy_head,
+  .container .detailT .xzky .xzky_head,
+  .container .detailB .notice .notice_head,
+  .container .detailB .rank .rank_head{
+	background: #EBEBEB;
+	height: 46px;
+	width:auto;
+	border-bottom: 1px solid #D3D3D3;	
+	font-size: 14px;
+	line-height: 46px;
+	padding: 0 25px;
+}
+  .container .detailT .xzfy .xzfy_head a
+  .container .detailT .xzky .xzky_head a,{
+	font-size: 16px;
+  }
+  .container .detailT .xzfy .xzfy_head p,
+  .container .detailT .xzky .xzky_head p{
+	float: left;
+}
+  .container .detailT .xzfy .xzfy_head .plus,
+  .container .detailT .xzky .xzky_head .plus{
+	float: right;
+	color: 	#fff;
+	background-color: #2079DD;
+	width: 85px;
+	height: 25px;
+	margin-top: 10px;
+	border-radius: 3px;
+	line-height: 25px;
+	text-align: center;
+
+}
+  .container .detailT .xzfy .xzfy_data,
+  .container .detailT .xzky .xzky_data{
+	font-size: 18px;
+	height: 117px;
+	margin:44px 0 0 72px;
+	color: #616161;
+	background: #F8F8F8;
+	position: relative;
+
+}
+  .container .detailT .xzfy .xzfy_data .query,
+  .container .detailT .xzky .xzky_data .query{
+	position: absolute;
+	right:35px;
+	bottom: 0;
+
+}
+  .container .detailT .xzfy .xzfy_data .query a, 
+  .container .detailT .xzky .xzky_data .query a{
+	font-size: 14px;
+  }
+  .container .detailT .xzfy .xzfy_data .data,
+  .container .detailT .xzky .xzky_data .data{
+	font-size:86px;
+}
+  .container .detailB{
+	width:100%;
+	height: 350px;
+	margin:0 auto;
+	margin-top:18px; 
+	padding: 0 5%;
+}
+  .container .detailB .notice .notice_list{
+	width:100%;
+	padding:25px;
+}
+  .container .detailB .notice .notice_list ul{
+	margin-bottom: 20px;
+}
+  .container .detailB .notice .notice_list .news{
+	font-size: 18px;
+	font-weight: bold;
+	margin-bottom:5px;
+}
+  .container .detailB .rank .rank_list{
+	width:100%;
+	padding:25px 0;
+}
+  .container .detailB .rank .rank_list  div{
+	float: left;
+	width: 50%;
+	text-align: center;
+
+}
+  .container .detailB .rank .rank_listL div,  .container .detailB .rank .rank_listR div {
+	width:100%;
+}
+  .container .detailB .rank .rank_list h2 {
+	font-size: 14px;
+	font-weight: normal;
+	margin-bottom: 28px;
+}
+  .container .detailB .rank .rank_list ul{
+	width: 100%;
+}
+  .container .detailB .rank .rank_list ul li{
+	width: 100%;
+	line-height: 20px;
+}
+
+.sort{
+	margin-right: 20px;
+}
+.num{
+	margin-left: 20px;
+}
+
+.container .note{
+	width:88%;
+	height: 38px;
+	border:1px solid #D4D4D4;
+	background: #EBEBEB;
+	line-height: 38px;
+	margin-top: 25px;
+	margin-left: 5%;
+	padding-right: 50px;
+}
+
+table{
+	width: 100%;
+	text-align: center;
+	margin-top: 25px;
+}
+table thead{
+	height:30px;
+	background:#0078D8;
+	color: black;
+}
+table tr{
+	height:50px;
+
+}
+table td{
+	border-bottom: 1px solid #E9E9E9;
+}
+.blue{
+	color:#227ADC;
+}
+.price{
+	color:#FF0000;
+	font-weight: bold;
+}
+/*.note{*/
+	/*color:#BABCBF;*/
+/*}*/
+.supply_icon{
+	position: absolute;
+	left:35px;
+	top:16px;
+}
+.td_collection_info{
+	text-align:left; padding-left:70px; position:relative;
+}
+
+.cityName {
+	color: red;
+	font-weight: bold;
+}
+

@@ -1,0 +1,134 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>大公盘</title>
+    <link rel="stylesheet" type="text/css" href="../resources/css/collection/list.css"/>
+    <link rel="stylesheet" type="text/css" href="../resources/css/global.css"/>
+    <link rel="stylesheet" type="text/css" href="../resources/css/clear.css"/>
+    <link rel="stylesheet" type="text/css" href="../resources/css/pager.css"/>
+    <link rel="stylesheet" type="text/css" href="../resources/css/tip_box.css"/>
+    <script type="text/javascript" src="../resources/js/jquery-1.10.1.min.js"></script>
+    <script type="text/javascript" src="../resources/js/common.js"></script>
+    <script type="text/javascript" src="../resources/js/jquery.pager.js"></script>
+    <script type="text/javascript" src="../resources/js/validate/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="../resources/js/validate/messages_cn.js"></script>
+    <script type="text/javascript" src="../resources/js/supply/collect.js"></script>
+    <link href="../resources/css/date_css/date.css" rel="stylesheet" type="text/css">
+
+
+</head>
+<body>
+<iframe name="header" id="header" src="../common/head.html" width="100%;" height="48px;" frameborder="0" scrolling="no"
+        style="min-width:720px;">
+</iframe>
+<div class="main">
+    <div class="main_plus">
+        <a href="../personal_center.html?type=addCollection" >+新增房源征集</a>
+    </div>
+    <div class="main_L">
+        <div class="main_L_top">
+            <span class="city" id="cityName">上海</span>
+            <input type="hidden" id="city_id" name="city_id">
+        </div>
+        <div class="datas" id="city_view">
+            <ul>
+            </ul>
+        </div>
+    </div>
+    <div class="main_R" style="margin-bottom:25px;">
+        <div class="container" style="margin-left:0; margin-right:0;">
+            <div class="position">
+                <div>当前位置：<a href="list.html">房源征集</a>><a href="list.html">我发起征集的数据</a>
+                </div>
+            </div>
+
+            <form>
+                <input type="hidden" name="pageNumber" id="pageNumber" value="1"/>
+                <input type="hidden" name="pageSize" id="pageSize" value="10"/>
+                <input type="hidden" name="orderBy" id="orderBy"/>
+                <input type="hidden" name="orderType" id="order"/>
+            </form>
+
+            <div class="main_R_main" style="margin-left:25px; margin-right: 25px;">
+                <div class="main_R_nav">
+                    <ul>
+                        <li class="list_head "><a href="list.html">数据列表</a></li>
+                        <li class="list_head main_R_nav_current"><a href="my_release.html" target="_top">我发起征集的数据</a></li>
+                        <li class="list_head "><a href="my_submit.html">我提交的数据</a></li>
+                        <!-- <li class="list_head "><a href="query.html">我查看的数据</a>(<span>256</span>)</li> -->
+                    </ul>
+                </div>
+
+
+                <div class="main_R_list list_total">
+                    <table id="houseTable" border="0" cellpadding="0" cellspacing="0" class="mytable">
+                        <thead>
+                        <tr style="background:#227ADC; color:#fff;">
+                            <!--<th>发布时间</th>-->
+                            <th>辛苦费(元)</th>
+                            <th>区域</th>
+                            <th>小区</th>
+                            <th>小区地址</th>
+                            <th>户型</th>
+                            <th>楼栋</th>
+                            <th>面积(平米)</th>
+                            <th>售价(万元)</th>
+                            <th colspan="2">数据状态</th>
+                            <th>操作</th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        <tr>
+                            <td class="red">2015年7月08日</td>
+                            <td>250元</td>
+                            <td>上海</td>
+                            <td>黄浦</td>
+                            <td>不限</td>
+                            <td>星辰美景苑</td>
+                            <td>原平路169号</td>
+                            <td>不限</td>
+                            <td>不限</td>
+                            <td>不限</td>
+                            <td>不限</td>
+                            <td><u>3条数据</u></td>
+                            <td class="query operate"><u>我要查看</u></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <div id="pager"></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="dialog_box" id="delCollection">
+    <div class="dialog_box_head">
+        <p>结束征集</p>
+    </div>
+    <div class="prompt">
+        <span class="note"><img src="../resources/images/note.png" alt=""></span>
+        <span style="margin:28px 0 15px 0;display:inline-block;">结束征集后，您之前冻结的资金将被解冻。<br/>但其他用户无法查看该条征集，是否继续？</span><br>
+
+        <input type="hidden" id="collection_id"/>
+    </div>
+    <div class="dialog_box_bottom">
+        <div class="yes" onclick="delEnsure()">确定结束</div>
+        <div class="no" onclick="cancle('delCollection')">取消结束</div>
+    </div>
+</div>
+
+<div id="fade" class="black_overlay">
+<iframe src="../common/foot.html" width="100%;" height="60px;" frameborder="0" scrolling="no">
+</iframe>
+<script>
+    window.setTimeout(function () {
+        $(window.frames['header'].document).find('body .nav li').eq(3).css("background", "#000");
+    }, 100)
+</script>
+</body>
+</html>

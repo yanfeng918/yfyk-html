@@ -1,0 +1,155 @@
+/* 
+* @Author: dell
+* @Date:   2015-07-03 13:48:33
+* @Last Modified by:   dell
+* @Last Modified time: 2015-09-11 16:49:03
+*/
+@charset "utf-8";
+/* CSS Document */
+html,body{
+		background: #F7F7F5;
+}
+.main{
+	color: #000;
+	margin:0 auto;
+	width:510px;
+	padding-top: 87.5px ;
+	font-family: "heiti";
+	overflow: hidden;
+}
+.main .container{
+	width:370px;
+	background: #fff;
+	border-radius: 10px;
+	margin:60px auto 50px auto;
+	padding-bottom: 25px;
+}
+
+#login_btn,#register_btn{
+	background: #FDFDFD;
+	border-radius: 5px;
+	color: #000;
+	padding:3px 10px;
+	margin:0 10px;
+}
+#login_btn a,#register_btn a{
+	color: #000;
+	font-size: 12px;
+	font-weight: normal;
+}
+
+.title{
+	height: 50px;
+	padding-top: 10px;
+	margin-bottom: 27px;
+	font-size: 16px;
+	text-align: center;
+	line-height: 50px;
+	font-weight: bold;
+	color:#323232;
+	font-family: "heiti";
+	border-bottom: 1px solid #EBEBEB;
+}
+.form{
+	font-size:18px;
+	width: 90%;
+	margin:0 auto;	
+	color:#525252;
+}
+.form input{
+	border: 1px solid #D8D8D8;
+	border-radius: 5px;
+	width:70%;
+	height: 40px;
+	margin:25px 0;
+	font-size: 18px;
+	margin:13px auto;
+	display: inline-block;
+	box-sizing:border-box;
+-moz-box-sizing:border-box; /* Firefox */
+-webkit-box-sizing:border-box; /* Safari */
+}
+.form label{
+	width: 28%;
+	display: inline-block;
+}
+.use_email{
+	height: 24px;
+}
+.use_email,.use_mobile{
+	width: 100%;
+	color: #227ADC;
+	font-size: 12px;
+	line-height: 24px;
+	height: 24px;
+}
+.use_email p,.use_mobile p{
+	float: right;	
+}
+
+
+#captcha{
+	width: 60%;
+}
+.txt_sub{
+	background: #227ADC;
+	color: #fff;
+	margin-top:27px;
+	border:none;
+	width: 100%;
+}
+.regain{
+	text-align: center;
+}
+
+
+.note{
+	width: 510px;
+	height: 275px;
+	background:#fff;
+	margin:0 auto;
+	color: #646567;
+	font-size:12px;
+}
+.note_close{
+	margin:7px;
+	float: right;
+}
+.note_title{
+	padding-top: 20px;
+}
+.note_title span{
+	float: left;
+	margin-left: 20px;
+}
+.note_title p{
+	display: inline-block;
+	line-height: 35px;
+	margin-left: 10px;
+	font-size: 16px;
+	color: #646567;	
+}
+.note_center{
+	width: 100%;
+	height: 145px;
+	border-top:1px solid #E9E9E9;
+	border-bottom:1px solid #E9E9E9;
+	text-align: center;
+	line-height: 30px;
+	margin-top: 10px;
+}
+.note_center a{
+	color: #fff;
+	font-size: 12px;
+	background-color: #217ADC;
+	width: 165px;
+	height: 30px;
+	display: inline-block;
+	line-height: 30px;
+	border-radius: 3px;
+}
+.note_bottom{
+	text-align: center;
+	background-color: #fff;
+	padding: 20px 0;
+}

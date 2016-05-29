@@ -1,0 +1,117 @@
+
+.form .form1{
+    font-size:16px;
+    width: auto;
+    height: 100%;
+    margin:0 auto;
+    /*color:#525252;*/
+    /*margin-top: 18%;*/
+
+}
+
+.form{
+    margin-top: 18%;
+    margin-left: 13%;
+}
+
+.form1{
+    margin: 5% 8%;
+}
+
+.form input{
+    border-radius: 5px;
+    width:85%;
+    font-size: 1.2rem;
+    margin:3% auto;
+    display: inline-block;
+    box-sizing:border-box;
+    -moz-box-sizing:border-box; /* Firefox */
+    -webkit-box-sizing:border-box; /* Safari */
+    border:  solid 1px #848689;
+    height: 2.5rem;
+}
+
+.form1 input{
+    /*border-radius: 5px;*/
+    width:100%;
+    font-size: 1.2rem;
+    margin:1% auto;
+    display: inline-block;
+    box-sizing:border-box;
+    /*-moz-box-sizing:border-box; /!* Firefox *!/*/
+    /*-webkit-box-sizing:border-box; /!* Safari *!/*/
+    /*border-top: solid 1px #848689;*/
+    /*border-bottom:solid 1px #848689 ;*/
+    height: 2.5rem;
+}
+
+.form1 label{
+    margin: 6% 0 3% 5%;
+
+}
+
+.form span{
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-bottom: 2%;
+}
+.txt_sub{
+    background-color: orangered;
+    border: medium none;
+    color: #fff;
+    margin: 20px auto 0;
+    width: 100%;
+    /*height: 100%;*/
+    height: 2.7rem;
+}
+
+.txt_sub1{
+    background-color: #dedede;
+    border:solid 1px #dedede;
+    color: black;
+    width: 50%;
+    height: 2rem;
+    padding-top: 3%;
+    text-align: center;
+    vertical-align: middle;
+    font-weight: bold;
+    position: absolute;
+    left: 25%;
+}
+
+.captchaStyle {
+    width: 100%;
+    height:100%;
+}
+
+.captchaStyle input{
+    float: left;
+    width: 40%;
+    margin: 2% 4% 2% 0;
+}
+
+.captchaStyle a{
+    font-size: smaller;
+    font-weight: bold;
+    color: white;
+    float: left;
+    width: 25%;
+    margin: 5% 0;
+}
+
+.list {
+    width: 100%;
+    margin-top: 10px;
+    background-color: white;
+    overflow: hidden;
+    /*box-shadow: 0 1px 3px rgba(0,0,0,0.1);*/
+    /*border-top: solid 1px #dedede;*/
+    /*border-bottom:  solid 1px #dedede;*/
+}
+
+.list li {
+    margin-top: 4%;
+    border-top: solid 1px #dedede;
+    border-bottom:  solid 1px #dedede;
+}
+

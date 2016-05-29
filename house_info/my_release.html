@@ -1,0 +1,214 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>大公盘</title>
+    <link rel="stylesheet" type="text/css" href="../resources/css/house_info/list.css"/>
+    <link rel="stylesheet" type="text/css" href="../resources/css/global.css"/>
+    <link rel="stylesheet" type="text/css" href="../resources/css/clear.css"/>
+    <link rel="stylesheet" type="text/css" href="../resources/css/pager.css"/>
+    <link rel="stylesheet" type="text/css" href="../resources/css/tip_box.css"/>
+    <script type="text/javascript" src="../resources/js/jquery-1.10.1.min.js"></script>
+    <script type="text/javascript" src="../resources/js/common.js"></script>
+    <script type="text/javascript" src="../resources/js/jquery.pager.js"></script>
+    <script type="text/javascript" src="../resources/js/jquery.lSelect.js"></script>
+    <script type="text/javascript" src="../resources/js/validate/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="../resources/js/validate/messages_cn.js"></script>
+    <script type="text/javascript" src="../resources/js/houseInfo/my_release.js"></script>
+    <link href="../resources/css/date_css/date.css" rel="stylesheet" type="text/css">
+
+</head>
+<body>
+<iframe name="header" id="header" src="../common/head.html" width="100%;" height="48px;" frameborder="0" scrolling="no"
+        style="min-width:720px;">
+</iframe>
+<div class="main">
+    <div class="main_plus">
+        <a href="../personal_center.html?type=addHouseInfo" >+发布数据&nbsp;&nbsp;&nbsp;</a>
+    </div>
+    <div class="main_L">
+        <div class="main_L_top">
+            <span class="city" id="cityName">上海</span>
+            <input type="hidden" id="city_id" name="city_id">
+        </div>
+        <div class="datas" id="city_view">
+            <ul>
+            </ul>
+        </div>
+    </div>
+    <div class="main_R" style="margin-bottom:25px;">
+        <div class="container" style="margin-left:0; margin-right:0;">
+            <div class="position">
+                <div>当前位置：<a href="list.html">房源数据库</a>><a href="">我发布的房源</a>
+                </div>
+            </div>
+            <div class="region" style="margin-left:25px;  margin-right: 25px;display: none">
+                <div class="region_title">
+                    区域板块：<span id="town_name"></span>
+                </div>
+                <div class="region_center">
+                    <div class="option-list sub-option-list" id="region_id">
+                    </div>
+                </div>
+            </div>
+            <div class="filter_drop">
+                <form id="houseFrom">
+                    <input type="hidden" name="pageNumber" id="pageNumber" value="1"/>
+                    <input type="hidden" name="pageSize" id="pageSize" value="20"/>
+                    <input type="hidden" name="orderBy" id="orderBy"/>
+                    <input type="hidden" name="orderType" id="order"/>
+                </form>
+            </div>
+            <div class="main_R_main" style="margin-left:25px; margin-right: 25px; ">
+                <div class="main_R_nav">
+                    <ul>
+                        <li class="list_head "><a href="list.html">数据列表</a></li>
+                        <li class="list_head about"><a href="my_query.html">我查看的房源</a></li>
+                        <li class="main_R_nav_current list_head about "><a href="my_release.html">我发布的房源</a></li>
+                        <li class="list_head about"><a href="my_favor.html">我收藏的房源</a></li>
+                    </ul>
+                </div>
+
+                <div class="main_R_list ">
+                    <table id="releaseTable" border="0" cellpadding="0" cellspacing="0" class="mytable">
+                        <tr style="background:#227ADC; color:#fff;">
+                            <th>发布时间</th>
+                            <th>数据价格</th>
+                            <th>区域</th>
+                            <th>小区</th>
+                            <!--<th>户型</th>-->
+                            <th>面积</th>
+                            <th>价格</th>
+                            <th>楼层</th>
+                            <th>房号</th>
+                            <th>楼栋号</th>
+                            <th>卖家称呼</th>
+                            <th>手机</th>
+                            <th>审核状态</th>
+                            <th>申诉操作</th>
+                            <!--<th>申诉状态</th>-->
+                        </tr>
+                    </table>
+                </div>
+
+            </div>
+            <div id="pager"></div>
+
+            <div class="modify" id="changeInfoId">
+                <div class="modify_head">
+                    <p>修改数据</p>
+
+                    <div class="close" onclick="cancle('changeInfoId')"><img src="../resources/images/form_close.jpg" alt="" /></div>
+                </div>
+                
+                <div class="form" style="padding-left:25px;">
+                    <form id="changeInfoFrom">
+                        <input type="hidden" id="id" name="id">
+                        <label for="">酬&nbsp;&nbsp;&nbsp;&nbsp;劳：</label>
+                        <input type="text" style="width: 80px" name="infoPrice" id="infoPrice"/>
+                        <label for="" class="intro">输入自定义酬劳，单条不能低于10元</label><br/>
+                        <label for="">业主称呼：</label><input style="width: 80px" type="text" name="name" id="name"/>
+                        <label for="">&nbsp;&nbsp;&nbsp;&nbsp;电&nbsp;&nbsp;&nbsp;&nbsp;话：</label>
+                        <input style="width: 150px" type="text" name="mobile" id="mobile"/>
+                        <br/>
+                        <label for="">区&nbsp;&nbsp;&nbsp;&nbsp;域：</label>
+                        <input type="hidden" id="area_ids" name="area_ids" value="" treePath="">
+                        <br/><label for="">地&nbsp;&nbsp;&nbsp;&nbsp;址：</label>
+                        <input type="text" name="address" id="address"/><br/>
+
+                        <label for="" style="">小区名：</label><input type="text" name="community" id="community"/><br/>
+                        <label for="">楼栋号：</label><input type="text" name="ban" id="ban" style="width:80px;"/>
+                        <label for="">&nbsp;&nbsp;&nbsp;&nbsp;楼层：</label><input type="text" name="floor" id="floor" style="width:80px;"/>
+                        <label for="">&nbsp;&nbsp;&nbsp;&nbsp;房间号：</label>
+                        <input type="text" name="roomNumber" id="roomNumber" style="width:80px;"/>
+                        <br/>
+
+                        <label for="">面&nbsp;&nbsp;&nbsp;&nbsp;积：</label>
+                        <input type="text" name="areaSizes" id="areaSizes" style="width:80px;"/>
+                        <label for="">&nbsp;&nbsp;&nbsp;&nbsp;价格：</label>
+                        <input type="text" name="salePrices" id="salePrices" style="width:80px;"/>
+                        <label for="" style="color:#CBCBCB;">万元</label>
+
+                        <label for="">户型：</label>
+                        <select name="room" id="room" style="height:23px; border:1px solid #EBEBEB;">
+                            <option value="零">0</option>
+                            <option value="一">1</option>
+                            <option value="二">2</option>
+                            <option value="三">3</option>
+                            <option value="四">4</option>
+                            <option value="五">5</option>
+                        </select>
+                        <label for="">室</label>
+                        <select name="office" id="office" style="height:23px; border:1px solid #EBEBEB;">
+                            <option value="零">0</option>
+                            <option value="一">1</option>
+                            <option value="二">2</option>
+                            <option value="三">3</option>
+                        </select><label for="">厅&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                        <br/>
+                            <input type="submit" value="提交数据" id="submitHouseInfo" class="txt_sub"/>
+                        <br/>
+                    </form>
+                </div>
+            </div>
+
+            <div class="dialog_box" id="changePriceId">
+                <div class="dialog_box_head">
+                    <p>修改信息</p>
+                </div>
+                <div class="prompt" style="width:100%; height:230px; padding-top:25px;">
+                    <form id="changePriceForm" action="">
+                        <input type="hidden" id="onlyPriceHouseId" name="id">
+                        <span style="font-size: small; color: red">&nbsp;&nbsp;&nbsp;&nbsp;注：该房源已审核通过，只能修改房源信息价格！</span>
+                        <br/>
+                        &nbsp;&nbsp;&nbsp;&nbsp;当前房源信息价格为<span id="oldInfoPrice" style="color: red; font-size: 28px"></span>
+                        <span>元</span>
+                        <br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;请输入新的价格:
+                        <input type="text" style="width:150px; display:inline-block;"
+                               name="infoPrice" id="onlyInfoPrice"
+                               class="fixed_price"/>元
+                        <br/>
+                        <div class="dialog_box_bottom" style="margin-top:25px;">
+                            <!--<div class="yes" onclick="changePriceEnsure()"></div>-->
+                            <input class="yes" type="submit" value="确定修改" />
+                            <div class="no" onclick="cancle('changePriceId')">取消修改</div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="dialog_box" id="stateHouseInfo">
+                <div class="dialog_box_head">
+                    <p>申诉房源</p>
+                </div>
+                <div class="prompt">
+                    <!--<span class="note"><img src="../resources/images/note.png" alt=""></span>-->
+                    <span style="padding:20px 0 15px 0;display:inline-block;">该房源是不是审核错误了呢？填写原因，申诉吧！</span><br>
+                    <textarea name="stateReason" id="stateReason" style="min-width:300px;max-width: 300px;min-height:70px;max-height: 70px"></textarea>
+                    <input type="hidden" id="stateHouseId"/>
+                </div>
+                <div class="dialog_box_bottom">
+                    <div class="yes" onclick="stateEnsure()">确定申诉</div>
+                    <div class="no" onclick="cancle('stateHouseInfo')">取消申诉</div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    <div id="fade" class="black_overlay">
+    </div>
+</div>
+<div class="" style="width:100%; height:60px;">
+    <iframe src="../common/foot.html" width="100%;" height="60px;" frameborder="0" scrolling="no">
+    </iframe>
+</div>
+</body>
+<script>
+    window.setTimeout(function () {
+        $(window.frames['header'].document).find('body .nav li').eq(2).css("background", "#000");
+    }, 100)
+</script>
+</html>

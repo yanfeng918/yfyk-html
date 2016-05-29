@@ -1,0 +1,47 @@
+/* 
+* @Author: dell
+* @Date:   2015-08-13 14:57:55
+* @Last Modified by:   dell
+* @Last Modified time: 2015-09-14 19:06:34
+*/
+body,html{
+	background: #FFFFFF;
+}
+.main{
+	margin:0 auto;
+	height:auto;
+}
+
+.main  table{
+	width:60%;
+	margin:0 auto;
+	/* float: left; */
+	text-align: center;
+	color:#333333;
+	margin-top:12px;
+	border-top:1px solid #CACACA; 
+
+}
+.main  table .red{
+	color:#FF0000;
+}
+.main  table td,
+.main  table th{
+	border-bottom:1px solid #CACACA;
+	height: 40px;
+}
+.intro{
+	width: 60%;
+	margin:0 auto;
+	height: 50px;
+	line-height: 50px;
+}
+.intro span img{
+	display: inline-block;
+}
+
+.operate{
+	color: #227ADC;
+	cursor:pointer;
+}
+
