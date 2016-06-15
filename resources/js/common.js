@@ -19,7 +19,8 @@ function browserRedirect() {
 ip="localhost";
 var setting = {
 	base: "http://"+ip+"/yjb/",
-    baseHtml:"http://"+ip+"/yjb-html/",
+    //baseHtml:"http://"+ip+"/yjb-html/",
+    baseHtml:"http://"+ip+"/",
 	locale: "zh_CN"
 };
 
