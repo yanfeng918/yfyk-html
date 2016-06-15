@@ -16,7 +16,7 @@ function browserRedirect() {
 
 //browserRedirect();
 //ip="dagongpan.cn";
-ip="192.168.1.100";
+ip="localhost";
 var setting = {
 	base: "http://"+ip+"/yjb/",
     baseHtml:"http://"+ip+"/yjb-html/",
