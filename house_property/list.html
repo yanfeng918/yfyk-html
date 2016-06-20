@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>大公盘</title>
+    <link rel="stylesheet" type="text/css" href="../resources/css/tip_box.css"/>
+    <link rel="stylesheet" type="text/css" href="../resources/css/house_info/list.css"/>
+    <link rel="stylesheet" type="text/css" href="../resources/css/global.css"/>
+    <link rel="stylesheet" type="text/css" href="../resources/css/clear.css"/>
+    <link rel="stylesheet" type="text/css" href="../resources/css/pager.css"/>
+
+    <script type="text/javascript" src="../resources/js/jquery-1.10.1.min.js"></script>
+    <script type="text/javascript" src="../resources/js/common.js"></script>
+    <script type="text/javascript" src="../resources/js/jquery.pager.js"></script>
+    <script type="text/javascript" src="../resources/js/jquery.lSelect.js"></script>
+    <script type="text/javascript" src="../resources/js/validate/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="../resources/js/validate/messages_cn.js"></script>
+    <script type="text/javascript" src="../resources/js/house_property/houseInfoV2.js"></script>
+    <link href="../resources/css/date_css/date.css" rel="stylesheet" type="text/css">
+    <script>
+        //加载用户名称
+        var  uname = getCookie("yjb_username");
+        if(uname==null || uname.length==0){
+            //alert("未登录")
+            window.location=setting.baseHtml+"login.html";
+            $.delay(1000);
+        }
+
+
+        $(function(){
+            var oldValue="";
+            setInterval(function () {
+                var content = $("#searchCommunity").val().trim();
+                    if (content != null && content.length > 0 && oldValue != content) {
+                        oldValue = content;
+                        //todo ajax
+                        var keywords = {'communityKeyWords': content};
+                        getAjax("GET", keywords, "houseInfo/getCommunity?" + new Date(), getCommunityCallBack, true);
+                    }
+
+                if (content == null || content.length == 0 ) {
+                    $(".ac_results").hide();
+                }
+            }, 1500)
+
+            $(document).on("click", ".csearch", function(event) {
+                event.preventDefault();
+                var communityName= $(this).children().first().first().html();
+                var communityArea = $(this).children().last().val();
+                $("#searchCommunity").val(communityName);
+                $(".ac_results").hide();
+                oldValue=$("#searchCommunity").val().trim();
+            });
+            $(document).on("mouseover", ".ac_results li", function(event) {
+                $(this).parent().children().removeClass("ac_over");
+                $(this).addClass("ac_over");
+            });
+
+        })
+
+        function getCommunityCallBack(data){
+            if(data.length>0)
+                $(".ac_results").show();
+            $(".ac_results ul").empty();
+            var content="";
+            $.each(data,function(i,item){
+                content += "<li><div class='csearch'><span style=\"margin: 0 10px;font-weight: bold;\">"+item.name+"</span>";
+                content += "<span style=\"margin: 0 10px;float: right;\">"+item.area.fullName.split("市")[1]+"</span>";
+                content += "<input type='hidden' value='"+item.area.id +"'/></div></li>";
+            })
+            $(".ac_results ul").append(content);
+
+        }
+
+
+
+    </script>
+</head>
+<body>
+<iframe name="header" id="header" src="../common/head.html" width="100%;" height="48px;" frameborder="0" scrolling="no"
+        style="min-width:1300px;">
+</iframe>
+<div class="main">
+    <div class="main_plus">
+        <a href="../personal_center.html?type=addHouseInfo" target="_top">+发布数据&nbsp;&nbsp;&nbsp;</a>
+    </div>
+    <div class="main_L">
+        <div class="main_L_top">
+            <span class="city" id="cityName">上海</span>
+            <input type="hidden" id="city_id" name="city_id">
+            <!--<select id="city_id" style="display:none;">-->
+                <!--<option value="792" selected="selected">上海</option>-->
+                <!--<option value="1">北京</option>-->
+                <!--<option value="18">天津</option>-->
+                <!--<option value="1947">广州</option>-->
+                <!--<option value="1971">深圳</option>-->
+                <!--<option value="853">苏州</option>-->
+                <!--<option value="811">南京</option>-->
+            <!--</select>-->
+        </div>
+        <div class="datas" id="city_view">
+            <ul>
+            </ul>
+        </div>
+    </div>
+    <div class="main_R" style="margin-bottom:25px;">
+        <div class="container" style="margin-left:0; margin-right:0;">
+            <div class="position">
+                <div>当前位置：<a href="">房源数据库</a>><a href="">数据列表</a>
+                </div>
+            </div>
+            <div class="region" style="margin-left:25px;  margin-right: 25px;display: none">
+                <div class="region_title">
+                    区域板块：<span id="town_name"></span>
+                </div>
+                <div class="region_center">
+                    <div class="option-list sub-option-list" id="region_id">
+                    </div>
+                </div>
+            </div>
+
+            <div class="filter_drop">
+                <form id="houseFrom">
+
+                    <label><b>筛选：</b></label>
+                    <input type="hidden" id="area_id" name="area_id" value=""/>
+                    <input type="hidden" name="pageNumber" id="pageNumber" value="1"/>
+                    <input type="hidden" name="pageSize" id="pageSize" value="20"/>
+                    <input type="hidden" name="orderBy" id="orderBy"/>
+                    <input type="hidden" name="orderType" id="order"/>
+
+                    <div class="drop_down" style="margin-left:0;">
+                        <select id="salePrice" name="salePrice">
+                            <option value="">售价</option>
+                            <option value="0,0">不限</option>
+                            <option value="0,100">100万以下</option>
+                            <option value="100,150">100-150万</option>
+                            <option value="150,200">150-200万</option>
+                            <option value="200,300">200-300万</option>
+                            <option value="300,500">300-500万</option>
+                            <option value="500,800">500-800万</option>
+                            <option value="800,1000">800-1000万</option>
+                            <option value="1000,0">1000万以上</option>
+                        </select>
+                    </div>
+                    <div class="drop_down">
+                        <select id="houseShape" name="houseShape">
+                            <option value="">户型</option>
+                            <option value="">不限</option>
+                            <option value="一室">1室</option>
+                            <option value="二室">2室</option>
+                            <option value="三室">3室</option>
+                            <option value="四室">4室</option>
+                            <option value="五室">5室</option>
+                            <option value="五室以上">五室以上</option>
+                        </select>
+                    </div>
+                    <div class="drop_down">
+                        <select id="areaSize" name="areaSize">
+                            <option value="">面积</option>
+                            <option value="0,0">不限</option>
+                            <option value="0,50">50平以下</option>
+                            <option value="50,70">50-70平</option>
+                            <option value="70,90">70-90平</option>
+                            <option value="90,110">90-110平</option>
+                            <option value="110,130">110-130平</option>
+                            <option value="130,150">130-150平</option>
+                            <option value="150,200">150-200平</option>
+                            <option value="200,0">200平以上</option>
+                        </select>
+                    </div>
+                    <div class="search">
+                        <label ><b>搜索：</b></label>
+                        <!--<div style="width: 500px;">-->
+                            <input id="searchCommunity" type="text" name="community" placeholder="请输入小区名称"/>
+
+                        <!--</div>-->
+                        <input type="button" value="搜索" class="search_btn"  id="searchHouseInfo"/>
+
+                        <div class="ac_results" style="position: absolute; width: 307px;left: 47px;top:40px;display: none; ">
+                            <ul style="max-height: 400px; overflow: auto;">
+                                <!--<li class="ac_over">-->
+                                    <!--<div class="csearch">-->
+                                        <!--<span style="margin: 0 10px;">-->
+                                            <!--<b data-tag="中兴" data-url="/ershoufang/zhongxing/">中兴</b>-->
+                                        <!--</span>-->
+                                        <!--<span style="margin: 0 10px;float: right;">闸北中兴</span>-->
+                                    <!--</div>-->
+                                <!--</li>-->
+                            </ul>
+                        </div>
+                    </div>
+
+
+                </form>
+            </div>
+            <div class="main_R_main" style="margin-left:25px; margin-right: 25px; ">
+                <div class="main_R_nav">
+                    <ul>
+                        <li class="main_R_nav_current list_head "><a href="list.html">数据列表</a></li>
+                        <li class="list_head about"><a href="my_query.html">我查看的房源</a></li>
+                        <li class="list_head about"><a href="my_release.html">我发布的房源</a></li>
+                        <li class="list_head about"><a href="my_favor.html">我收藏的房源</a></li>
+                    </ul>
+                </div>
+                <div class="main_R_list list_total">
+                    <table id="houseTable" border="0" cellpadding="0" cellspacing="0" class="mytable">
+                        <tr style="background:#227ADC; color:#fff;">
+                            <th>数据价格</th>
+                            <th>上架时间</th>
+                            <th>区域</th>
+                            <th>小区</th>
+                            <th>面积</th>
+                            <th>售价</th>
+                            <th>楼栋号</th>
+                            <th>房号</th>
+                            <!--<th>卖家称呼</th>-->
+                            <th>手机</th>
+                            <th colspan="2">操作</th>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div id="pager"></div>
+
+            <!--<p><a href="javascript:void(0)" onclick="document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">查看</a></p>-->
+            <!-- 余额不足 -->
+            <div class="data_query_detail dialog_box" id="light">
+                <div class="dialog_box_head">
+                    <p>查看数据</p>
+                </div>
+                <div class="prompt" style="line-height:30px; height:80px; padding-top:45px;">
+                    <span class="note"><img src="../resources/images/cry.jpg" height="56" width="61" alt=""></span>
+
+                    <div class="info"><p>该条数据查看需支付</p><span style="font-size: 28px" id="notEnough"></span>元</div>
+                    <span style="color:#EE0000;">您的可用余额(余额-冻结金额)不足！</span>
+                </div>
+                <div class="dialog_box_bottom">
+                    <div class="yes"><a href="../personal_center.html?type=recharge" targrt="_top" style="color:#fff;">充值</a></div>
+                    <div class="no" onclick="cancle('light')"><a href="javascript:void(0)">
+                        取消</a></div>
+                </div>
+            </div>
+
+            <div class="data_query dialog_box" id="light1">
+                <div class="dialog_box_head">
+                    <p>查看数据</p>
+                </div>
+                <div class="prompt" style="line-height:125px;">
+                    <span class="note"><img src="../resources/images/smile.jpg" height="61" width="61" alt=""></span>
+
+                    <div class="info"><p>该条数据查看需支付</p><span style="font-size: 28px" id="needPayid"></span>元</div>
+                </div>
+                <div class="dialog_box_bottom">
+                    <input type="hidden" id="houseId"/>
+
+                    <div class="yes" onclick="ensure('light1')"><a href="javascript:void(0)"
+                                                                   style="color:#fff;">确定购买数据</a></div>
+                    <div class="no" onclick="cancle('light1')"><a href="javascript:void(0)">取消购买数据</a></div>
+                </div>
+            </div>
+
+            <div class="data_query data_query_detail dialog_box" id="light2" style="height: 300px">
+                <div class="data_query_head">
+                    <p>查看数据</p>
+                </div>
+                <div class="data_query_detail">
+                    <table id="showData">
+                        <tr></tr>
+                    </table>
+                    <div class="dialog_box_bottom">
+                        <div class="no" onclick="cancle('light2')" style="margin-left:70px;
+					float:left;"><a href="javascript:void(0)">
+                            确定</a></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modify" id="changeInfoId">
+                <div class="modify_head">
+                    <p>修改数据</p>
+
+                    <div class="close" onclick="cancle('changeInfoId')"><img src="../resources/images/form_close.jpg" alt="" /></div>
+                </div>
+                
+                <div class="form" style="padding-left:25px;">
+                    <form id="changeInfoFrom">
+                        <br/>
+                        <input type="hidden" id="id" name="id">
+                        <label >酬&nbsp;&nbsp;&nbsp;&nbsp;劳：</label>
+                        <input type="text" style="width: 80px" name="infoPrice" id="infoPrice" class="fixed_price"/>
+                        <label  class="intro">输入自定义酬劳，单条不能低于10元</label><br/>
+                        <label >业主称呼：</label><input style="width: 80px" type="text" name="name" id="name"/>
+                        <label >&nbsp;&nbsp;&nbsp;&nbsp;电&nbsp;&nbsp;&nbsp;&nbsp;话：</label>
+                        <input style="width: 150px" type="text" name="mobile" id="mobile"/>
+                        <br/>
+                        <label >区&nbsp;&nbsp;&nbsp;&nbsp;域：</label>
+                        <input type="hidden" id="area_ids" name="area_ids" value="" treePath="">
+                        <label >&nbsp;&nbsp;&nbsp;&nbsp;地址：</label>
+                        <input type="text" name="address" id="address"/><br/>
+
+                        <label  style="">小区名称：</label><input type="text" name="community" id="community"/><br/>
+                        <label >楼栋号：</label><input type="text" name="ban" id="ban" style="width:80px;"/>
+                        <label >楼层：</label><input type="text" name="floor" id="floor" style="width:80px;"/>
+                        <label >房间号：</label>
+                        <input type="text" name="roomNumber" id="roomNumber" style="width:80px;"/>
+                        <label >户型：</label>
+                        <select name="room" id="room" style="height:23px; border:1px solid #EBEBEB;">
+                            <option value="一">1</option>
+                            <option value="二">2</option>
+                            <option value="三">3</option>
+                            <option value="四">4</option>
+                            <option value="五">5</option>
+                        </select>
+                        <label >室</label>
+                        <select name="office" id="office" style="height:23px; border:1px solid #EBEBEB;">
+                            <option value="零">0</option>
+                            <option value="一">1</option>
+                            <option value="二">2</option>
+                            <option value="三">3</option>
+                        </select>
+                        <label >厅</label><br/>
+                        <label  style="margin-left:13px;">面&nbsp;&nbsp;&nbsp;&nbsp;积：</label>
+                        <input type="text" name="areaSizes" id="areaSizes" style="width:80px;"/>
+                        <label >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;价&nbsp;格：</label>
+                        <input type="text" name="salePrices" id="salePrices" style="width:230px;"/>
+                        <label  style="color:#CBCBCB;">万元</label>
+                        <br/>
+                            <input type="submit" value="提交数据" id="submitHouseInfo" class="txt_sub"/>
+                        <br/>
+                    </form>
+
+                </div>
+            </div>
+
+            <div class="dialog_box" id="changePriceId">
+                <div class="dialog_box_head">
+                    <p>修改信息</p>
+                </div>
+                <div class="prompt" style="width:100%; height:230px; padding-top:25px;">
+                    <form id="changePriceForm" action="">
+                        <input type="hidden" id="onlyPriceHouseId" name="id">
+                        <span style="font-size: small; color: red">&nbsp;&nbsp;&nbsp;&nbsp;注：该房源已审核通过，只能修改房源信息价格！</span>
+                        <br/>
+                        &nbsp;&nbsp;&nbsp;&nbsp;当前房源信息价格为<span id="oldInfoPrice" style="color: red; font-size: 28px"></span>
+                        <span>元</span>
+                        <br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;请输入新的价格:
+                        <input type="text" style="width:150px; display:inline-block;"
+                               name="infoPrice" id="onlyInfoPrice"
+                               class="fixed_price"/>元
+                        <br/>
+                        <div class="dialog_box_bottom" style="margin-top:25px;">
+                            <!--<div class="yes" onclick="changePriceEnsure()"></div>-->
+                            <input class="yes" type="submit" value="确定修改" />
+                            <div class="no" onclick="cancle('changePriceId')">取消修改</div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="dialog_box" id="reportId">
+                <div class="dialog_box_head">
+                    <p>举报数据</p>
+                </div>
+                <div class="prompt">
+                    <span class="note"><img src="../resources/images/note.png" alt=""></span>
+                    <span style="margin:40px 0 15px 0;display:inline-block;">确定举报该房源为无效数据？</span><br>
+                    <label >举报原因:</label>
+                    <input type="text" name="reportReason" id="reportReason"/>
+                    <input type="hidden" id="reportHouseid"/>
+                </div>
+                <div class="dialog_box_bottom">
+                    <div class="yes" onclick="reportEnsure()">确定举报</div>
+                    <div class="no" onclick="cancle('reportId')">取消举报</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div id="fade" class="black_overlay">
+    </div>
+</div>
+
+<div class="" style="width:100%; height:60px;">
+    <iframe src="../common/foot.html" width="100%;" height="60px;" frameborder="0" scrolling="no">
+    </iframe>
+</div>
+</body>
+<script>
+    window.setTimeout(function () {
+        $(window.frames['header'].document).find('body .nav li').eq(2).css("background", "#000");
+    }, 100)
+</script>
+</html>
