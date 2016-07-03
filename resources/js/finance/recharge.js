@@ -8,27 +8,27 @@ var pageCount;
 
 $(function(){
 	
-    $(".container_bottom_record").hide();
+    //$(".container_bottom_record").hide();
 
-    //选项卡切换
-    $(".recharge_record").click(function(event) {
-		$(".container_bottom_want").hide();
-		$(".container_bottom_record").show();
-		$(this).addClass('recharge_current');
-		$(".recharge_want").removeClass('recharge_current');
-		//初始化分页的数据-加载充值记录
-        var formParam = $("#recharge_record_form").serialize();
-		getAjax("post", formParam,"recharge/auth/getRechargeList",submitCallback,false);
-		$("#pager").pager({ pagenumber: 1, pagecount: pageCount, buttonClickCallback: PageClick });
-	});
-
-    //选项卡切换
-	$(".recharge_want").click(function(event) {
-		$(".container_bottom_record").hide();
-		$(".container_bottom_want").show();
-		$(this).addClass('recharge_current');
-		$(".recharge_record").removeClass('recharge_current');
-	});
+    ////选项卡切换
+    //$(".recharge_record").click(function(event) {
+	//	$(".container_bottom_want").hide();
+	//	$(".container_bottom_record").show();
+	//	$(this).addClass('recharge_current');
+	//	$(".recharge_want").removeClass('recharge_current');
+	//	//初始化分页的数据-加载充值记录
+     //   var formParam = $("#recharge_record_form").serialize();
+	//	getAjax("post", formParam,"recharge/auth/getRechargeList",submitCallback,false);
+	//	$("#pager").pager({ pagenumber: 1, pagecount: pageCount, buttonClickCallback: PageClick });
+	//});
+    //
+    ////选项卡切换
+	//$(".recharge_want").click(function(event) {
+	//	$(".container_bottom_record").hide();
+	//	$(".container_bottom_want").show();
+	//	$(this).addClass('recharge_current');
+	//	$(".recharge_record").removeClass('recharge_current');
+	//});
 
     /**
      * 按照时间的起始条件进行搜索
@@ -70,19 +70,20 @@ $(function(){
         });
     }
     
-    $(function(){
-        $(".course").hide();    
-        $(".query_course").click(function(event) {
-            $(".course").show();
-            $(".course").click(function(event) {
-            $(this).hide();
-            });
-        });
-    })
+    //$(function(){
+    //    $(".course").hide();
+    //    $(".query_course").click(function(event) {
+    //        $(".course").show();
+    //        $(".course").click(function(event) {
+    //        $(this).hide();
+    //        });
+    //    });
+    //})
 /**
  * 新增充值记录
  */
 $(function(){
+
     $("#rechargeId").validate({
         rules: {
             amount:{
@@ -100,7 +101,9 @@ $(function(){
             getAjax("POST", $('#rechargeId').serialize(),"recharge/auth/addRechargetInfo",rechargeCallback,true);
         }
     });
+
 })
+
 function rechargeCallback(data){
     if(data.type=='error'){
         alert(data.content);
