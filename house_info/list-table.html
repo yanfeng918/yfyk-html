@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>大公盘</title>
+    <link rel="stylesheet" type="text/css" href="../resources/css/tip_box.css"/>
+    <link rel="stylesheet" type="text/css" href="../resources/css/house_info/list.css"/>
+    <link rel="stylesheet" type="text/css" href="../resources/css/global.css"/>
+    <link rel="stylesheet" type="text/css" href="../resources/css/clear.css"/>
+    <link rel="stylesheet" type="text/css" href="../resources/css/pager.css"/>
+
+    <script type="text/javascript" src="../resources/js/jquery-1.10.1.min.js"></script>
+    <script type="text/javascript" src="../resources/js/common.js"></script>
+    <script type="text/javascript" src="../resources/js/jquery.pager.js"></script>
+    <script type="text/javascript" src="../resources/js/jquery.lSelect.js"></script>
+    <!--<script type="text/javascript" src="../resources/js/validate/jquery.validate.min.js"></script>-->
+    <!--<script type="text/javascript" src="../resources/js/validate/messages_cn.js"></script>-->
+    <!--<script type="text/javascript" src="../resources/js/houseInfo/houseInfoV2.js"></script>-->
+    <link href="../resources/css/date_css/date.css" rel="stylesheet" type="text/css">
+
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" type="text/css" href="http://cdn.datatables.net/1.10.7/css/jquery.dataTables.css">
+     
+     
+    <!-- DataTables -->
+    <script type="text/javascript" charset="utf8" src="http://cdn.datatables.net/1.10.7/js/jquery.dataTables.js"></script>
+    <script>
+        //加载用户名称
+        var  uname = getCookie("yjb_username");
+        if(uname==null || uname.length==0){
+            //alert("未登录")
+//            window.location=setting.baseHtml+"login.html";
+//            $.delay(1000);
+        }
+
+
+        $(function(){
+
+
+//            getAjax("GET", {}, "houseInfoValid/auth/getHouseInfoList?" + new Date(), getCommunityCallBack, true);
+
+           function getCommunityCallBack(data){
+                alert(data)
+           }
+
+            $('#houseTable').dataTable( {
+                searching: false,
+                ordering:  false,
+                bsort:  false,
+                "processing": true,
+                "serverSide": true,
+//                "ajax": "/yjb/houseInfoValid/auth/getHouseInfoList"
+                "ajax" : {
+//                    data : function(d) {
+//                        return $.extend({}, d, {
+//                            'name' : $('#inInput').val()
+//                        })
+//                    },
+                    url : "/yjb/houseInfoValid/auth/getHouseInfoList",
+                    type : "GET",
+                    dataSrc: function (json) {
+
+                        json.draw = json.pageNumber;
+                        json.recordsTotal = json.totalCount;
+                        json.recordsFiltered = json.totalCount;
+                        json.data =json.list;
+                        console.log(JSON.stringify(json))
+                        return json;
+                    }
+
+                }
+                ,
+                "columns": [
+                    { "data": "id" }
+//                    { "data": "createDate" },
+//                    { "data": "modifyDate" },
+//                    { "data": "disconTime" },
+//                    { "data": "priority" },
+//                    { "data": "name" },
+//                    { "data": "phone" },
+//                    { "data": "mobile" },
+//                    { "data": "community" },
+//                    { "data": "houseShape" },
+//                    { "data": "areaSize" },
+//                    { "data": "ban" },
+//                    { "data": "floor" },
+//                    { "data": "roomNumber" },
+//                    { "data": "description" },
+//                    { "data": "salePrice" },
+//                    { "data": "infoPrice" },
+//                    { "data": "saleWay" },
+//                    { "data": "status" },
+//                    { "data": "statusName" },
+//                    { "data": "readTime" },
+//                    { "data": "available" },
+//                    { "data": "area" },
+//                    { "data": "member" },
+//                    { "data": "address" },
+//                    { "data": "checkDate" },
+//                    { "data": "checkContent" },
+//                    { "data": "isChannel" },
+//                    { "data": "favouriteStatus" },
+//                    { "data": "area_fullName" }
+                ]
+            } );
+
+        })
+
+
+
+
+
+    </script>
+</head>
+<body>
+
+<table id="houseTable">
+    <thead>
+    <tr style="background:#227ADC; color:#fff;">
+        <th>数据价格</th>
+        <!--<th>上架时间</th>-->
+        <!--<th>区域</th>-->
+        <!--<th>小区</th>-->
+        <!--<th>面积</th>-->
+        <!--<th>售价</th>-->
+        <!--<th>楼栋号</th>-->
+        <!--<th>房号</th>-->
+        <!--<th>手机</th>-->
+        <!--<th colspan="2">操作</th>-->
+        <!--<th>数据价格</th>-->
+        <!--<th>上架时间</th>-->
+        <!--<th>区域</th>-->
+        <!--<th>小区</th>-->
+        <!--<th>面积</th>-->
+        <!--<th>售价</th>-->
+        <!--<th>楼栋号</th>-->
+        <!--<th>房号</th>-->
+        <!--<th>手机</th>-->
+        <!--<th colspan="2">操作</th>-->
+        <!--<th>数据价格</th>-->
+        <!--<th>上架时间</th>-->
+        <!--<th>区域</th>-->
+        <!--<th>小区</th>-->
+        <!--<th>面积</th>-->
+        <!--<th>售价</th>-->
+        <!--<th>楼栋号</th>-->
+        <!--<th>房号</th>-->
+        <!--<th>手机</th>-->
+        <!--<th colspan="2">操作</th>-->
+    </tr>
+    </thead>
+
+</table>
+<div class="main">
+    <div class="main_plus">
+        <a href="../personal_center.html?type=addHouseInfo" target="_top">+发布数据&nbsp;&nbsp;&nbsp;</a>
+    </div>
+    <div class="main_L">
+        <div class="main_L_top">
+            <span class="city" id="cityName">上海</span>
+            <input type="hidden" id="city_id" name="city_id">
+            <!--<select id="city_id" style="display:none;">-->
+                <!--<option value="792" selected="selected">上海</option>-->
+            <!--</select>-->
+        </div>
+        <div class="datas" id="city_view">
+            <ul>
+            </ul>
+        </div>
+    </div>
+
+    <div class="main_R" style="margin-bottom:25px;">
+        <div class="container" style="margin-left:0; margin-right:0;">
+            <div class="position">
+                <div>当前位置：<a href="">房源数据库</a>><a href="">数据列表</a>
+                </div>
+            </div>
+            <div class="region" style="margin-left:25px;  margin-right: 25px;display: none">
+                <div class="region_title">
+                    区域板块：<span id="town_name"></span>
+                </div>
+                <div class="region_center">
+                    <div class="option-list sub-option-list" id="region_id">
+                    </div>
+                </div>
+            </div>
+
+            <div class="filter_drop">
+                <form id="houseFrom">
+
+                    <label><b>筛选：</b></label>
+                    <input type="hidden" id="area_id" name="area_id" value=""/>
+                    <input type="hidden" name="pageNumber" id="pageNumber" value="1"/>
+                    <input type="hidden" name="pageSize" id="pageSize" value="20"/>
+                    <input type="hidden" name="orderBy" id="orderBy"/>
+                    <input type="hidden" name="orderType" id="order"/>
+
+                    <div class="drop_down" style="margin-left:0;">
+                        <select id="salePrice" name="salePrice">
+                            <option value="">售价</option>
+                            <option value="0,0">不限</option>
+                            <option value="0,100">100万以下</option>
+                            <option value="100,150">100-150万</option>
+
+                        </select>
+                    </div>
+                    <div class="drop_down">
+                        <select id="houseShape" name="houseShape">
+                            <option value="">户型</option>
+                            <option value="">不限</option>
+                            <option value="一室">1室</option>
+
+                        </select>
+                    </div>
+                    <div class="drop_down">
+                        <select id="areaSize" name="areaSize">
+                            <option value="">面积</option>
+                            <option value="0,0">不限</option>
+                            <option value="0,50">50平以下</option>
+
+                        </select>
+                    </div>
+                    <div class="search">
+                        <label ><b>搜索：</b></label>
+                        <!--<div style="width: 500px;">-->
+                            <input id="searchCommunity" type="text" name="community" placeholder="请输入小区名称"/>
+                        <!--</div>-->
+                        <input type="button" value="搜索" class="search_btn"  id="searchHouseInfo"/>
+                    </div>
+                </form>
+            </div>
+            <div class="main_R_main" style="margin-left:25px; margin-right: 25px; ">
+
+                <div class="main_R_list list_total">
+
+                </div>
+            </div>
+            <div id="pager"></div>
+
+        </div>
+    </div>
+    <div id="fade" class="black_overlay">
+    </div>
+</div>
+
+
+
+<div class="" style="width:100%; height:60px;">
+    <iframe src="../common/foot.html" width="100%;" height="60px;" frameborder="0" scrolling="no">
+    </iframe>
+</div>
+</body>
+
+</html>

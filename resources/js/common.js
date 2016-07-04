@@ -187,6 +187,11 @@ function time(o) {
     }
 }
 
+
+$(function(){
+    $("#basePath").attr("href","http://localhost:63343/yfyk-html/");
+})
+
 	
 	
 
