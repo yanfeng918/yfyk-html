@@ -28,7 +28,6 @@
 //            window.location=setting.baseHtml+"login.html";
 //            $.delay(1000);
         }
-
         $(function(){
 
             function getQueryCondition(data) {
@@ -91,44 +90,33 @@
                     url : "/yjb/houseInfoValid/auth/getHouseInfoList",
                     type : "GET",
                     dataSrc: function (data) {
-
                         data.recordsTotal = data.totalCount;
                         data.recordsFiltered = data.totalCount;
                         return data.data;
                     }
                 },
                 "columns": [
-                    { "data": "name" },
                     { "data": "createDate" },
-//                    { "data": "modifyDate" },
-//                    { "data": "disconTime" },
-//                    { "data": "priority" },
-//                    { "data": "name" },
-//                    { "data": "phone" },
-                    { "data": "mobile" },
-//                    { "data": "community" },
-//                    { "data": "houseShape" },
-//                    { "data": "areaSize" },
-//                    { "data": "ban" },
-//                    { "data": "floor" },
-//                    { "data": "roomNumber" },
-//                    { "data": "description" },
-//                    { "data": "salePrice" },
-//                    { "data": "infoPrice" },
-//                    { "data": "saleWay" },
-//                    { "data": "status" },
-//                    { "data": "statusName" },
-//                    { "data": "readTime" },
-//                    { "data": "available" },
-//                    { "data": "area" },
-//                    { "data": "member" },
-//                    { "data": "address" },
-//                    { "data": "checkDate" },
-//                    { "data": "checkContent" },
-//                    { "data": "isChannel" },
-//                    { "data": "favouriteStatus" },
-//                    { "data": "area_fullName" }
-                ]
+                    { "data": "area_fullName" },
+                    { "data": "community" },
+                    { "data": "areaSize" },
+                    { "data": "salePrice" },
+                    { "data": "ban" },
+                    { "data": "roomNumber" },
+                    { "data": null,
+                        className : "td-operation",
+                        orderable : false,
+//                        width : "120px",
+                        defaultContent:""
+                    }
+                ],
+                "createdRow": function ( row, data, index ) {
+                    //不使用【render】，改用jquery文档操作呈现单元格
+                    console.log(row)
+                    var $btnEdit = $('<button type="button" class="btn btn-small btn-primary btn-edit">修改'+data.id+'+</button>');
+                    var $btnDel = $('<button type="button" class="btn btn-small btn-danger btn-del">删除</button>');
+                    $('td', row).eq(7).append($btnEdit).append($btnDel);
+                }
             } );
 
         })
@@ -225,31 +213,14 @@
                     <table id="houseTable" class="stripe cell-border">
                         <thead>
                         <tr>
-                            <th>数据价格</th>
+                            <th>上架时间</th>
+                            <th>区域</th>
+                            <th>小区</th>
+                            <th>面积</th>
+                            <th>售价</th>
                             <th>楼栋号</th>
                             <th>房号</th>
-                            <!--<th>手机</th>-->
-                            <!--<th colspan="2">操作</th>-->
-                            <!--<th>数据价格</th>-->
-                            <!--<th>上架时间</th>-->
-                            <!--<th>区域</th>-->
-                            <!--<th>小区</th>-->
-                            <!--<th>面积</th>-->
-                            <!--<th>售价</th>-->
-                            <!--<th>楼栋号</th>-->
-                            <!--<th>房号</th>-->
-                            <!--<th>手机</th>-->
-                            <!--<th colspan="2">操作</th>-->
-                            <!--<th>数据价格</th>-->
-                            <!--<th>上架时间</th>-->
-                            <!--<th>区域</th>-->
-                            <!--<th>小区</th>-->
-                            <!--<th>面积</th>-->
-                            <!--<th>售价</th>-->
-                            <!--<th>楼栋号</th>-->
-                            <!--<th>房号</th>-->
-                            <!--<th>手机</th>-->
-                            <!--<th colspan="2">操作</th>-->
+                            <th>操作</th>
                         </tr>
                         </thead>
 
