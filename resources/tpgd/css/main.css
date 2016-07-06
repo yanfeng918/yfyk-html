@@ -164,6 +164,7 @@ body > section {
 .navbar-inverse .navbar-nav > li > a:hover {
 	background-color: #f39c12;
 	color: #222;
+	box-shadow: 0 20px 20px rgba(243,156,18,0.3);
 }
 .navbar-inverse {
 	border: 0;
