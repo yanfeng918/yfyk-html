@@ -276,9 +276,10 @@ body,html{
 	color: #227ADC;
 	font-weight: bold;
 }
-.filter_drop{
-	margin: 25px 0 0 37px;
+.filter_drop,#inputForm{
+	margin: 25px 25px 0 25px;
 }
+
 .list_head{
 	cursor:pointer;
 }

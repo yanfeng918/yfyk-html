@@ -182,14 +182,14 @@
 
 <div class="main">
 
-
-
     <div class="main_R">
-        <div class="container" style="margin-left:25px; margin-right: 25px; ">
+        <div class="container" >
+
             <div class="position">
                 <div>当前位置：<a href="">房源数据库</a>><a href="">数据列表</a>
                 </div>
             </div>
+
             <div class="region" style="margin-left:25px;  margin-right: 25px;display: none">
                 <div class="region_title">
                     区域板块：<span id="town_name"></span>
@@ -200,96 +200,59 @@
                 </div>
             </div>
 
-            <div class="filter_drop">
-                <form id="houseFrom">
-
-                    <label><b>筛选：</b></label>
-                    <input type="hidden" id="area_id" name="area_id" value=""/>
-                    <input type="hidden" name="pageNumber" id="pageNumber" value="1"/>
-                    <input type="hidden" name="pageSize" id="pageSize" value="20"/>
-                    <input type="hidden" name="orderBy" id="orderBy"/>
-                    <input type="hidden" name="orderType" id="order"/>
-
-                    <div class="drop_down" style="margin-left:0;">
-                        <select id="salePrice" name="salePrice">
-                            <option value="">售价</option>
-                            <option value="0,0">不限</option>
-                            <option value="0,100">100万以下</option>
-                            <option value="100,150">100-150万</option>
-
-                        </select>
-                    </div>
-                    <div class="drop_down">
-                        <select id="houseShape" name="houseShape">
-                            <option value="">户型</option>
-                            <option value="">不限</option>
-                            <option value="一室">1室</option>
-
-                        </select>
-                    </div>
-                    <div class="drop_down">
-                        <select id="areaSize" name="areaSize">
-                            <option value="">面积</option>
-                            <option value="0,0">不限</option>
-                            <option value="0,50">50平以下</option>
-
-                        </select>
-                    </div>
-                    <div class="search">
-                        <label ><b>搜索：</b></label>
-                        <!--<div style="width: 500px;">-->
-                            <input id="searchCommunity" type="text" name="community" placeholder="请输入小区名称"/>
-                        <!--</div>-->
-                        <input type="button" value="搜索" class="search_btn"  id="searchHouseInfo"/>
-                    </div>
-                </form>
-            </div>
             <form id="inputForm">
+
+                <input type="hidden" id="area_id" name="area_id" value=""/>
                 <table spellcheck="false" class="table table-bordered table-striped">
                     <tr>
                         <th>
-                            任务ID
+                            售价
+                        </th>
+                        <th class="col-md-3">
+                            <select id="salePrice" name="salePrice">
+                                <option value="0,0">不限</option>
+                                <option value="0,100">100万以下</option>
+                                <option value="100,150">100-150万</option>
+                            </select>
                         </th>
                         <th>
-                            <input type="text" class="form-control input-sm forbiddenNumber" name="id" maxlength="11" placeholder="请输入任务ID"/>
+                            户型
                         </th>
                         <th>
-                            子划分ID
+                            <select id="houseShape" name="houseShape">
+                                <option value="">不限</option>
+                                <option value="一室">1室</option>
+                            </select>
                         </th>
                         <th>
-                            <input type="text" class="form-control input-sm forbiddenNumber" name="subEstateId" maxlength="11" placeholder="请输入子划分ID"/>
+                            面积
                         </th>
-                        <th>
-                            小区ID
-                        </th>
-                        <th>
-                            <input type="text" class="form-control input-sm forbiddenNumber" name="estateId" maxlength="11" placeholder="请输入小区ID"/>
+                        <th class="col-md-3">
+                            <select id="areaSize" name="areaSize">
+                                <option value="0,0">不限</option>
+                                <option value="0,50">50平以下</option>
+                            </select>
                         </th>
                     </tr>
                     <tr>
                         <th>
-                            审核人手机号
+                            小区名称
                         </th>
                         <th>
-                            <input type="text" class="form-control input-sm forbiddenNumber" name="checkPhone" maxlength="11" placeholder="请输入审核人手机号"/>
+                            <input id="searchCommunity" type="text" class="form-control input-sm" name="community" placeholder="请输入小区名称"/>
                         </th>
                         <th>
                             提交人手机号
                         </th>
                         <th>
-                            <input type="text" class="form-control input-sm" name="uploadPhone" #if($!{agentMobile}) readonly="true" #end maxlength="11" value="$!{agentMobile}" placeholder="请输入提交人手机号"/>
+                            <input type="text" class="form-control input-sm" name="uploadPhone" maxlength="11" value="" placeholder="请输入提交人手机号"/>
                         </th>
-                        <th>
-                            审核结果
-                        </th>
-                        <th>
 
-                        </th>
                     </tr>
 
                     <tr>
                         <th colspan="6" class="tool_box">
-                            <button class="btn btn-primary btn-sm" type="button" id="searchBtn">查&nbsp;询</button>
+                            <button class="btn btn-primary btn-sm" type="button"  id="searchHouseInfo">查&nbsp;询</button>
                             <button class="btn btn-info btn-sm" type="button" onclick="resetInput(this)">重&nbsp;置</button>
                         </th>
                     </tr>
