@@ -1,9 +1,13 @@
-/* 
-* @Author: dell
-* @Date:   2015-08-20 11:33:53
-* @Last Modified by:   dell
-* @Last Modified time: 2015-09-18 17:56:31
-*/
+        td.details-control {
+            background: url('/resources/dataTables/examples/resources/details_open.png') no-repeat center center;
+            cursor: pointer;
+        }
+        tr.shown td.details-control {
+            background: url('/resources/dataTables/examples/resources/details_close.png') no-repeat center center;
+        }
+        button {
+            margin-left: 20px;
+        }
         .date{
             height: 40px;
             color:#666666;

@@ -2,16 +2,21 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>大公盘</title>
-    <link rel="stylesheet" type="text/css" href="../resources/css/tip_box.css"/>
+    <title></title>
+    <!--<link rel="stylesheet" type="text/css" href="../resources/css/tip_box.css"/>-->
     <link rel="stylesheet" type="text/css" href="../resources/css/house_info/list.css"/>
     <link rel="stylesheet" type="text/css" href="../resources/css/global.css"/>
     <link rel="stylesheet" type="text/css" href="../resources/css/clear.css"/>
-    <link rel="stylesheet" type="text/css" href="../resources/css/pager.css"/>
+    <!--<link rel="stylesheet" type="text/css" href="../resources/css/pager.css"/>-->
+    <link rel="stylesheet" type="text/css" href="../resources/dataTables/media/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="../resources/dataTables/extensions/FixedHeader/css/fixedHeader.dataTables.css">
+
+
+    <link rel="stylesheet" type="text/css" href="../resources/bootstrap-3.3.5/css/bootstrap.min.css">
 
     <script type="text/javascript" src="../resources/js/jquery-1.10.1.min.js"></script>
     <script type="text/javascript" src="../resources/js/common.js"></script>
-    <script type="text/javascript" src="../resources/js/jquery.pager.js"></script>
+    <!--<script type="text/javascript" src="../resources/js/jquery.pager.js"></script>-->
     <script type="text/javascript" src="../resources/js/jquery.lSelect.js"></script>
     <!--<script type="text/javascript" src="../resources/js/validate/jquery.validate.min.js"></script>-->
     <!--<script type="text/javascript" src="../resources/js/validate/messages_cn.js"></script>-->
@@ -19,15 +24,19 @@
     <link href="../resources/css/date_css/date.css" rel="stylesheet" type="text/css">
 
     <script type="text/javascript" src="../resources/dataTables/media/js/jquery.dataTables.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="../resources/dataTables/media/css/jquery.dataTables.min.css">
+    <script type="text/javascript" src="../resources/dataTables/extensions/FixedHeader/js/dataTables.fixedHeader.min.js"></script>
+
+
+
+
     <script>
         //加载用户名称
-        var  uname = getCookie("yjb_username");
-        if(uname==null || uname.length==0){
+//        var  uname = getCookie("yjb_username");
+//        if(uname==null || uname.length==0){
             //alert("未登录")
 //            window.location=setting.baseHtml+"login.html";
 //            $.delay(1000);
-        }
+//        }
         $(function(){
 
             function getQueryCondition(data) {
@@ -70,12 +79,15 @@
                 param.pageSize = data.length;
                 return param;
             }
-            $('#houseTable').dataTable( {
+
+            var table = $('#houseTable').DataTable( {
                 language: {
                     url: '/resources/dataTables/Chinese.json'
                 },
+                colReorder: true,
+                fixedHeader: true,
                 searching: false,
-                ordering:  false,
+                ordering:  true,
                 "processing": true,
                 "serverSide": true,
                 "paging": true,
@@ -96,7 +108,7 @@
                     }
                 },
                 "columns": [
-                    { "data": "createDate" },
+                    { "data": "createDateStr" },
                     { "data": "area_fullName" },
                     { "data": "community" },
                     { "data": "areaSize" },
@@ -108,6 +120,12 @@
                         orderable : false,
 //                        width : "120px",
                         defaultContent:""
+                    },
+                    {
+                        "className":      'details-control',
+                        "orderable":      false,
+                        "data":           null,
+                        "defaultContent": ''
                     }
                 ],
                 "createdRow": function ( row, data, index ) {
@@ -119,9 +137,43 @@
                 }
             } );
 
+
+            $('#houseTable tbody').on('click', 'td.details-control', function () {
+                var tr = $(this).closest('tr');
+                var row = table.row(tr);
+
+                if ( row.child.isShown() ) {
+                    // This row is already open - close it
+                    row.child.hide();
+                    tr.removeClass('shown');
+                }
+                else {
+                    // Open this row
+                    row.child( format(row.data()) ).show();
+                    tr.addClass('shown');
+                }
+            } );
+
         })
 
-
+        /* Formatting function for row details - modify as you need */
+        function format ( d ) {
+            // `d` is the original data object for the row
+            return '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">'+
+                    '<tr>'+
+                    '<td>Full name:</td>'+
+                    '<td>'+d.name+'</td>'+
+                    '</tr>'+
+                    '<tr>'+
+                    '<td>Extension number:</td>'+
+                    '<td>'+d.extn+'</td>'+
+                    '</tr>'+
+                    '<tr>'+
+                    '<td>Extra info:</td>'+
+                    '<td>And any further details here (images etc)...</td>'+
+                    '</tr>'+
+                    '</table>';
+        }
 
     </script>
 </head>
@@ -129,25 +181,11 @@
 
 
 <div class="main">
-    <div class="main_plus">
-        <a href="../personal_center.html?type=addHouseInfo" target="_top">+发布数据&nbsp;&nbsp;&nbsp;</a>
-    </div>
-    <div class="main_L">
-        <div class="main_L_top">
-            <span class="city" id="cityName">上海</span>
-            <input type="hidden" id="city_id" name="city_id">
-            <!--<select id="city_id" style="display:none;">-->
-                <!--<option value="792" selected="selected">上海</option>-->
-            <!--</select>-->
-        </div>
-        <div class="datas" id="city_view">
-            <ul>
-            </ul>
-        </div>
-    </div>
 
-    <div class="main_R" style="margin-bottom:25px;">
-        <div class="container" style="margin-left:0; margin-right:0;">
+
+
+    <div class="main_R">
+        <div class="container" style="margin-left:25px; margin-right: 25px; ">
             <div class="position">
                 <div>当前位置：<a href="">房源数据库</a>><a href="">数据列表</a>
                 </div>
@@ -206,10 +244,59 @@
                     </div>
                 </form>
             </div>
-            <div class="" style="margin-left:25px; margin-right: 25px; ">
+            <form id="inputForm">
+                <table spellcheck="false" class="table table-bordered table-striped">
+                    <tr>
+                        <th>
+                            任务ID
+                        </th>
+                        <th>
+                            <input type="text" class="form-control input-sm forbiddenNumber" name="id" maxlength="11" placeholder="请输入任务ID"/>
+                        </th>
+                        <th>
+                            子划分ID
+                        </th>
+                        <th>
+                            <input type="text" class="form-control input-sm forbiddenNumber" name="subEstateId" maxlength="11" placeholder="请输入子划分ID"/>
+                        </th>
+                        <th>
+                            小区ID
+                        </th>
+                        <th>
+                            <input type="text" class="form-control input-sm forbiddenNumber" name="estateId" maxlength="11" placeholder="请输入小区ID"/>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>
+                            审核人手机号
+                        </th>
+                        <th>
+                            <input type="text" class="form-control input-sm forbiddenNumber" name="checkPhone" maxlength="11" placeholder="请输入审核人手机号"/>
+                        </th>
+                        <th>
+                            提交人手机号
+                        </th>
+                        <th>
+                            <input type="text" class="form-control input-sm" name="uploadPhone" #if($!{agentMobile}) readonly="true" #end maxlength="11" value="$!{agentMobile}" placeholder="请输入提交人手机号"/>
+                        </th>
+                        <th>
+                            审核结果
+                        </th>
+                        <th>
 
-                <!--<div class="main_R_list list_total">-->
-                <div class=" ">
+                        </th>
+                    </tr>
+
+                    <tr>
+                        <th colspan="6" class="tool_box">
+                            <button class="btn btn-primary btn-sm" type="button" id="searchBtn">查&nbsp;询</button>
+                            <button class="btn btn-info btn-sm" type="button" onclick="resetInput(this)">重&nbsp;置</button>
+                        </th>
+                    </tr>
+                </table>
+            </form>
+            <div class="" style="margin-left:25px; margin-right: 25px; ">
+                <div class="">
                     <table id="houseTable" class="stripe cell-border">
                         <thead>
                         <tr>
@@ -221,11 +308,10 @@
                             <th>楼栋号</th>
                             <th>房号</th>
                             <th>操作</th>
+                            <th></th>
                         </tr>
                         </thead>
-
                         <tbody></tbody>
-
                     </table>
                 </div>
             </div>
