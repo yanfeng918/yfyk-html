@@ -3,182 +3,35 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
-    <!--<link rel="stylesheet" type="text/css" href="../resources/css/tip_box.css"/>-->
     <link rel="stylesheet" type="text/css" href="../resources/css/house_info/list.css"/>
     <link rel="stylesheet" type="text/css" href="../resources/css/global.css"/>
     <link rel="stylesheet" type="text/css" href="../resources/css/clear.css"/>
-    <!--<link rel="stylesheet" type="text/css" href="../resources/css/pager.css"/>-->
     <link rel="stylesheet" type="text/css" href="../resources/dataTables/media/css/jquery.dataTables.min.css">
-    <link rel="stylesheet" type="text/css" href="../resources/dataTables/extensions/FixedHeader/css/fixedHeader.dataTables.css">
-
-
+    <link rel="stylesheet" type="text/css"
+          href="../resources/dataTables/extensions/FixedHeader/css/fixedHeader.dataTables.css">
     <link rel="stylesheet" type="text/css" href="../resources/bootstrap-3.3.5/css/bootstrap.min.css">
 
     <script type="text/javascript" src="../resources/js/jquery-1.10.1.min.js"></script>
     <script type="text/javascript" src="../resources/js/common.js"></script>
-    <!--<script type="text/javascript" src="../resources/js/jquery.pager.js"></script>-->
     <script type="text/javascript" src="../resources/js/jquery.lSelect.js"></script>
-    <!--<script type="text/javascript" src="../resources/js/validate/jquery.validate.min.js"></script>-->
-    <!--<script type="text/javascript" src="../resources/js/validate/messages_cn.js"></script>-->
-    <!--<script type="text/javascript" src="../resources/js/houseInfo/houseInfoV2.js"></script>-->
+
     <link href="../resources/css/date_css/date.css" rel="stylesheet" type="text/css">
-
     <script type="text/javascript" src="../resources/dataTables/media/js/jquery.dataTables.min.js"></script>
-    <script type="text/javascript" src="../resources/dataTables/extensions/FixedHeader/js/dataTables.fixedHeader.min.js"></script>
+    <script type="text/javascript"
+            src="../resources/dataTables/extensions/FixedHeader/js/dataTables.fixedHeader.min.js"></script>
+    <script type="text/javascript" src="../resources/js/list-table.js"></script>
 
-
-
-
-    <script>
-        //加载用户名称
-//        var  uname = getCookie("yjb_username");
-//        if(uname==null || uname.length==0){
-            //alert("未登录")
-//            window.location=setting.baseHtml+"login.html";
-//            $.delay(1000);
-//        }
-        $(function(){
-
-            function getQueryCondition(data) {
-                var param = {};
-                //组装排序参数
-                if (data.order&&data.order.length&&data.order[0]) {
-                    switch (data.order[0].column) {
-                        case 1:
-                            param.orderColumn = "name";
-                            break;
-                        case 2:
-                            param.orderColumn = "position";
-                            break;
-                        case 3:
-                            param.orderColumn = "status";
-                            break;
-                        case 4:
-                            param.orderColumn = "start_date";
-                            break;
-                        default:
-                            param.orderColumn = "name";
-                            break;
-                    }
-                    param.orderDir = data.order[0].dir;
-                }
-                //组装查询参数
-//                param.fuzzySearch = userManage.fuzzySearch;
-//                if (userManage.fuzzySearch) {
-//                    param.fuzzy = $("#fuzzy-search").val();
-//                }else{
-//                    param.name = $("#name-search").val();
-//                    param.position = $("#position-search").val();
-//                    param.office = $("#office-search").val();
-//                    param.extn = $("#extn-search").val();
-//                    param.status = $("#status-search").val();
-//                    param.role = $("#role-search").val();
-//                }
-                //组装分页参数
-                param.pageOffset = data.start;
-                param.pageSize = data.length;
-                return param;
-            }
-
-            var table = $('#houseTable').DataTable( {
-                language: {
-                    url: '../resources/dataTables/Chinese.json'
-                },
-                colReorder: true,
-                fixedHeader: true,
-                searching: false,
-                ordering:  true,
-                "processing": true,
-                "serverSide": true,
-                "paging": true,
-                "aLengthMenu": [[15, 50, -1], [ 15, 50, "显示所有"]], //这个是允许用户自定义每页数量的时候,下拉菜单的选项
-                "bPaginate" : true,      //显示分页器
-                "bLengthChange": false, // 用户不可改变每页显示数量
-                "iDisplayLength":15,   //一页显示条数
-                "ajax" : {
-                    data : function(data) {
-                        return getQueryCondition(data)
-                    },
-                    url : "/yjb/houseInfoValid/auth/getHouseInfoList",
-                    type : "GET",
-                    dataSrc: function (data) {
-                        data.recordsTotal = data.totalCount;
-                        data.recordsFiltered = data.totalCount;
-                        return data.data;
-                    }
-                },
-                "columns": [
-                    { "data": "createDateStr" },
-                    { "data": "area_fullName" },
-                    { "data": "community" },
-                    { "data": "areaSize" },
-                    { "data": "salePrice" },
-                    { "data": "ban" },
-                    { "data": "roomNumber" },
-                    { "data": null,
-                        className : "td-operation",
-                        orderable : false,
-//                        width : "120px",
-                        defaultContent:""
-                    }
-                ],
-                "createdRow": function ( row, data, index ) {
-                    //不使用【render】，改用jquery文档操作呈现单元格
-                    console.log(row)
-                    var $btnEdit = $('<button type="button" class="btn btn-small btn-primary btn-edit">修改'+data.id+'+</button>');
-                    var $btnDel = $('<button type="button" class="btn btn-small btn-danger btn-del">删除</button>');
-                    $('td', row).eq(7).append($btnEdit).append($btnDel);
-                }
-            } );
-
-
-            $('#houseTable tbody').on('click', 'td.details-control', function () {
-                var tr = $(this).closest('tr');
-                var row = table.row(tr);
-
-                if ( row.child.isShown() ) {
-                    // This row is already open - close it
-                    row.child.hide();
-                    tr.removeClass('shown');
-                }
-                else {
-                    // Open this row
-                    row.child( format(row.data()) ).show();
-                    tr.addClass('shown');
-                }
-            } );
-
-        })
-
-        /* Formatting function for row details - modify as you need */
-        function format ( d ) {
-            // `d` is the original data object for the row
-            return '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">'+
-                    '<tr>'+
-                    '<td>Full name:</td>'+
-                    '<td>'+d.name+'</td>'+
-                    '</tr>'+
-                    '<tr>'+
-                    '<td>Extension number:</td>'+
-                    '<td>'+d.extn+'</td>'+
-                    '</tr>'+
-                    '<tr>'+
-                    '<td>Extra info:</td>'+
-                    '<td>And any further details here (images etc)...</td>'+
-                    '</tr>'+
-                    '</table>';
-        }
-
-    </script>
 </head>
 <body>
 
-<iframe name="header" id="header" src="../common/head.html" width="100%;" frameborder="0" scrolling="no">
-</iframe>
+<div style="width:100%; height:137px;">
+    <iframe src="../common/head.html" width="100%;" height="137px;" frameborder="0" scrolling="no">
+    </iframe>
+</div>
 <div class="main">
 
     <div class="main_R">
-        <div class="container" >
+        <div class="container">
 
             <div class="position">
                 <div>当前位置：<a href="">房源数据库</a>><a href="">数据列表</a>
@@ -234,28 +87,31 @@
                             小区名称
                         </th>
                         <th>
-                            <input id="searchCommunity" type="text" class="form-control input-sm" name="community" placeholder="请输入小区名称"/>
+                            <input id="searchCommunity" type="text" class="form-control input-sm" name="community"
+                                   placeholder="请输入小区名称"/>
                         </th>
                         <th>
                             提交人手机号
                         </th>
                         <th>
-                            <input type="text" class="form-control input-sm" name="uploadPhone" maxlength="11" value="" placeholder="请输入提交人手机号"/>
+                            <input type="text" class="form-control input-sm" name="uploadPhone" maxlength="11" value=""
+                                   placeholder="请输入提交人手机号"/>
                         </th>
 
                     </tr>
 
                     <tr>
                         <th colspan="6" class="tool_box">
-                            <button class="btn btn-primary btn-sm" type="button"  id="searchHouseInfo">查&nbsp;询</button>
-                            <button class="btn btn-info btn-sm" type="button" onclick="resetInput(this)">重&nbsp;置</button>
+                            <button class="btn btn-primary btn-sm" type="button" id="searchHouseInfo">查&nbsp;询</button>
+                            <button class="btn btn-info btn-sm" type="button" onclick="resetInput(this)">重&nbsp;置
+                            </button>
                         </th>
                     </tr>
                 </table>
             </form>
             <div class="" style="margin-left:25px; margin-right: 25px; ">
                 <div class="">
-                    <table id="houseTable" class="stripe cell-border">
+                    <table id="houseTable" class="stripe cell-border" width="100%">
                         <thead>
                         <tr>
                             <th>上架时间</th>
@@ -274,13 +130,13 @@
             </div>
         </div>
     </div>
-    </div>
+</div>
 </div>
 
-    <div class="" style="width:100%; height:60px;">
-        <iframe src="../common/footOld.html" width="100%;" height="60px;" frameborder="0" scrolling="no">
-        </iframe>
-    </div>
+<div style="width:100%; height:137px;">
+    <iframe src="../common/foot.html" width="100%;" height="137px;" frameborder="0" scrolling="no">
+    </iframe>
+</div>
 </body>
 
 </html>
