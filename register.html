@@ -1,89 +1,105 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>注册</title>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="resources/css/register.css"/>
-    <link rel="stylesheet" href="resources/css/global.css">
-    <link rel="stylesheet" type="text/css" href="resources/css/clear.css"/>
-    <link rel="stylesheet" href="resources/css/login/modaoCss.css">
-    <link rel="stylesheet" href="resources/css/login/register.css">
-    <script src="resources/js/jquery-1.10.1.min.js"></script>
-    <script type="text/javascript" src="resources/js/common.js"></script>
-    <script type="text/javascript" src="resources/js/login-register.js"></script>
-    <script type="text/javascript" src="resources/js/jquery.lSelect.js"></script>
-    <script type="text/javascript" src="resources/js/validate/jquery.validate.min.js"></script>
-    <script type="text/javascript" src="resources/js/validate/messages_cn.js"></script>
-    <script type="text/javascript" src="resources/js/register.js"></script>
+	<title>我要查房 - 登录</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<!-- bootstrap -->
+	<link href="resources/detailAdmin/css/bootstrap/bootstrap.css" rel="stylesheet" />
+	<link href="resources/detailAdmin/css/bootstrap/bootstrap-responsive.css" rel="stylesheet" />
+	<link href="resources/detailAdmin/css/bootstrap/bootstrap-overrides.css" type="text/css" rel="stylesheet" />
+
+	<!-- global styles -->
+	<link rel="stylesheet" type="text/css" href="resources/detailAdmin/css/layout.css" />
+	<link rel="stylesheet" type="text/css" href="resources/detailAdmin/css/elements.css" />
+	<link rel="stylesheet" type="text/css" href="resources/detailAdmin/css/icons.css" />
+
+	<!-- libraries -->
+	<link rel="stylesheet" type="text/css" href="resources/detailAdmin/css/lib/font-awesome.css" />
+
+	<!-- this page specific styles -->
+	<link rel="stylesheet" href="resources/detailAdmin/css/compiled/signin.css" type="text/css" media="screen" />
+
+	<!-- open sans font -->
+	<link href='http://fonts.useso.com/css?family=Open+Sans:300italic,400italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css' />
+
+	<!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+
+	<meta http-equiv="expires" content="0" />
+	<meta http-equiv="Pragma" content="no-cache" />
+	<meta http-equiv="Cache-Control" content="no-cache" />
+
+
+	<title>我要查房 - 登录</title>
+	<meta http-equiv="expires" content="0" />
+	<meta http-equiv="Pragma" content="no-cache" />
+	<meta http-equiv="Cache-Control" content="no-cache" />
+
+	<!-- scripts -->
+	<script src="resources/js/jquery-1.10.1.min.js"></script>
+	<script src="resources/js/common.js"></script>
+	<script src="resources/detailAdmin/js/bootstrap.min.js"></script>
+	<script src="resources/detailAdmin/js/theme.js"></script>
+	<script type="text/javascript" src="./resources/js/register.js"></script>
+	<script type="text/javascript" src="./resources/layer/layer.js"></script>
 </head>
-<style>
-    .register .formRegister {
-        font-size:16px;
-        width: 90%;
-        margin:0 auto;
-        color:#525252;
-    }
-    .formRegister input{
-        border: 1px solid #D8D8D8;
-        border-radius: 5px;
-        width:369px;
-        height: 38px;
-        font-size: 18px;
-        margin:13px auto;
-        margin-left: 5px;
-        display: inline-block;
-        padding: 0 10px;
-    }
-
-    .formRegister td {
-        min-width: 65px;
-    }
-
-</style>
 <body>
-<div style="width:100%;height:55px;">
-    <iframe src="common/headOld.html" width="100%" height="55px;" frameborder="0" scrolling="no">
-    </iframe>
-</div>
 
-<div id='session' class="registerDiv">
-    <div class='content'>
-        <form id="register" style="margin: 35px auto">
+<iframe name="header" id="header" src="./common/head.html" width="100%;" height="89px" frameborder="0" scrolling="no">
+</iframe>
 
-            <!--<input class="text captcha" placeholder="请输入邀请码" type="text" id="inviteCode" name="inviteCode">-->
-            <input style="margin-bottom: 0;padding: 8px;height: 35px;font-size: 16px;margin-left: 2.3rem;" id="inviteCode" type="text" placeholder="请输入邀请码(可选)" name="inviteCode"><br>
-            <input type="text" id="captcha" name="captcha" class="text captcha" maxlength="4" autocomplete="off" style="margin-bottom: 0;padding: 8px;height: 35px;font-size: 16px;width: 55%;float: left;margin-left: 2.3rem;" placeholder="输入右侧验证码"/>
-            <input type="hidden" id="captchaId" name="captchaId">
-            <img id="captchaImage" class="captchaImage" src="" title="" style="margin-bottom: 0;width: 20%;height: 30px;font-size: 14px;padding: 0;color: white;position: relative;top:10px;left: 35px;border-radius: 5px;"/><br>
+		<div>
+			<form id="registerForm" action="" method="post">
 
-            <input style="padding: 8px;height: 35px;font-size: 16px;margin-bottom: 0" type="text" name="mobile" id="mobile" placeholder="手机号">
-            <p style="color: #fe6500;font-size: smaller; font-weight: bold;text-align: left">*手机号、用户名均可登录</p>
-            <!--<input style="margin-bottom: 0;padding: 8px;height: 35px;font-size: 16px;width: 55%;float: left;margin-left: 2.3rem;" id="mobileCaptcha" type="text" placeholder="请输入手机验证码" name="mobileCaptcha">-->
-            <!--<input type="button" id="getCaptcha" class="txt_sub" style="margin-bottom: 0;width: 22%;height: 35px;font-size: 14px;padding: 0;color: white;" value="获取验证码">-->
-            <p id="sendSMSStatus" style="color: #fe6500;font-size: smaller; font-weight: bold;text-align: left;display: none"></p>
+				<div class="row-fluid login-wrapper">
+					<a href="index.html">
+						<!--<img class="logo" src="resources/detailAdmin/img/logo-white.png" />-->
+					</a>
 
-            <input style="padding: 8px;height: 35px;font-size: 16px" type="text" name="username" id="username" placeholder="用户名">
-            <input style="padding: 8px;height: 35px;font-size: 16px" type="password" name="password" id="password" placeholder="6-16字母或数字密码">
-            <input style="padding: 8px;height: 35px;font-size: 16px" type="password" name="passwordConfirm" id="passwordConfirm" placeholder="请确认密码">
-            <a id="checking" href='#0' class="cd-popup-trigger"></a>
-            <div  style="text-align: left; width: 90%; padding-left: 8%">居住地:
-                <input type="hidden" id="area_id" name="area_id" style="height: 35px;"></div>
-            <div id="alert-danger" class="alert-danger" ></div>
-            <div id="btn_register" class="txt_sub" style="width: 80%;font-weight: bold; font-size: 16px;line-height: 2.7rem;">注 册</div>
-            <p style="color: #fe6500;font-size: smaller; font-weight: bold;text-align: center">*注册成功后，系统将为您生成专属的邀请码</p>
-            <p class='signup' style="color: red; font-weight:bold;line-height: 36px">
-                <a href='/login.html'>
-                    已有账号？<u>马上登录！</u>
-                </a>
-            </p>
-        </form>
-    </div>
-</div>
+					<div class="span4 box" style="margin-top: 60px">
+						<div class="content-wrap">
+							<h6>注册</h6>
+							<input class="span12" type="text" placeholder="请输入用户名" id="username" name="username" maxlength="20" />
+
+							<input class="span12" type="password" placeholder="请输入密码" id="password" name="password" maxlength="20"/>
+
+							<input class="span12" type="password" placeholder="请再次输入密码" id="passwordConfirm" maxlength="20"/>
+
+							<input class="btn-glow primary login loginButton" type="button"  id="btn_register" value="注册" />
+						</div>
+					</div>
+
+					<div class="span4 no-account">
+						<p>已有账号？</p>
+						<a href="login.html">立即登录</a>
+					</div>
+				</div>
+
+			</form>
+		</div>
 
 
-<div class="footer">
-    <iframe src="common/footOld.html" width="100%;" height="60px;" frameborder="0" scrolling="no">
-    </iframe>
-</div>
+	<!-- pre load bg imgs -->
+	<script type="text/javascript">
+		$(function () {
+
+			$("body").css("background-image", "url('resources/detailAdmin/img/bgs/7.jpg')");
+			// bg switcher
+			var $btns = $(".bg-switch .bg");
+			$btns.click(function (e) {
+				e.preventDefault();
+				$btns.removeClass("active");
+				$(this).addClass("active");
+				var bg = $(this).data("img");
+				$("html").css("background-image", "url('resources/detailAdmin/img/bgs/" + bg + "')");
+			});
+		});
+	</script>
+
 </body>
 </html>

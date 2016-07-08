@@ -6,47 +6,24 @@
 //            $.delay(1000);
 //        }
 $(function () {
+    var _table = createDateTables();
 
-    function getQueryCondition(data) {
-        var param = {};
-        //组装排序参数
-        if (data.order && data.order.length && data.order[0]) {
-            switch (data.order[0].column) {
-                case 1:
-                    param.orderColumn = "name";
-                    break;
-                case 2:
-                    param.orderColumn = "position";
-                    break;
-                case 3:
-                    param.orderColumn = "status";
-                    break;
-                case 4:
-                    param.orderColumn = "start_date";
-                    break;
-                default:
-                    param.orderColumn = "name";
-                    break;
-            }
-            param.orderDir = data.order[0].dir;
-        }
-        //组装查询参数
-//                param.fuzzySearch = userManage.fuzzySearch;
-//                if (userManage.fuzzySearch) {
-//                    param.fuzzy = $("#fuzzy-search").val();
-//                }else{
-//                    param.name = $("#name-search").val();
-//                    param.position = $("#position-search").val();
-//                    param.office = $("#office-search").val();
-//                    param.extn = $("#extn-search").val();
-//                    param.status = $("#status-search").val();
-//                    param.role = $("#role-search").val();
-//                }
-        //组装分页参数
-        param.pageOffset = data.start;
-        param.pageSize = data.length;
-        return param;
-    }
+    $("#searchHouseInfo").click(function(){
+        _table.draw();
+    });
+})
+
+$(function(){
+    var $areaId = $("#area_id");
+    // 地区选择
+    $areaId.lSelect({
+        url: setting.base+"common/area"
+    });
+
+});
+
+
+var createDateTables = function () {
 
     var table = $('#houseTable').DataTable({
         language: {
@@ -55,7 +32,7 @@ $(function () {
         colReorder: true,
         fixedHeader: true,
         searching: false,
-        ordering: true,
+        ordering: false,
         "processing": true,
         "serverSide": true,
         "paging": true,
@@ -83,13 +60,7 @@ $(function () {
             {"data": "salePrice"},
             {"data": "ban"},
             {"data": "roomNumber"},
-            {
-                "data": null,
-                className: "td-operation  text-center",
-                orderable: false,
-                width : "15%",
-                defaultContent: ""
-            }
+            {"data": null, className: "td-operation  text-center",orderable: false, width: "15%", defaultContent: "" }
         ],
         "createdRow": function (row, data, index) {
             //不使用【render】，改用jquery文档操作呈现单元格
@@ -97,22 +68,49 @@ $(function () {
             $('td', row).eq(7).append($btnEdit);
         }
     });
+    return table;
+}
 
-
-    $('#houseTable tbody').on('click', 'td.details-control', function () {
-        var tr = $(this).closest('tr');
-        var row = table.row(tr);
-
-        if (row.child.isShown()) {
-            // This row is already open - close it
-            row.child.hide();
-            tr.removeClass('shown');
+function getQueryCondition(data) {
+    var param = {};
+    //组装排序参数
+    if (data.order && data.order.length && data.order[0]) {
+        switch (data.order[0].column) {
+            case 1:
+                param.orderColumn = "name";
+                break;
+            case 2:
+                param.orderColumn = "position";
+                break;
+            case 3:
+                param.orderColumn = "status";
+                break;
+            case 4:
+                param.orderColumn = "start_date";
+                break;
+            default:
+                param.orderColumn = "name";
+                break;
         }
-        else {
-            // Open this row
-            row.child(format(row.data())).show();
-            tr.addClass('shown');
-        }
-    });
-})
+        param.orderDir = data.order[0].dir;
+    }
+    //组装查询参数
+    if($("#salePrice").val())
+        param.salePrice = $("#salePrice").val();
+    if($("#areaSize").val())
+        param.areaSize = $("#areaSize").val();
+    if($("#searchCommunity").val())
+        param.community = $("#searchCommunity").val();
+    if($("#area_id").val())
+        param.area_id = $("#area_id").val();
+
+    //组装分页参数
+    param.pageOffset = data.start;
+    param.pageSize = data.length;
+    return param;
+}
+
+
+
+
 

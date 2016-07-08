@@ -33,11 +33,6 @@
     <div class="main_R">
         <div class="container">
 
-            <div class="position">
-                <div>当前位置：<a href="">房源数据库</a>><a href="">数据列表</a>
-                </div>
-            </div>
-
             <div class="region" style="margin-left:25px;  margin-right: 25px;display: none">
                 <div class="region_title">
                     区域板块：<span id="town_name"></span>
@@ -50,61 +45,63 @@
 
             <form id="inputForm">
 
-                <input type="hidden" id="area_id" name="area_id" value=""/>
                 <table spellcheck="false" class="table table-bordered table-striped">
                     <tr>
+
                         <th>
-                            售价
+                            区域
                         </th>
-                        <th class="col-md-3">
-                            <select id="salePrice" name="salePrice">
-                                <option value="0,0">不限</option>
-                                <option value="0,100">100万以下</option>
-                                <option value="100,150">100-150万</option>
-                            </select>
+                        <th class="col-md-3" style="margin: auto;text-align: center">
+                            <input type="hidden" id="area_id" name="area_id">
                         </th>
-                        <th>
-                            户型
-                        </th>
-                        <th>
-                            <select id="houseShape" name="houseShape">
-                                <option value="">不限</option>
-                                <option value="一室">1室</option>
-                            </select>
-                        </th>
-                        <th>
-                            面积
-                        </th>
-                        <th class="col-md-3">
-                            <select id="areaSize" name="areaSize">
-                                <option value="0,0">不限</option>
-                                <option value="0,50">50平以下</option>
-                            </select>
-                        </th>
-                    </tr>
-                    <tr>
                         <th>
                             小区名称
                         </th>
-                        <th>
+                        <th class="col-md-2">
                             <input id="searchCommunity" type="text" class="form-control input-sm" name="community"
                                    placeholder="请输入小区名称"/>
                         </th>
                         <th>
-                            提交人手机号
+                            售价
                         </th>
+                        <th class="col-md-2">
+                            <select id="salePrice" name="salePrice">
+                                <option value="0,0">不限</option>
+                                <option value="0,100">100万以下</option>
+                                <option value="100,150">100-150万</option>
+                                <option value="150,200">150-200万</option>
+                                <option value="200,300">200-300万</option>
+                                <option value="300,500">300-500万</option>
+                                <option value="500,800">500-800万</option>
+                                <option value="800,1000">800-1000万</option>
+                                <option value="1000,0">1000万以上</option>
+                            </select>
+                        </th>
+
                         <th>
-                            <input type="text" class="form-control input-sm" name="uploadPhone" maxlength="11" value=""
-                                   placeholder="请输入提交人手机号"/>
+                            面积
                         </th>
+                        <th class="col-md-2">
+                            <select id="areaSize" name="areaSize">
+                                <option value="0,0">不限</option>
+                                <option value="0,50">50平以下</option>
+                                <option value="50,70">50-70平</option>
+                                <option value="70,90">70-90平</option>
+                                <option value="90,110">90-110平</option>
+                                <option value="110,130">110-130平</option>
+                                <option value="130,150">130-150平</option>
+                                <option value="150,200">150-200平</option>
+                                <option value="200,0">200平以上</option>
+                            </select>
+                        </th>
+
 
                     </tr>
 
                     <tr>
-                        <th colspan="6" class="tool_box">
+                        <th colspan="2" class="tool_box">
                             <button class="btn btn-primary btn-sm" type="button" id="searchHouseInfo">查&nbsp;询</button>
-                            <button class="btn btn-info btn-sm" type="button" onclick="resetInput(this)">重&nbsp;置
-                            </button>
+                            <button class="btn btn-info btn-sm" type="button">重&nbsp;置</button>
                         </th>
                     </tr>
                 </table>
