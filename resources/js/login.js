@@ -20,6 +20,7 @@ $().ready( function() {
 
     // 表单验证、记住用户名
     $("#loginButton").click( function() {
+
         if ($username.val() == "") {
             layer.msg('用户名不能为空！');
             return false;
@@ -36,7 +37,9 @@ $().ready( function() {
         }
 
         var data={'username':$("#username").val().trim().toLowerCase(),'password':$("#password").val()};
-        getAjax("POST", data,"login/submit",submitCallback,false);
+
+        getAjax("POST", data,"login/submit",submitCallback,true);
+
 
     });
 

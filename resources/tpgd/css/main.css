@@ -47,14 +47,14 @@ hr {
 	width: 70px;
 	border-top: 4px solid #f39c12;
 }
-.btn-primary {
-	padding: 8px 20px;
-	background: #f39c12;
-	color: #fff;
-	border-radius: 4px;
-	border: none;
-	margin-top: 10px;
-}
+/*.btn-primary {*/
+	/*padding: 8px 20px;*/
+	/*background: #f39c12;*/
+	/*color: #fff;*/
+	/*border-radius: 4px;*/
+	/*border: none;*/
+	/*margin-top: 10px;*/
+/*}*/
 .btn-primary:hover, .btn-primary:focus, .btn-primary.active.focus, .btn-primary.active:focus, .btn-primary.active:hover, .btn-primary:active.focus, .btn-primary:active:focus, .btn-primary:active:hover {
 	background: #db8c0f;
 	outline: none;
@@ -153,8 +153,17 @@ body > section {
 	margin-left: 35px;
 	padding-bottom: 28px;
 }
-.navbar-inverse .navbar-nav > li > a {
+.navbar-inverse .navbar-nav > li  a {
 	padding: 5px 12px;
+	margin: 0;
+	border-radius: 3px;
+	color: #fff;
+	line-height: 24px;
+	display: inline-block;
+}
+
+.part2 {
+	padding: 0px 12px;
 	margin: 0;
 	border-radius: 3px;
 	color: #fff;

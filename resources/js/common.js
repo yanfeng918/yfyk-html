@@ -20,7 +20,7 @@ ip="localhost";
 var setting = {
 	base: "http://"+ip+"/yjb/",
     //baseHtml:"http://"+ip+"/yjb-html/",
-    baseHtml:"http://"+ip+"/",
+    baseHtml:"http://"+ip+"/yfyk-html/",
 	locale: "zh_CN"
 };
 
@@ -69,8 +69,8 @@ function delCookie1(name){
 function delCookie(name) {
 	var date=new Date();
 	date.setTime(date.getTime()-10000);
-    //document.cookie=name+"=; expire="+date.toGMTString()+"; path=/;domain="+ip;
-    document.cookie=name+"=; expire="+date.toGMTString()+"; path=/yjb-html";
+    document.cookie=name+"=; expire="+date.toGMTString()+"; path=/;";
+    //document.cookie=name+"=; expire="+date.toGMTString()+"; path=/yjb-html";
 };
 
 //JavaScript生成GUID的算法
@@ -188,9 +188,7 @@ function time(o) {
 }
 
 
-$(function(){
-    $("#basePath").attr("href","http://localhost:63343/yfyk-html/");
-})
+
 
 	
 	

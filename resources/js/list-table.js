@@ -8,16 +8,16 @@
 $(function () {
     var _table = createDateTables();
 
-    $("#searchHouseInfo").click(function(){
+    $("#searchHouseInfo").click(function () {
         _table.draw();
     });
 })
 
-$(function(){
+$(function () {
     var $areaId = $("#area_id");
     // 地区选择
     $areaId.lSelect({
-        url: setting.base+"common/area"
+        url: setting.base + "common/area"
     });
 
 });
@@ -27,8 +27,9 @@ var createDateTables = function () {
 
     var table = $('#houseTable').DataTable({
         language: {
-            url: '/resources/dataTables/Chinese.json'
+            url: '../resources/dataTables/Chinese.json'
         },
+        //responsive: true,
         colReorder: true,
         fixedHeader: true,
         searching: false,
@@ -60,11 +61,11 @@ var createDateTables = function () {
             {"data": "salePrice"},
             {"data": "ban"},
             {"data": "roomNumber"},
-            {"data": null, className: "td-operation  text-center",orderable: false, width: "15%", defaultContent: "" }
+            {"data": null, className: "td-operation  text-center", orderable: false, width: "15%", defaultContent: ""}
         ],
         "createdRow": function (row, data, index) {
-            //不使用【render】，改用jquery文档操作呈现单元格
-            var $btnEdit = $('<button type="button" class="btn btn-small btn-primary btn-edit">修改' + data.id + '+</button>');
+            //不使用【render】，改用jquery文档操作呈现单元格  data.id
+            var $btnEdit = $('<button type="button" class="btn btn-small btn-primary btn-edit" onclick="queryData(' + data.id + ')">查看数据</button>');
             $('td', row).eq(7).append($btnEdit);
         }
     });
@@ -95,19 +96,75 @@ function getQueryCondition(data) {
         param.orderDir = data.order[0].dir;
     }
     //组装查询参数
-    if($("#salePrice").val())
+    if ($("#salePrice").val())
         param.salePrice = $("#salePrice").val();
-    if($("#areaSize").val())
+    if ($("#areaSize").val())
         param.areaSize = $("#areaSize").val();
-    if($("#searchCommunity").val())
+    if ($("#searchCommunity").val())
         param.community = $("#searchCommunity").val();
-    if($("#area_id").val())
+    if ($("#area_id").val())
         param.area_id = $("#area_id").val();
 
     //组装分页参数
     param.pageOffset = data.start;
     param.pageSize = data.length;
     return param;
+}
+
+var house_id_param;
+/**
+ * 查看数据
+ */
+function queryData(houseId) {
+    //判断是否登录
+    if(getCookie("yjb_token") == null||getCookie("yjb_token") == '') {
+        layer.msg("请先登录!");
+        return false;
+    }
+    house_id_param = houseId;
+    var houseInfo_id = {"houseInfo_id": houseId};
+    getAjax("GET", houseInfo_id, "houseInfoValid/auth/getBrowseHouseInfoVO?" + new Date(), queryDataCallback, true);
+}
+
+function queryDataCallback(data) {
+    if (data.mine == true) {
+        //showData(data);
+        layer.msg(data);
+    } else if (data.bought == true) {
+        //showData(data);
+        layer.msg(JSON.stringify(data.houseInfoValid.mobile));
+    } else if (data.balanceEnough == true) {
+        isPay(data);
+    } else if (data.balanceEnough == false) {
+        layer.msg('余额不足!');
+    }
+}
+
+function isPay() {
+    layer.msg('你确定购买吗？', {
+        time: 0 //不自动关闭
+        , btn: ['确认', '取消']
+        , yes: function (index) {
+            layer.close(index);
+            ensure();
+        }
+    });
+}
+
+/**
+ * 确定支付按钮
+ * @param ensureId
+ */
+function ensure() {
+    var houseInfo_id = {"houseInfo_id": house_id_param};
+    getAjax("GET", houseInfo_id, "houseInfoValid/auth/browseHouseInfo?" + new Date(), payData, true);
+}
+/**
+ * 确定支付信息弹出框
+ * @param data
+ */
+function payData(data) {
+    layer.msg(JSON.stringify(data.mobile));
 }
 
 

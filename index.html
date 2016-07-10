@@ -22,6 +22,18 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+  <script src="./resources/js/jquery-1.10.1.min.js"></script>
+  <script src="./resources/js/common.js"></script>
+  <script src="./resources/js/common/head.js"></script>
+
+  <script type="text/javascript" src="./resources/tpgd/js/bootstrap.min.js"></script>
+  <!--<script type="text/javascript" src="./resources/tpgd/js/jquery.prettyPhoto.js"></script>-->
+  <script type="text/javascript" src="./resources/tpgd/js/jquery.isotope.min.js"></script>
+  <script type="text/javascript" src="./resources/tpgd/js/owl.carousel.js"></script>
+  <script type="text/javascript" src="./resources/tpgd/js/main.js"></script>
+  <script type="text/javascript" src="./resources/layer/layer.js"></script>
+  <script type="text/javascript" src="./resources/js/index.js"></script>
 </head>
 
 <body class="homepage">
@@ -40,7 +52,16 @@
           <li><a href="portfolio.html">最新房源</a></li>
           <li><a href="pricing.html">物业查询</a></li>
           <li><a href="#personal">个人中心</a></li>
-          <li><a href="login.html">登录/注册</a></li>
+          <li>
+            <div class="part1" style="display:none ">
+              <a href="./login.html" target="_top">登录/注册</a>
+            </div>
+
+            <div class="part2" style="display:none ">
+              <span id="testId">欢迎您，</span><span class="user"></span>
+              <span class="btn btn-warning exit">退出</span>
+            </div>
+          </li>
         </ul>
       </div>
     </div>
@@ -258,37 +279,6 @@
     </div>
   </div>
 </footer>
-<script type="text/javascript" src="./resources/tpgd/js/jquery.js"></script>
-<script type="text/javascript" src="./resources/tpgd/js/bootstrap.min.js"></script>
-<!--<script type="text/javascript" src="./resources/tpgd/js/jquery.prettyPhoto.js"></script>-->
-<script type="text/javascript" src="./resources/tpgd/js/jquery.isotope.min.js"></script>
-<script type="text/javascript" src="./resources/tpgd/js/owl.carousel.js"></script>
-<script type="text/javascript" src="./resources/tpgd/js/main.js"></script>
-<script type="text/javascript" src="./resources/layer/layer.js"></script>
-<script>
-  $('.recharge').on('click', function(){
-    layer.open({
-      type: 2,
-      title: '账户充值',
-      maxmin: true,
-      shadeClose: true, //点击遮罩关闭层
-      area : ['800px' , '520px'],
-      content: 'finance/recharge.html'
-    });
-  });
 
-  $('.rechargeAll').on('click', function(){
-    layer.open({
-      type: 2,
-      title: '充值记录',
-      maxmin: true,
-      shadeClose: true, //点击遮罩关闭层
-      area : ['800px' , '520px'],
-      content: 'finance/recharge_all.html'
-    });
-  });
-
-
-</script>
 </body>
 </html>

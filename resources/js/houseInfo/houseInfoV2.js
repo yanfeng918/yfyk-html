@@ -201,6 +201,8 @@ function favoriteHouse(dom){
 function favoriteHouseCallback(data){
     alert(data.content);
 }
+
+
 /**
  * 查看数据
  */
