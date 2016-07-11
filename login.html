@@ -1,167 +1,167 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>我要查房 - 登录</title>
+    <title>我要查房 - 登录</title>
 
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-	<!-- bootstrap -->
-	<link href="./resources/tpgd/css/bootstrap.min.css" rel="stylesheet">
-	<!--<link href="resources/detailAdmin/css/bootstrap/bootstrap.css" rel="stylesheet" />-->
-	<link href="resources/detailAdmin/css/bootstrap/bootstrap-responsive.css" rel="stylesheet" />
-	<link href="resources/detailAdmin/css/bootstrap/bootstrap-overrides.css" type="text/css" rel="stylesheet" />
+    <!-- bootstrap -->
+    <link href="./resources/tpgd/css/bootstrap.min.css" rel="stylesheet">
+    <!--<link href="resources/detailAdmin/css/bootstrap/bootstrap.css" rel="stylesheet" />-->
+    <link href="resources/detailAdmin/css/bootstrap/bootstrap-responsive.css" rel="stylesheet"/>
+    <link href="resources/detailAdmin/css/bootstrap/bootstrap-overrides.css" type="text/css" rel="stylesheet"/>
 
-	<!-- global styles -->
-	<link rel="stylesheet" type="text/css" href="resources/detailAdmin/css/layout.css" />
-	<link rel="stylesheet" type="text/css" href="resources/detailAdmin/css/elements.css" />
-	<link rel="stylesheet" type="text/css" href="resources/detailAdmin/css/icons.css" />
+    <!-- global styles -->
+    <link rel="stylesheet" type="text/css" href="resources/detailAdmin/css/layout.css"/>
+    <link rel="stylesheet" type="text/css" href="resources/detailAdmin/css/elements.css"/>
+    <link rel="stylesheet" type="text/css" href="resources/detailAdmin/css/icons.css"/>
 
-	<!-- libraries -->
-	<link rel="stylesheet" type="text/css" href="resources/detailAdmin/css/lib/font-awesome.css" />
+    <!-- libraries -->
+    <link rel="stylesheet" type="text/css" href="resources/detailAdmin/css/lib/font-awesome.css"/>
 
-	<!-- this page specific styles -->
-	<link rel="stylesheet" href="resources/detailAdmin/css/compiled/signin.css" type="text/css" media="screen" />
+    <!-- this page specific styles -->
+    <link rel="stylesheet" href="resources/detailAdmin/css/compiled/signin.css" type="text/css" media="screen"/>
 
-	<!-- open sans font -->
-	<link href='http://fonts.useso.com/css?family=Open+Sans:300italic,400italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css' />
+    <!-- open sans font -->
+    <link href='http://fonts.useso.com/css?family=Open+Sans:300italic,400italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'/>
 
-	<!--[if lt IE 9]>
-	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-	<![endif]-->
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-
-
-	<meta http-equiv="expires" content="0" />
-	<meta http-equiv="Pragma" content="no-cache" />
-	<meta http-equiv="Cache-Control" content="no-cache" />
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
 
-	<title>我要查房 - 登录</title>
-	<meta http-equiv="expires" content="0" />
-	<meta http-equiv="Pragma" content="no-cache" />
-	<meta http-equiv="Cache-Control" content="no-cache" />
+    <meta http-equiv="expires" content="0"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Cache-Control" content="no-cache"/>
 
-	<!-- scripts -->
-	<script src="resources/js/jquery-1.10.1.min.js"></script>
-	<script src="resources/js/common.js"></script>
-	<script src="resources/detailAdmin/js/bootstrap.min.js"></script>
-	<script src="resources/detailAdmin/js/theme.js"></script>
-	<script type="text/javascript" src="resources/layer/layer.js"></script>
-	<script type="text/javascript" src="resources/js/login.js"></script>
-	<style>
-		.navbar-inverse .navbar-nav > li a{
-			height:35px;
-		}
-	</style>
+
+    <title>我要查房 - 登录</title>
+    <meta http-equiv="expires" content="0"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Cache-Control" content="no-cache"/>
+
+    <!-- scripts -->
+    <script src="resources/js/jquery-1.10.1.min.js"></script>
+    <script src="resources/js/common.js"></script>
+    <script src="resources/detailAdmin/js/bootstrap.min.js"></script>
+    <script src="resources/detailAdmin/js/theme.js"></script>
+    <script type="text/javascript" src="resources/layer/layer.js"></script>
+    <script type="text/javascript" src="resources/js/login.js"></script>
+    <style>
+        .navbar-inverse .navbar-nav > li a {
+            height: 35px;
+        }
+    </style>
 
 </head>
 <body>
 
 <div id="divID" style="width:100%; "></div>
 <!--<script>-->
-	<!--$("#divID").load("common/head.html");-->
+<!--$("#divID").load("common/head.html");-->
 <!--</script>-->
 <!--<header id="header">-->
-	<!--<nav class="navbar navbar-inverse" role="banner">-->
-		<!--<div class="container">-->
-			<!--<div class="navbar-header">-->
-				<!--<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>-->
-				<!--<a class="navbar-brand" href="index.html"><i class="fa fa-sun-o"></i> 我要查房</a></div>-->
-			<!--<div class="collapse navbar-collapse navbar-right">-->
-				<!--<ul class="nav navbar-nav">-->
-					<!--<li class="active"><a href="index.html">主页</a></li>-->
-					<!--<li ><a href="about.html">联系我们</a></li>-->
-					<!--<li><a href="house_info/list-table.html">有效房源</a></li>-->
-					<!--<li><a href="portfolio.html">最新房源</a></li>-->
-					<!--<li><a href="pricing.html">物业查询</a></li>-->
-					<!--<li><a href="#personal">个人中心</a></li>-->
-					<!--<li>-->
-						<!--<div class="part1" style="display:none ">-->
-							<!--<a href="./login.html" target="_top">登录/注册</a>-->
-						<!--</div>-->
+<!--<nav class="navbar navbar-inverse" role="banner">-->
+<!--<div class="container">-->
+<!--<div class="navbar-header">-->
+<!--<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>-->
+<!--<a class="navbar-brand" href="index.html"><i class="fa fa-sun-o"></i> 我要查房</a></div>-->
+<!--<div class="collapse navbar-collapse navbar-right">-->
+<!--<ul class="nav navbar-nav">-->
+<!--<li class="active"><a href="index.html">主页</a></li>-->
+<!--<li ><a href="about.html">联系我们</a></li>-->
+<!--<li><a href="house_info/list-table.html">有效房源</a></li>-->
+<!--<li><a href="portfolio.html">最新房源</a></li>-->
+<!--<li><a href="pricing.html">物业查询</a></li>-->
+<!--<li><a href="#personal">个人中心</a></li>-->
+<!--<li>-->
+<!--<div class="part1" style="display:none ">-->
+<!--<a href="./login.html" target="_top">登录/注册</a>-->
+<!--</div>-->
 
-						<!--<div class="part2" style="display:none ">-->
-							<!--<span id="testId">欢迎您，</span><span class="user"></span>-->
-							<!--<span class="btn btn-warning exit">退出</span>-->
-						<!--</div>-->
-					<!--</li>-->
-				<!--</ul>-->
-			<!--</div>-->
-		<!--</div>-->
-	<!--</nav>-->
+<!--<div class="part2" style="display:none ">-->
+<!--<span id="testId">欢迎您，</span><span class="user"></span>-->
+<!--<span class="btn btn-warning exit">退出</span>-->
+<!--</div>-->
+<!--</li>-->
+<!--</ul>-->
+<!--</div>-->
+<!--</div>-->
+<!--</nav>-->
 <!--</header>-->
 
-	<!-- background switcher -->
-	<!--<div class="bg-switch visible-desktop">-->
-		<!--<div class="bgs">-->
-			<!--<a href="#" data-img="7.jpg" class="bg ">-->
-				<!--<img src="resources/detailAdmin/img/bgs/7.jpg" />-->
-			<!--</a>-->
-			<!--<a href="#" data-img="8.jpg" class="bg active">-->
-				<!--<img src="resources/detailAdmin/img/bgs/8.jpg" />-->
-			<!--</a>-->
-			<!--<a href="#" data-img="9.jpg" class="bg">-->
-				<!--<img src="resources/detailAdmin/img/bgs/9.jpg" />-->
-			<!--</a>-->
-			<!--<a href="#" data-img="10.jpg" class="bg">-->
-				<!--<img src="resources/detailAdmin/img/bgs/10.jpg" />-->
-			<!--</a>-->
-			<!--<a href="#" data-img="11.jpg" class="bg">-->
-				<!--<img src="resources/detailAdmin/img/bgs/11.jpg" />-->
-			<!--</a>-->
-		<!--</div>-->
-	<!--</div>-->
+<!-- background switcher -->
+<!--<div class="bg-switch visible-desktop">-->
+<!--<div class="bgs">-->
+<!--<a href="#" data-img="7.jpg" class="bg ">-->
+<!--<img src="resources/detailAdmin/img/bgs/7.jpg" />-->
+<!--</a>-->
+<!--<a href="#" data-img="8.jpg" class="bg active">-->
+<!--<img src="resources/detailAdmin/img/bgs/8.jpg" />-->
+<!--</a>-->
+<!--<a href="#" data-img="9.jpg" class="bg">-->
+<!--<img src="resources/detailAdmin/img/bgs/9.jpg" />-->
+<!--</a>-->
+<!--<a href="#" data-img="10.jpg" class="bg">-->
+<!--<img src="resources/detailAdmin/img/bgs/10.jpg" />-->
+<!--</a>-->
+<!--<a href="#" data-img="11.jpg" class="bg">-->
+<!--<img src="resources/detailAdmin/img/bgs/11.jpg" />-->
+<!--</a>-->
+<!--</div>-->
+<!--</div>-->
 
 
-		<div>
-			<form id="loginForm" action="" method="post">
+<div>
+    <form id="loginForm" action="" method="post">
 
-				<div class="row-fluid login-wrapper">
-					<a href="index.html">
-						<!--<img class="logo" src="resources/detailAdmin/img/logo-white.png" />-->
-					</a>
+        <div class="row-fluid login-wrapper">
+            <a href="index.html">
+                <!--<img class="logo" src="resources/detailAdmin/img/logo-white.png" />-->
+            </a>
 
-					<div class="span4 box" style="margin-top: 60px">
-						<div class="content-wrap">
-							<h6>登录</h6>
-							<input class="span12" type="text" placeholder="请输入用户名" id="username" name="username" maxlength="20" />
+            <div class="span4 box" style="margin-top: 60px">
+                <div class="content-wrap">
+                    <h6>登录</h6>
+                    <input class="span12" type="text" placeholder="请输入用户名" id="username" name="username" maxlength="20"/>
 
-							<input class="span12" type="password" placeholder="请输入密码" id="password"  name="password" maxlength="20"/>
-							<a href="#" class="forgot">忘记密码?</a>
-							<div class="remember">
-								<input id="isRememberUsername" type="checkbox" />
-								<label for="isRememberUsername">记住密码</label>
-							</div>
-							<input class="btn-glow primary login loginButton" type="button"  id="loginButton" value="登录" />
-						</div>
-					</div>
+                    <input class="span12" type="password" placeholder="请输入密码" id="password" name="password" maxlength="20"/>
+                    <a href="#" class="forgot">忘记密码?</a>
+                    <div class="remember">
+                        <input id="isRememberUsername" type="checkbox"/>
+                        <label for="isRememberUsername">记住密码</label>
+                    </div>
+                    <input class="btn-glow primary login loginButton" type="button" id="loginButton" value="登录"/>
+                </div>
+            </div>
 
-					<div class="span4 no-account">
-						<p>没有账号？</p>
-						<a href="register.html">立即注册</a>
-					</div>
-				</div>
+            <div class="span4 no-account">
+                <p>没有账号？</p>
+                <a href="register.html">立即注册</a>
+            </div>
+        </div>
 
-			</form>
-		</div>
+    </form>
+</div>
 
 
-	<!-- pre load bg imgs -->
-	<script type="text/javascript">
-		$(function () {
+<!-- pre load bg imgs -->
+<script type="text/javascript">
+    $(function () {
 
-			$("body").css("background-image", "url('resources/detailAdmin/img/bgs/7.jpg')");
-			// bg switcher
-			var $btns = $(".bg-switch .bg");
-			$btns.click(function (e) {
-				e.preventDefault();
-				$btns.removeClass("active");
-				$(this).addClass("active");
-				var bg = $(this).data("img");
-				$("html").css("background-image", "url('resources/detailAdmin/img/bgs/" + bg + "')");
-			});
-		});
-	</script>
+        $("body").css("background-image", "url('resources/detailAdmin/img/bgs/7.jpg')");
+        // bg switcher
+        var $btns = $(".bg-switch .bg");
+        $btns.click(function (e) {
+            e.preventDefault();
+            $btns.removeClass("active");
+            $(this).addClass("active");
+            var bg = $(this).data("img");
+            $("html").css("background-image", "url('resources/detailAdmin/img/bgs/" + bg + "')");
+        });
+    });
+</script>
 
 </body>
 </html>

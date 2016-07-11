@@ -49,10 +49,13 @@ function submitCallback(data) {
         } else if ($("#username").val().trim().length < 6) {
             layer.msg('用户名长度最小为6！');
             return false;
-        } else if ($("#password").val() == "") {
+        } else if ($("#mobile").val() == "") {
+            layer.msg('手机号码不能为空！');
+            return false;
+        }else if ($("#password").val() == "") {
             layer.msg('密码不能为空！');
             return false;
-        } else if ($("#password").val().indexOf(" ") != -1) {
+        }  else if ($("#password").val().indexOf(" ") != -1) {
             layer.msg('密码不能包含空格！');
             return false;
         } else if ($("#password").val().length < 6) {
