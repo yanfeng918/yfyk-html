@@ -2,10 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 <title></title>
-<link rel="stylesheet" type="text/css" href="../resources/css/finance/recharge.css"/>
-<link rel="stylesheet" type="text/css" href="../resources/css/global.css"/>
-<link rel="stylesheet" type="text/css" href="../resources/css/clear.css"/>
+	<link href="../resources/tpgd/css/bootstrap.min.css" rel="stylesheet">
+<!--<link rel="stylesheet" type="text/css" href="../resources/css/finance/recharge.css"/>-->
+<!--<link rel="stylesheet" type="text/css" href="../resources/css/global.css"/>-->
+<!--<link rel="stylesheet" type="text/css" href="../resources/css/clear.css"/>-->
 <link rel="stylesheet" type="text/css" href="../resources/css/pager.css"/>
 <script type="text/javascript" src="../resources/js/jquery-1.10.1.min.js"></script>
 <script type="text/javascript" src="../resources/js/common.js"></script>
@@ -14,26 +16,23 @@
 <script type="text/javascript" src="../resources/js/validate/jquery.validate.min.js"></script>
 <script type="text/javascript" src="../resources/js/validate/messages_cn.js"></script>
 <script type="text/javascript" src="../resources/js/finance/recharge.js"></script>
-<link href="../resources/css/date_css/date.css" rel="stylesheet" type="text/css">
+<!--<link href="../resources/css/date_css/date.css" rel="stylesheet" type="text/css">-->
 
 	<script type="text/javascript" src="../resources/dataTables/media/js/jquery.dataTables.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="../resources/dataTables/media/css/jquery.dataTables.min.css">
 </head>
 <body>
 
-<div class="course" style=""><img src="../resources/images/course.jpg" alt="" /></div>
-<div class="main">
+<!--<div class="course" style=""><img src="../resources/images/course.jpg" alt="" /></div>-->
 
 	<div class="container">
 
-		<div class="container_main">
 			<!--<div class="container_top">-->
 				<!--<div class="recharge">-->
 					<!--<div class="recharge_current recharge_record">充值记录</div>-->
 				<!--</div>-->
 			<!--</div>-->
 
-		<div class=" " style="display: block">
 			<!--<div div="date">            -->
 				<!--<form id="recharge_record_form">-->
 				   <!--<div class="demos">-->
@@ -49,46 +48,45 @@
 				    <!--<input type="button" value="搜索" id="search">-->
 				<!--</form>-->
 			<!--</div>-->
+				<div class="table-responsive">
+					<table id="example" class="table" border="0" cellpadding="0" cellspacing="0">
+					<thead>
+						<tr>
+							<th align=left>&nbsp;&nbsp;&nbsp;充值时间</th>
+							<th >充值金额</th>
+							<th >充值状态</th>
+							<!--<th>可用余额</th>-->
+							<th>充值方式</th>
+						</tr>
+					</thead>
+					<tbody>
 
-			<table id="example" class="cell-border hover stripe" border="0" cellpadding="0" cellspacing="0">
-				<thead>
 					<tr>
-						<th align=left>&nbsp;&nbsp;&nbsp;充值时间</th>
-						<th >充值金额</th>
-						<th >充值状态</th>
-						<!--<th>可用余额</th>-->
-						<th>充值方式</th>
+						<td>Tatyana Fitzpatrick</td>
+						<td>Regional Director</td>
+						<td>2010/03/17</td>
+						<td>$385,750</td>
 					</tr>
-				</thead>
-				<tbody>
+					<tr>
+						<td>Michael Silva</td>
+						<td>Marketing Designer</td>
+						<td>2012/11/27</td>
+						<td>$198,500</td>
+					</tr>
+					<tr>
+						<td>Paul Byrd</td>
+						<td>Chief Financial Officer (CFO)</td>
+						<td>2010/06/09</td>
+						<td>$725,000</td>
+					</tr>
 
-				<tr>
-					<td>Tatyana Fitzpatrick</td>
-					<td>Regional Director</td>
-					<td>2010/03/17</td>
-					<td>$385,750</td>
-				</tr>
-				<tr>
-					<td>Michael Silva</td>
-					<td>Marketing Designer</td>
-					<td>2012/11/27</td>
-					<td>$198,500</td>
-				</tr>
-				<tr>
-					<td>Paul Byrd</td>
-					<td>Chief Financial Officer (CFO)</td>
-					<td>2010/06/09</td>
-					<td>$725,000</td>
-				</tr>
-
-				</tbody>
-			</table>
-			<!--<div id="pager"></div>-->
-		</div>
-		</div>
-	</div>
+					</tbody>
+				</table>
+			</div>
 
 	</div>
+
+
 
 	<script>
 		$(function(){
@@ -107,7 +105,9 @@
 					"infoFiltered": "(从 _MAX_ 条记录过滤)"
 				},
 				"searching": false,
-				"ordering": false
+				"ordering": false,
+//				responsive: true,
+				scrollX:        true
 			});
 		})
 
