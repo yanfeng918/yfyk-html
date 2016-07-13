@@ -15,12 +15,12 @@ function browserRedirect() {
 }
 
 //browserRedirect();
-//ip="dagongpan.cn";
+//ip="www.51chafang.com";
 ip="localhost";
 var setting = {
 	base: "http://"+ip+"/yjb/",
-    //baseHtml:"http://"+ip+"/yjb-html/",
-    baseHtml:"http://"+ip+"/yfyk-html/",
+    baseHtml:"http://"+ip,
+    //baseHtml:"http://"+ip+"/yfyk-html/",
 	locale: "zh_CN"
 };
 
