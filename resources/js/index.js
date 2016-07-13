@@ -1,12 +1,18 @@
 $(function(){
     $('.recharge').on('click', function(){
         layer.open({
+            id:"layer-charge",
             type: 2,
             title: '账户充值',
             maxmin: true,
             shadeClose: true, //点击遮罩关闭层
-            area : ['800px' , '520px'],
-            content: 'finance/recharge.html'
+            //area : ['800px' , '520px'],
+            area : ['100%' , '420px'],
+            content: 'finance/rechargeV2.html'
+            ,success: function(layero, index){
+                console.log(layero, index);
+                $(layero).addClass("col-md-6 col-sm-10 col-xs-12")
+            }
         });
     });
 
@@ -20,4 +26,6 @@ $(function(){
             content: 'finance/recharge_all.html'
         });
     });
+
+
 })

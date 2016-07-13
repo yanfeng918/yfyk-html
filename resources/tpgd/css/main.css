@@ -412,7 +412,8 @@ body > section {
 	height: 100%;
 	opacity: 0;
 	border-radius: 0;
-	background: #f39c12;
+	/*background: #f39c12;*/
+	background: gray;
 	color: #fff;
 	vertical-align: middle;
 	-webkit-transition: opacity 500ms;
@@ -431,8 +432,8 @@ body > section {
 	text-align: center;
 	color: #fff;
 }
-.recent-work-wrap:hover .overlay {
-	opacity: 0.9;
+.recent-work-wrap .overlay {
+	opacity: 0.7;
 }
 /* Testimonials Section */
 #testimonials {
