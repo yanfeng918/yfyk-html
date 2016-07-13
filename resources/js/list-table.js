@@ -1,11 +1,9 @@
-//加载用户名称
-//        var  uname = getCookie("yjb_username");
-//        if(uname==null || uname.length==0){
-//alert("未登录")
-//            window.location=setting.baseHtml+"login.html";
-//            $.delay(1000);
-//        }
+
+var post_Url ="/yjb/houseInfoValid/getHouseInfoList";
 $(function () {
+    if(getUrlParam("type")!=null&&getUrlParam("type")=='new'){
+        post_Url="/yjb/houseInfoNew/getHouseInfoList";
+    }
     var _table = createDateTables();
 
     $("#searchHouseInfo").click(function () {
@@ -45,7 +43,7 @@ var createDateTables = function () {
             data: function (data) {
                 return getQueryCondition(data)
             },
-            url: "/yjb/houseInfoValid/getHouseInfoList",
+            url: post_Url,
             type: "GET",
             dataSrc: function (data) {
                 data.recordsTotal = data.totalCount;

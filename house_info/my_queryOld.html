@@ -9,16 +9,14 @@
     <link rel="stylesheet" type="text/css" href="../resources/css/clear.css"/>
     <link rel="stylesheet" type="text/css" href="../resources/css/pager.css"/>
     <link rel="stylesheet" type="text/css" href="../resources/css/tip_box.css"/>
-
     <script type="text/javascript" src="../resources/js/jquery-1.10.1.min.js"></script>
     <script type="text/javascript" src="../resources/js/common.js"></script>
     <script type="text/javascript" src="../resources/js/jquery.pager.js"></script>
     <script type="text/javascript" src="../resources/js/jquery.lSelect.js"></script>
     <script type="text/javascript" src="../resources/js/validate/jquery.validate.min.js"></script>
     <script type="text/javascript" src="../resources/js/validate/messages_cn.js"></script>
-    <script type="text/javascript" src="../resources/js/houseInfo/my_favour.js"></script>
+    <script type="text/javascript" src="../resources/js/houseInfo/my_query.js"></script>
     <link href="../resources/css/date_css/date.css" rel="stylesheet" type="text/css">
-
 </head>
 <body>
 <iframe name="header" id="header" src="../common/headOld.html" width="100%;" height="48px;" frameborder="0" scrolling="no"
@@ -41,7 +39,7 @@
     <div class="main_R" style="margin-bottom:25px;">
         <div class="container" style="margin-left:0; margin-right:0;">
             <div class="position">
-                <div>当前位置：<a href="list.html">房源数据库</a>><a href="">我收藏的房源</a>
+                <div>当前位置：<a href="list.html">房源数据库</a>><a href="">我查看的房源</a>
                 </div>
             </div>
             <div class="region" style="margin-left:25px;  margin-right: 25px;display: none">
@@ -52,27 +50,30 @@
                     <div class="option-list sub-option-list" id="region_id">
                     </div>
                 </div>
-            </div>
 
-            <form id="houseFrom">
-                <div class="filter_drop">
+
+            </div>
+            <div class="filter_drop">
+                <form id="houseFrom">
+                    <input type="hidden" id="area_id" name="area_id" value=""/>
                     <input type="hidden" name="pageNumber" id="pageNumber" value="1"/>
                     <input type="hidden" name="pageSize" id="pageSize" value="20"/>
                     <input type="hidden" name="orderBy" id="orderBy"/>
                     <input type="hidden" name="orderType" id="order"/>
-                </div>
-            </form>
+                </form>
+            </div>
             <div class="main_R_main" style="margin-left:25px; margin-right: 25px; ">
                 <div class="main_R_nav">
                     <ul>
-                        <li class=" list_head "><a href="list.html">数据列表</a></li>
-                        <li class="list_head about"><a href="my_query.html">我查看的房源</a></li>
+                        <li class="list_head "><a href="list.html">数据列表</a></li>
+                        <li class="main_R_nav_current list_head about"><a href="my_queryOld.html">我查看的房源</a></li>
                         <li class="list_head about"><a href="my_release.html">我发布的房源</a></li>
-                        <li class="list_head about main_R_nav_current"><a href="my_favor.html">我收藏的房源</a></li>
+                        <li class="list_head about"><a href="my_favorOld.html">我收藏的房源</a></li>
                     </ul>
                 </div>
+
                 <div class="main_R_list">
-                    <table id="favoritesTable" border="0" cellpadding="0" cellspacing="0" class="mytable">
+                    <table id="browseTable" border="0" cellpadding="0" cellspacing="0" class="mytable">
                         <tr style="background:#227ADC; color:#fff;">
                             <th>数据价格</th>
                             <th>区域</th>
@@ -80,12 +81,12 @@
                             <th>户型</th>
                             <th>面积</th>
                             <th>价格</th>
-                            <!--<th>楼层</th>
-                            <th>房号</th>-->
                             <th>楼栋号</th>
-                            <th>卖家称呼</th>
+                            <th>房号</th>
                             <th>手机</th>
-                            <th colspan="2">操作</th>
+                            <th>举报操作</th>
+                            <th>审核状态</th>
+                            <th>审核原因</th>
                         </tr>
                     </table>
                 </div>
@@ -102,7 +103,7 @@
                     <span class="note"><img src="../resources/images/cry.jpg" height="56" width="61" alt=""></span>
 
                     <div class="info"><p>该条数据查看需支付</p><span style="font-size: 28px" id="notEnough"></span>元</div>
-                    <span style="color:#EE0000;">您的可用余额(余额-冻结金额)不足！</span>
+                    <span style="color:#EE0000;">您的余额不足！</span>
                 </div>
                 <div class="dialog_box_bottom">
                     <div class="yes"><a href="../finance/recharge_all.html" targrt="_top" style="color:#fff;">充值</a></div>
@@ -151,7 +152,7 @@
 
                     <div class="close" onclick="cancle('changeInfoId')"><img src="../resources/images/form_close.jpg" alt="" /></div>
                 </div>
-
+                
                 <div class="form" style="padding-left:25px;">
                     <form id="changeInfoFrom">
                         <br/>
@@ -195,7 +196,7 @@
                         <input type="text" name="salePrices" id="salePrices" style="width:230px;"/>
                         <label for="" style="color:#CBCBCB;">万元</label>
                         <br/>
-                        <input type="submit" value="提交数据" id="submitHouseInfo" class="txt_sub"/>
+                            <input type="submit" value="提交数据" id="submitHouseInfo" class="txt_sub"/>
                         <br/>
                     </form>
                 </div>
@@ -213,7 +214,7 @@
                         &nbsp;&nbsp;&nbsp;&nbsp;当前房源信息价格为<span id="oldInfoPrice" style="color: red; font-size: 28px"></span>
                         <span>元</span>
                         <br/>
-                        &nbsp;&nbsp;&nbsp;&nbsp;请输入新的价格:
+                    &nbsp;&nbsp;&nbsp;&nbsp;请输入新的价格:
                         <input type="text" style="width:150px; display:inline-block;"
                                name="infoPrice" id="onlyInfoPrice"
                                class="fixed_price"/>元

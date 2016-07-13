@@ -1,139 +1,165 @@
-/* 
-* @Author: dell
-* @Date:   2015-08-19 14:29:35
-* @Last Modified by:   dell
-* @Last Modified time: 2015-09-20 19:37:59
-*/
-var pageCount;
+//加载用户名称
+//        var  uname = getCookie("yjb_username");
+//        if(uname==null || uname.length==0){
+//alert("未登录")
+//            window.location=setting.baseHtml+"login.html";
+//            $.delay(1000);
+//        }
+$(function () {
+    var _table = createDateTables();
 
-/**
- * 载入页面初始化数据
- */
-$(".region").hide();
-$().ready(function() {
-    $("#city_id").val(getCookie("cityId"));
-    $("#cityName").html(getCookie("cityName"));
-    getTown();
-    getBrowse();
+    //$("#searchHouseInfo").click(function () {
+    //    _table.draw();
+    //});
 })
 
 
-function getTown(){
-    var data={"area_id": $("#city_id").val()};
-    $("#area_id").val($("#city_id").val());
-    getAjax("get", data,"houseInfo/getAreaHouseCountByCity?"+new Date(),getTownCallback,true);
-}
-/**
- * 获取区域列表回掉函数
- */
-function getTownCallback(data){
-    if(data.type=="error"){
-        alert(data.content);
-        return;
-    }else{
-        var str="";
-        $.each(data,function(idx,item){
-            str += "<li class=\"datas_detail\" onclick='onclickArea(this)'><input type='hidden' value='"+item.areaId+";"+item.areaName+"'><span class=\"area\">";
-            str += item.areaName;
-            str += "</span><div class=\"num\"><span>"+item.houseInfoCount+"</span><span>套＞</span></div></li>";
-        })
 
-         $("#city_view ul").remove();
-        $("#city_view").append("<ul>"+str+"</ul>");
+var createDateTables = function () {
+
+    var table = $('#houseTable').DataTable({
+        language: {
+            url: '../resources/dataTables/Chinese.json'
+        },
+        //responsive: true,
+        colReorder: true,
+        fixedHeader: true,
+        searching: false,
+        ordering: false,
+        "processing": true,
+        "serverSide": true,
+        "paging": true,
+        "aLengthMenu": [[25, 50, -1], [25, 50, "显示所有"]], //这个是允许用户自定义每页数量的时候,下拉菜单的选项
+        "bPaginate": true,      //显示分页器
+        "bLengthChange": false, // 用户不可改变每页显示数量
+        "iDisplayLength": 25,   //一页显示条数
+        "ajax": {
+            data: function (data) {
+                return getQueryCondition(data)
+            },
+            url: "/yjb/houseInfoValid/getHouseInfoList",
+            type: "GET",
+            dataSrc: function (data) {
+                data.recordsTotal = data.totalCount;
+                data.recordsFiltered = data.totalCount;
+                return data.data;
+            }
+        },
+        "columns": [
+            {"data": "createDateStr"},
+            {"data": "area_fullName"},
+            {"data": "community"},
+            {"data": "areaSize"},
+            {"data": "salePrice"},
+            {"data": "ban"},
+            {"data": "roomNumber"},
+            {"data": null, className: "td-operation  text-center", orderable: false, width: "15%", defaultContent: ""}
+        ],
+        "createdRow": function (row, data, index) {
+            //不使用【render】，改用jquery文档操作呈现单元格  data.id
+            var $btnEdit = $('<button type="button" class="btn btn-small btn-primary btn-edit" onclick="queryData(' + data.id + ')">查看数据</button>');
+            $('td', row).eq(7).append($btnEdit);
+        }
+    });
+    return table;
+}
+
+function getQueryCondition(data) {
+    var param = {};
+    //组装排序参数
+    if (data.order && data.order.length && data.order[0]) {
+        switch (data.order[0].column) {
+            case 1:
+                param.orderColumn = "name";
+                break;
+            case 2:
+                param.orderColumn = "position";
+                break;
+            case 3:
+                param.orderColumn = "status";
+                break;
+            case 4:
+                param.orderColumn = "start_date";
+                break;
+            default:
+                param.orderColumn = "name";
+                break;
+        }
+        param.orderDir = data.order[0].dir;
+    }
+    //组装查询参数
+    if ($("#salePrice").val())
+        param.salePrice = $("#salePrice").val();
+    if ($("#areaSize").val())
+        param.areaSize = $("#areaSize").val();
+    if ($("#searchCommunity").val())
+        param.community = $("#searchCommunity").val();
+    if ($("#area_id").val())
+        param.area_id = $("#area_id").val();
+
+    //组装分页参数
+    param.pageOffset = data.start;
+    param.pageSize = data.length;
+    return param;
+}
+
+var house_id_param;
+/**
+ * 查看数据
+ */
+function queryData(houseId) {
+    //判断是否登录
+    if(getCookie("yjb_token") == null||getCookie("yjb_token") == '') {
+        layer.msg("请先登录!");
+        return false;
+    }
+    house_id_param = houseId;
+    var houseInfo_id = {"houseInfo_id": houseId};
+    getAjax("GET", houseInfo_id, "houseInfoValid/auth/getBrowseHouseInfoVO?" + new Date(), queryDataCallback, true);
+}
+
+function queryDataCallback(data) {
+    if (data.mine == true) {
+        //showData(data);
+        layer.msg(data);
+    } else if (data.bought == true) {
+        //showData(data);
+        layer.msg(JSON.stringify(data.houseInfoValid.mobile));
+    } else if (data.balanceEnough == true) {
+        isPay(data);
+    } else if (data.balanceEnough == false) {
+        layer.msg('余额不足!');
     }
 }
 
-
-/**
- * 获取查看过的数据列表
- */
-function getBrowse(){
-    var formParam = $("#houseFrom").serialize();
-    getAjax("post", formParam,"bfhouse/auth/getBrowseHouse",getBrowseCallback,false);
-    $("#pager").pager({ pagenumber: 1, pagecount: pageCount, buttonClickCallback: PageClickBrowse });
-}
-function PageClickBrowse(pageclickednumber){
-    $("#pageNumber").val(pageclickednumber);
-    var formParam = $("#houseFrom").serialize();
-    getAjax("post", formParam,"bfhouse/auth/getBrowseHouse",getBrowseCallback,false);
-    $("#pager").pager({ pagenumber: pageclickednumber, pagecount: pageCount, buttonClickCallback: PageClickBrowse });
-}
-function  getBrowseCallback(data) {
-    pageCount=data.pageCount;
-    if($("#browseTable tr").length>1) {
-        $("#browseTable tr:gt(0)").remove();
-    }
-    $.each(data.list, function(i, item){
-        var content = "<tr><input type='hidden' value='"+item.id+"'>";
-        content+="<td  class='price'>"+item.infoPrice+"元</td>";
-        content+="<td>"+item.area.fullName+"</td>";
-        content+="<td>"+item.community+"</td>";
-        if(item.houseShape.indexOf("零室零厅")!=-1){
-            content+="<td></td>";
-        }else{
-            content+="<td>"+item.houseShape+"</td>";
+function isPay() {
+    layer.msg('你确定购买吗？', {
+        time: 0 //不自动关闭
+        , btn: ['确认', '取消']
+        , yes: function (index) {
+            layer.close(index);
+            ensure();
         }
-        if(item.areaSize!=0){
-            content+="<td>"+item.areaSize+"平米</td>";
-        }else{
-            content+="<td></td>";
-        }
-        if(item.salePrice!=0){
-            content+="<td>"+item.salePrice+"万元</td>";
-        }else{
-            content+="<td></td>";
-        }
-        content+="<td>"+item.ban+"</td>";
-        content+="<td>"+item.roomNumber+"</td>";
-        content+="<td>"+item.mobile+"</td>";
-        if(item.isReported==true){
-            content+="<td style='color: red'>已举报</td>";
-        }else if(item.isExpired==true){
-            content+="<td style='color: orange'>已过举报期</td>";
-        }else{
-            content+="<td class=\"query operate\" onclick='reportData(this)'><u>举报数据</u></td>";
-        }
-        content+="<td>"+item.checkStatus+"</td>";
-        content+="<td>"+item.checkContent+"</td>";
-        content+="</tr>";
-        $("#browseTable").append(content);
     });
 }
-/**
- * 举报数据
- * @param dom
- */
-
-var houseIdXX;
-function reportData(dom){
-    houseIdXX =$(dom).parent().children().eq(0).val();
-    var data={"houseInfo_id":$(dom).parent().children().eq(0).val()};
-    getAjax("GET",data,"auth/report/isReportExpired",IsReportExpiredCallback,true);
-}
-function IsReportExpiredCallback(data){
-    if(data == true){
-        alert("不能举报，已经过期！");
-        return;
-    }else{
-        document.getElementById('reportId').style.display='block';
-        document.getElementById('fade').style.display='block';
-        $("#reportHouseid").val(houseIdXX);
-    }
-}
-function reportEnsure(){
-    var data={"houseInfo_id":$("#reportHouseid").val(),"reportReason":$("#reportReason").val()};
-    getAjax("POST", data,"auth/report/addReportInfo",reportDataCallback,false);
-}
-function reportDataCallback(data){
-    alert(data.content);
-    cancle('reportId');
-    getBrowse();
-}
 
 /**
- * 弹出框取消按钮
+ * 确定支付按钮
+ * @param ensureId
  */
-function cancle(divid){
-    document.getElementById(divid).style.display='none';
-    document.getElementById('fade').style.display='none';
+function ensure() {
+    var houseInfo_id = {"houseInfo_id": house_id_param};
+    getAjax("GET", houseInfo_id, "houseInfoValid/auth/browseHouseInfo?" + new Date(), payData, true);
 }
+/**
+ * 确定支付信息弹出框
+ * @param data
+ */
+function payData(data) {
+    layer.msg(JSON.stringify(data.mobile));
+}
+
+
+
+
+

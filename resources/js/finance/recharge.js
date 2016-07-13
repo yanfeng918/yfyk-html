@@ -108,9 +108,6 @@ function rechargeCallback(data){
     if(data.type=='error'){
         alert(data.content);
     }else {
-       /* alert(data.content);
-         $("#rechargeNumber").val("");
-         $("#amount").val("");*/
-        $(".recharge_record").click();
+       window.location.href='recharge_all.html';
     }
 }
