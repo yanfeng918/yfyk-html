@@ -1,0 +1,107 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>大公盘</title>
+    <link rel="stylesheet" type="text/css" href="../resources/bootstrap-3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../resources/dataTables/media/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css"
+          href="../resources/dataTables/extensions/FixedHeader/css/fixedHeader.dataTables.css">
+
+    <script type="text/javascript" src="../resources/js/jquery-1.10.1.min.js"></script>
+    <script type="text/javascript" src="../resources/js/Calendar.js"></script>
+    <script type="text/javascript" src="../resources/js/common.js"></script>
+    <script type="text/javascript" src="../resources/dataTables/media/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript"
+            src="../resources/dataTables/extensions/FixedHeader/js/dataTables.fixedHeader.min.js"></script>
+
+    <script type="text/javascript" src="../resources/js/finance/expense.js?time=new Date()"></script>
+    <style type="text/css">
+        .table th, .table td {
+            text-align: center;
+        }
+
+        .box-bill-title {
+            /*line-height: 12px;*/
+            font-size: 30px;
+            color: #a9a9a9;
+        }
+
+        .box-bill-foot-account {
+            font-size: 30px;
+            color: #666666;
+        }
+    </style>
+
+</head>
+<body>
+<div class="main">
+
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-12">
+                <span class="box-bill-title">可用金额(元):</span>
+                <span class="box-bill-foot-account">
+                    <span id="balance">0</span>
+                    <!--<a href="rechargeV2.html" class="btn btn-primary" role="button">充值</a></div>-->
+                </span>
+            </div>
+
+            <!--<div class="row">-->
+            <!--<div class="col-md-12">-->
+            <!--<div>当前位置：<a href="../personal_center.html" target="_top">个人中心</a> > <a-->
+            <!--href="detail_list.html">收支明细</a>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</div>-->
+
+            <form id="inputForm">
+
+                <table spellcheck="false" class="table table-bordered table-striped table-responsive">
+                    <tr>
+                        <th>
+                            起止时间▼
+                        </th>
+                        <th class="col-md-3" style="margin: auto;text-align: center">
+                            <input name="beginDate" type="text" id="beginDate" size="10" maxlength="10"
+                                   onClick="new Calendar().show(this);" readonly="readonly"/>
+                        </th>
+                        <th>
+                            至▼
+                        </th>
+                        <th class="col-md-3">
+                            <input name="endDate" type="text" id="endDate" size="10" maxlength="10"
+                                   onClick="new Calendar().show(this);" readonly="readonly"/>
+                        </th>
+                        <th colspan="2" class="">
+                            <button class="btn btn-primary btn-sm" type="button" id="searchInfo">查&nbsp;询</button>
+                            <button class="btn btn-info btn-sm" type="button" id="resetBtn">重&nbsp;置
+                            </button>
+                        </th>
+                    </tr>
+                </table>
+            </form>
+
+            <div class="container_main ">
+                <div class="expense">
+                    <table id="listTable" class="stripe cell-border" width="100%">
+                        <thead>
+                        <tr>
+                            <th>时间</th>
+                            <th>类型</th>
+                            <th>金额</th>
+                            <!--<th>可用余额</th>-->
+                            <th>详情</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
