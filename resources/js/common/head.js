@@ -24,7 +24,7 @@ function submitCallback(data){
 	//清除cookie
 	delCookie("yjb_username");
 	delCookie("yjb_token");
-	top.location.href=setting.baseHtml+"login.html";
+	top.location.href=setting.baseHtml+"/login.html";
 }
 /*导航栏切换*/
 $(function(){

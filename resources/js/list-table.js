@@ -18,6 +18,15 @@ $(function () {
         url: setting.base + "common/area"
     });
 
+    /**
+     * 重置表单
+     */
+    $("#resetBtn").click(function () {
+        document.getElementById("inputForm").reset();
+        $("#area_id").val("");
+    });
+
+
 });
 
 
@@ -129,8 +138,12 @@ function queryDataCallback(data) {
         //showData(data);
         layer.msg(data);
     } else if (data.bought == true) {
-        //showData(data);
-        layer.msg(JSON.stringify(data.houseInfoValid.mobile));
+        layer.alert(JSON.stringify(data.houseInfoValid.mobile), {
+            title :'房源手机号码'
+            ,skin: 'layui-layer-lan'
+            ,closeBtn: 0
+            ,shift: 4 //动画类型
+        })
     } else if (data.balanceEnough == true) {
         isPay(data);
     } else if (data.balanceEnough == false) {
@@ -162,7 +175,14 @@ function ensure() {
  * @param data
  */
 function payData(data) {
-    layer.msg(JSON.stringify(data.mobile));
+
+
+    layer.alert(JSON.stringify(data.mobile), {
+        title :'房源手机号码'
+        ,skin: 'layui-layer-lan'
+        ,closeBtn: 0
+        ,shift: 4 //动画类型
+    })
 }
 
 
