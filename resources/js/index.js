@@ -37,12 +37,11 @@ $(function(){
 
     $('.expense').on('click', function(){
 
-        layer.alert('尽请期待，马上上线！', {
-            skin: 'layui-layer-lan'
-            ,closeBtn: 0
-            ,shift: 4 //动画类型
-        });
-        //layer.msg("")
+        if(getCookie("yjb_token") == null||getCookie("yjb_token") == '') {
+            layer.msg("请先登录!");
+            return false;
+        }
+        window.location.href='finance/expense.html';
 
     });
 
