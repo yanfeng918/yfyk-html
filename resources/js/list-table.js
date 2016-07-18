@@ -1,8 +1,13 @@
 
-var post_Url ="/yjb/houseInfoValid/getHouseInfoList";
+var table_list_Url ="/yjb/houseInfoValid/getHouseInfoList";
+var browse_Url ="houseInfoValid/auth/getBrowseHouseInfoVO?";
+var browseHouseInfo = "houseInfoValid/auth/browseHouseInfo?";
+
 $(function () {
     if(getUrlParam("type")!=null&&getUrlParam("type")=='new'){
-        post_Url="/yjb/houseInfoNew/getHouseInfoList";
+        table_list_Url="/yjb/houseInfoNew/getHouseInfoList";
+        browse_Url ="houseInfoNew/auth/getBrowseHouseInfoVO?";
+        browseHouseInfo = "houseInfoNew/auth/browseHouseInfo?";
     }
     var _table = createDateTables();
 
@@ -51,7 +56,7 @@ var createDateTables = function () {
             data: function (data) {
                 return getQueryCondition(data)
             },
-            url: post_Url,
+            url: table_list_Url,
             type: "GET",
             dataSrc: function (data) {
                 data.recordsTotal = data.totalCount;
@@ -129,7 +134,7 @@ function queryData(houseId) {
     }
     house_id_param = houseId;
     var houseInfo_id = {"houseInfo_id": houseId};
-    getAjax("GET", houseInfo_id, "houseInfoValid/auth/getBrowseHouseInfoVO?" + new Date(), queryDataCallback, true);
+    getAjax("GET", houseInfo_id, browse_Url + new Date(), queryDataCallback, true);
 }
 
 function queryDataCallback(data) {
@@ -167,7 +172,7 @@ function isPay() {
  */
 function ensure() {
     var houseInfo_id = {"houseInfo_id": house_id_param};
-    getAjax("GET", houseInfo_id, "houseInfoValid/auth/browseHouseInfo?" + new Date(), payData, true);
+    getAjax("GET", houseInfo_id, browseHouseInfo + new Date(), payData, true);
 }
 /**
  * 确定支付信息弹出框

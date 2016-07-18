@@ -61,23 +61,73 @@ function getBalanceCallback(data){
             {"data": "createDateStr"},
             {"data": "expensesType",
                 "render" : function(data,type, row, meta) {
-                    if(data=="dealExpense"){
+                    if(data==1){
                         return '消费';
                     }else{
-                        return '';
+                        return '消费';
                     }
-                }},
+                }
+            },
+            {"data": "houseType",
+                "render" : function(data,type, row, meta) {
+                    if(data==1){
+                        return '有效';
+                    }else if(data==2){
+                        return '最新';
+                    }else if(data==3){
+                        return '物业';
+                    }
+                }
+            },
             {"data": "amount"},
             {"data": null, className: "td-operation  text-center", orderable: false, width: "15%", defaultContent: ""}
         ],
         "createdRow": function (row, data, index) {
             //不使用【render】，改用jquery文档操作呈现单元格  data.id
-            console.log(data.houseInfo)
-            var $btnEdit = $('<button type="button" class="btn btn-small btn-primary btn-edit" onclick="queryData(' + data.id + ')">查看数据</button>');
-            $('td', row).eq(3).append($btnEdit);
+            console.log(data)
+            var $btnEdit = $('<button type="button" class="btn btn-small btn-primary btn-edit" onclick="queryHosue(' + data.houseType + ','+data.houseInfo_id+ ')">查看数据</button>');
+            $('td', row).eq(4).append($btnEdit);
         }
     });
     return table;
+}
+
+function queryHosue(houseType,houseInfo_id){
+    var param = {'houseInfo_id':houseInfo_id}
+    var url;
+    if (houseType==1){
+        url="houseInfoValid/auth/getBoughtHouseInfo";
+    }else if(houseType==2){
+        url="houseInfoNew/auth/getBoughtHouseInfo";
+    }else{
+        return false;
+    }
+
+    getAjax("get", {"houseInfo_id":houseInfo_id}, url, getBoughtHouseInfoCallback, false);
+
+
+}
+
+function getBoughtHouseInfoCallback(data){
+
+    var index = parent.layer.getFrameIndex(window.name); //获取窗口索引
+    layer.open({
+        type: 1,
+        title:'房源详情',
+        area: ['500px', '300px'],
+        fix: false, //不固定
+        maxmin: true,
+        content: '<table class="table table-striped">'
+        +'<tr><td>小区名称:</td><td>'+data.community+'</td></tr>'
+        +'<tr><td>楼栋号:</td><td>'+data.ban+'</td></tr>'
+        +'<tr><td>房号:</td><td>'+data.roomNumber+'</td></tr>'
+        +'<tr><td>面积:</td><td>'+data.areaSize+'</td></tr>'
+        +'<tr><td>售价:</td><td>'+data.salePrice+'</td></tr>'
+        +'<tr><td>手机:</td><td>'+data.mobile+'</td></tr>'
+        +'</table>'
+    });
+
+    parent.layer.iframeAuto(index);
 }
 
 function getQueryCondition(data) {
@@ -108,7 +158,6 @@ function getQueryCondition(data) {
         param.beginDate = $("#beginDate").val();
     if ($("#endDate").val())
         param.endDate = $("#endDate").val();
-
 
     //组装分页参数
     param.pageOffset = data.start;
