@@ -15,8 +15,8 @@ function browserRedirect() {
 }
 
 //browserRedirect();
-//ip="www.51chafang.com";
-ip="localhost";
+ip="114.215.252.82";
+//ip="localhost";
 var setting = {
 	base: "http://"+ip+"/yjb/",
     baseHtml:"http://"+ip,
